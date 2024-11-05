@@ -11,3 +11,8 @@
     --beige: #F8CDB4;
     --orange: #FCA376;
 }
+
+#login{
+    margin: auto;
+    width: 300px;
+}
