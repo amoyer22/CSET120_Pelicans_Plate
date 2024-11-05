@@ -9,5 +9,65 @@
     --blue: #7AC1D8;
     --green: #ACD5CF;
     --beige: #F8CDB4;
-    --orange: #FCA376;
+    --orange: #F96424;
+}
+html {
+    background-color: var(--blue);
+    color: var(--orange);
+    font-size: 16px;
+}
+
+
+/* Styles for text */
+h1 {
+    font-family: "Averia Sans", sans-serif;
+}
+p {
+    font-family: "Koh Santepheap", serif;
+}
+
+/* Styles for sign-up page */
+#signup {
+    height: 100vh;
+    
+    position: relative;
+}
+#signup input {
+    display: block;
+    margin: 5px auto;
+    border: 1px solid var(--orange);
+    padding: 5px;
+    font-family: "Koh Santepheap", serif;
+    color: #424141;
+    border-radius: .5em;
+}
+#signup-container {
+    background-color: var(--white);
+    width: 50%;
+    padding: 100px;
+    text-align: center;
+    border-radius: 1em;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    right: 25%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+#btn-signup {
+    padding: 5px;
+    font-family: "Koh Santepheap", serif;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    background-color: var(--white);
+    cursor: pointer;
+}
+.signup-form {
+    margin-bottom: 15px;
+}
+.already-user {
+    margin-top: 15px;
+}
+.already-user p {
+    margin-bottom: 5px;
 }
