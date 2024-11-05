@@ -4,3 +4,10 @@
     outline: 0;
     box-sizing: border-box;
 }
+:root {
+    --white: #F8F5F1;
+    --blue: #7AC1D8;
+    --green: #ACD5CF;
+    --beige: #F8CDB4;
+    --orange: #FCA376;
+}
