@@ -25,16 +25,19 @@ h1, h2, h3 {
     margin-bottom: .5em;
 }
 h1 {
+    color: var(--logoDarkBlue);
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 200%;
     font-weight: 600;
 }
 h2 {
+    color: var(--logoDarkBlue);
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 150%;
     font-weight: 400;
 }
 p {
+    color: var(--logoDarkBlue);
     font-family: "Koh Santepheap", serif;
     font-size: 100%;
     font-weight: 400;
@@ -42,7 +45,7 @@ p {
 
 
 /* Styles for sign-up page */
-.signup, .login {
+.signup {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
 }
 #signup {
@@ -52,7 +55,7 @@ p {
 #signup input {
     display: block;
     margin: 5px auto;
-    border: 1px solid var(--logoDarkBlue);
+    border: 2px solid var(--logoDarkBlue);
     padding: 5px;
     font-family: "Koh Santepheap", serif;
     color: #424141;
@@ -90,62 +93,57 @@ p {
 .already-user {
     margin-top: 30px;
 }
-.already-user p {
-    margin-bottom: 5px;
-    --orange: #FCA376;
-}
-
 
 /* Styles for login page */
+.login {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+}
 #login{
-    padding: 20px;
-    width: 350px;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: var(--white);
-    border: 2px solid var(--orange);
-    border-radius: 15px;
-    text-align: center;
-}
-#login h1{
-    margin-bottom: 10px;
-    color: var(--orange);
-    font-family: "Averia Sans Libre", serif;
-    font-size: 36px;
-}
-#login h2{
-    margin: 20px 0px 0px 0px;
-    color: var(--orange);
-    font-family: "Averia Sans Libre", serif;
-    font-size: 24px;
+    height: 100vh;
+    position: relative;
 }
 #login input{
     display: block;
-    margin: auto;
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 200px;
-    border: 2px solid var(--orange);
-    border-radius: 5px;
+    margin: 5px auto;
+    border: 2px solid var(--logoDarkBlue);
+    padding: 5px;
     font-family: "Koh Santepheap", serif;
+    color: #424141;
+    border-radius: .5em;
+}
+#login-container {
+    background-color: var(--logoBlue);
+    width: 50%;
+    padding: 80px;
+    text-align: center;
+    border-radius: 1em;
+    border: 3px solid var(--logoDarkBlue);
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    right: 25%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+#login-container img {
+    width: 50%;
+}
+.login-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #loginButton, #signUpButton{
-    display: block;
-    margin: auto;
-    margin-top: 10px;
-    padding: 5px;
-    width: 70px;
-    background-color: transparent;
-    color: var(--orange);
-    border: 2px solid var(--orange);
+    padding: 8px;
     font-family: "Koh Santepheap", serif;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    cursor: pointer;
 }
 #signUpButton{
     margin-bottom: 20px;
 }
 #guestLink{
-    color: var(--orange)
+    color: var(--logoDarkBlue)
 }
