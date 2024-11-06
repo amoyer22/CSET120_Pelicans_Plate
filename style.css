@@ -92,6 +92,7 @@ p {
     margin-top: 30px;
 }
 
+
 /* Styles for login page */
 .login {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
@@ -144,4 +145,26 @@ p {
 }
 #guestLink{
     color: var(--logoDarkBlue)
+}
+
+
+/* Styles for menu page */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 120px;
+    width: auto;
+    height: auto;
+    background-color: var(--logoBlue);
+    color: var(--logoDarkBlue);
+    font-family: "Averia Sans Libre", sans-serif;
+    font-size: 200%;
+    font-weight: 600;
+}
+#navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    list-style-type: none;
 }
