@@ -11,3 +11,60 @@
     --beige: #F8CDB4;
     --orange: #FCA376;
 }
+
+body{
+    background-color: var(--blue);
+}
+
+#login{
+    padding: 20px;
+    width: 350px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: var(--white);
+    border: 2px solid var(--orange);
+    border-radius: 15px;
+    text-align: center;
+}
+#login h1{
+    margin-bottom: 10px;
+    color: var(--orange);
+    font-family: "Averia Sans Libre", serif;
+    font-size: 36px;
+}
+#login h2{
+    margin: 20px 0px 0px 0px;
+    color: var(--orange);
+    font-family: "Averia Sans Libre", serif;
+    font-size: 24px;
+}
+#login input{
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    font-family: "Koh Santepheap", serif;
+}
+#loginButton, #signUpButton{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding: 5px;
+    width: 70px;
+    background-color: transparent;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+    font-family: "Koh Santepheap", serif;
+}
+#signUpButton{
+    margin-bottom: 20px;
+}
+#guestLink{
+    color: var(--orange)
+}
