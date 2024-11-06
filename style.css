@@ -62,3 +62,9 @@ body{
     border: 2px solid var(--orange);
     font-family: "Koh Santepheap", serif;
 }
+#signUpButton{
+    margin-bottom: 20px;
+}
+#guestLink{
+    color: var(--orange)
+}

@@ -17,10 +17,12 @@
         <h1>Login</h1>
         <input type="email" placeholder="Email Address" id="email">
         <input type="password" placeholder="Password" id="password">
-        <button id="loginButton">Login!</button>
+        <button id="loginButton" onclick="login()">Login!</button>
 
         <h2>Don't have an account?</h2>
-        <button id="signUpButton">Sign up!</button>
+        <a href="index.html" style="text-decoration: none;"><button id="signUpButton">Sign up!</button></a>
+
+        <a href="#" id="guestLink">...Or continue as guest</a>
     </section>
 
     <script src="script.js"></script>
