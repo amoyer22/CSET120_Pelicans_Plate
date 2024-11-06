@@ -168,3 +168,14 @@ header{
     width: 500px;
     list-style-type: none;
 }
+#menuContainer{
+    display: flex;
+}
+#menu{
+    width: 65%;
+    background-color: gray;
+}
+#cart{
+    width: 35%;
+    background-color: #b8b8b8;
+}
