@@ -6,6 +6,8 @@
     box-sizing: border-box;
 }
 :root {
+    --logoBlue: #E6F5FF;
+    --logoDarkBlue: #003479;
     --white: #F8F5F1;
     --blue: #7AC1D8;
     --green: #ACD5CF;
@@ -13,7 +15,7 @@
     --orange: #F96424;
 }
 html {
-    color: var(--orange);
+    color: var(--logoDarkBlue);
     font-size: 16px;
 }
 
@@ -50,19 +52,19 @@ p {
 #signup input {
     display: block;
     margin: 5px auto;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--logoDarkBlue);
     padding: 5px;
     font-family: "Koh Santepheap", serif;
     color: #424141;
     border-radius: .5em;
 }
 #signup-container {
-    background-color: var(--white);
+    background-color: var(--logoBlue);
     width: 50%;
     padding: 100px;
     text-align: center;
     border-radius: 1em;
-    border: 1px solid var(--orange);
+    border: 3px solid var(--logoDarkBlue);
     position: absolute;
     top: 50%;
     left: 25%;
@@ -70,12 +72,15 @@ p {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+#signup-container img {
+    width: 50%;
+}
 #btn-signup {
     padding: 8px;
     font-family: "Koh Santepheap", serif;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
-    color: var(--orange);
+    color: var(--logoDarkBlue);
     background-color: var(--white);
     cursor: pointer;
 }
