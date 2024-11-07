@@ -217,7 +217,8 @@ header{
 }
 #menu{
     padding: 20px 70px;
-    width: 70%;
+    width: 75%;
+    overflow-y: auto;
     background-color: var(--blue);
 }
 #itemContainer{
@@ -227,7 +228,7 @@ header{
 }
 #item{
     display: flex;
-    width: 450px;
+    width: 485px;
     height: auto;
     background-color: var(--logoBlue);
 }
@@ -244,7 +245,7 @@ header{
     display: flex; 
     flex-direction: column; 
     justify-content: space-between;
-    width: 30%;
+    width: 25%;
     background-color: var(--logoDarkBlue);
 }
 #cartHeading h1{
@@ -258,12 +259,20 @@ header{
     color: var(--white);
 }
 #cart #item{
-    width: 100%;
-    margin-bottom: 20px;
-}
-#purchaseContainer{
     display: flex;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+#cart #itemImage{
+    width: 20%;
+}
+#cart #itemDescription{
+    width: 80%
+}
+#cart #itemRemove{
+    width: 20%;
 }
 #purchaseButton{
     width: 100%;
