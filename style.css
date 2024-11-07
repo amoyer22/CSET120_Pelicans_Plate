@@ -193,9 +193,10 @@ header{
     justify-content: space-between;
     padding: 10px 80px;
     width: auto;
-    height: auto;
+    height: 21%;
     background-color: var(--logoBlue);
     color: var(--logoDarkBlue);
+    border-bottom: 3px solid var(--logoDarkBlue);
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 200%;
     font-weight: 600;
@@ -209,17 +210,53 @@ header{
 }
 #menuContainer{
     display: flex;
+    height: 79%;
 }
 #menu{
     padding: 20px 80px;
-    width: 65%;
-    background-color: gray;
+    width: 70%;
+    background-color: var(--blue);
 }
 #itemContainer{
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+#item{
+    display: flex;
+    width: 420px;
+    height: auto;
+    background-color: var(--logoBlue);
+}
+#itemImage{
+    margin-right: 20px;
+}
+#cartContainer{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 30%;
+    background-color: var(--logoDarkBlue);
+}
+#cartHeading h1{
+    padding: 20px 40px 0px 40px;
+    color: var(--white);
 }
 #cart{
-    padding: 20px 80px;
-    width: 35%;
-    background-color: #b8b8b8;
+    padding: 20px 40px;
+}
+#cart h1{
+    color: var(--white);
+}
+#cart #item{
+    width: 100%;
+    margin-bottom: 20px;
+}
+#purchaseContainer{
+    display: flex;
+    align-items: flex-end;
+}
+#purchaseButton{
+    width: 100%;
+    height: 50px;
 }
