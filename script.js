@@ -1,3 +1,4 @@
+// Functions for signup and login
 function signup() {
     let email = document.getElementById("email").value;
     let password =  document.getElementById("password").value;
@@ -9,7 +10,6 @@ function signup() {
         window.location.href = "login.html";
     }
 }
-
 function login(){
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
@@ -32,3 +32,6 @@ function login(){
         }
     }
 }
+
+
+// FUTURE CODE
