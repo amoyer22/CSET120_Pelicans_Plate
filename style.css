@@ -96,6 +96,7 @@ a {
     padding: 5px;
     font-family: "Koh Santepheap", serif;
     color: #424141;
+    background-color: var(--white);
     border-radius: .5em;
 }
 .signup-item, .login-item {
@@ -104,7 +105,7 @@ a {
 .btn-signup {
     padding: 8px;
     font-family: "Koh Santepheap", serif;
-    border: 1px solid var(--logoDarkBlue);
+    border: 2px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
     background-color: var(--white);
