@@ -32,6 +32,7 @@ body {
     justify-content: center;
 }
 .container {
+    max-width: 1400px;
     width: 65%;
     margin: 0 auto;
 }
@@ -161,11 +162,11 @@ footer {
 footer .flex {
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
 }
 .footer-container {
+    max-width: 1400px;
     width: 80%;
-    justify-content: space-evenly;
+    margin: 0 auto;
 }
 .footer-nav h2 {
     font-family: "Koh Santepheap", serif;
