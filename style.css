@@ -152,7 +152,7 @@ p {
 header{
     display: flex;
     justify-content: space-between;
-    padding: 10px 120px;
+    padding: 10px 80px;
     width: auto;
     height: auto;
     background-color: var(--logoBlue);
@@ -172,10 +172,15 @@ header{
     display: flex;
 }
 #menu{
+    padding: 20px 80px;
     width: 65%;
     background-color: gray;
 }
+#itemContainer{
+    display: flex;
+}
 #cart{
+    padding: 20px 80px;
     width: 35%;
     background-color: #b8b8b8;
 }
