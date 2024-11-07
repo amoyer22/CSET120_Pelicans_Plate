@@ -101,7 +101,7 @@ a {
 .signup-item, .login-item {
     margin:30px 0;
 }
-#btn-signup, #loginButton, #signUpButton {
+.btn-signup {
     padding: 8px;
     font-family: "Koh Santepheap", serif;
     border: 1px solid var(--logoDarkBlue);
