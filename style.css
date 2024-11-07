@@ -191,7 +191,7 @@ footer {
 header{
     display: flex;
     justify-content: space-between;
-    padding: 10px 80px;
+    padding: 10px 70px;
     width: auto;
     height: 21%;
     background-color: var(--logoBlue);
@@ -216,7 +216,7 @@ header{
     height: 79%;
 }
 #menu{
-    padding: 20px 80px;
+    padding: 20px 70px;
     width: 70%;
     background-color: var(--blue);
 }
@@ -227,12 +227,18 @@ header{
 }
 #item{
     display: flex;
-    width: 420px;
+    width: 450px;
     height: auto;
     background-color: var(--logoBlue);
 }
 #itemImage{
-    margin-right: 20px;
+    margin-right: 25px;
+}
+#itemImage img{
+    display: flex;
+}
+#itemDescription h2{
+    margin: 0;
 }
 #cartContainer{
     display: flex; 
