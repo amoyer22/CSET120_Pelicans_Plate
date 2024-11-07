@@ -231,6 +231,7 @@ header{
     width: 485px;
     height: auto;
     background-color: var(--logoBlue);
+    border: 3px solid var(--logoDarkBlue);
 }
 #itemImage{
     margin-right: 25px;
@@ -265,6 +266,7 @@ header{
     align-items: center;
     width: 100%;
     margin-bottom: 15px;
+    border: none;
 }
 #cart #itemImage{
     width: 20%;
