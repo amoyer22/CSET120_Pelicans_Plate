@@ -10,22 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <title>Pelican's Plate: Signup</title>
 </head>
-<body class="signup">
-    <section id="signup">
-        <div id="signup-container">
-            <div class="signup-form">
-                <img src="images/Pelicans-Plate-logo.png" alt="logo">
-                <h1>Hey there! Welcome to Pelican's Plate!</h1>
-                <input type="email" placeholder="pelican's@plate.com" id="email">
-                <input type="password" placeholder="Password" id="password" maxlength="12">
-                <button id="btn-signup" type="button" onclick="signup()">Sign up!</button>
-            </div>
-            <div class="already-user">
-                <h2>Already have an account?</h2>
-                <button id="btn-signup" type="button" onclick="location.href='login.html'">Log in!</button>
-            </div>
+<body class="signup" id="signup">
+    <div id="signup-container">
+        <div class="signup-item">
+            <img src="images/Pelicans-Plate-logo.png" alt="logo">
+            <h1>Hey there! Welcome to Pelican's Plate!</h1>
+            <input type="email" placeholder="pelican's@plate.com" id="email">
+            <input type="password" placeholder="Password" id="password" maxlength="12">
+            <button class="btn-signup" type="button" onclick="signup()">Sign up!</button>
         </div>
-    </section>
+        <div class="signup-item">
+            <h2>Already have an account?</h2>
+            <button class="btn-signup" type="button" onclick="location.href='login.html'">Log in!</button>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
