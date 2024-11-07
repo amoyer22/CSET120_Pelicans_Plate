@@ -17,6 +17,9 @@ html {
     background-color: var(--white);
     font-size: 16px;
 }
+html, body {
+    height: 100%;
+}
 .flex {
     display: flex;
     flex-direction: row;
@@ -62,15 +65,31 @@ a {
 }
 
 
-/* Styles for sign-up page */
-.signup {
+/* Styles for sign-up and login page */
+#signup, #login {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
-#signup {
-    height: 100vh;
-    position: relative;
+#signup-container, #login-container {
+    background-color: var(--logoBlue);
+    border: 3px solid var(--logoDarkBlue);
+    border-radius: 1em;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
 }
-#signup input {
+#signup-container img, #login-container img {
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+}
+#signup input, #login input {
     display: block;
     margin: 5px auto;
     border: 2px solid var(--logoDarkBlue);
@@ -79,24 +98,10 @@ a {
     color: #424141;
     border-radius: .5em;
 }
-#signup-container {
-    background-color: var(--logoBlue);
-    width: 50%;
-    padding: 100px;
-    text-align: center;
-    border-radius: 1em;
-    border: 3px solid var(--logoDarkBlue);
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    right: 25%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+.signup-item, .login-item {
+    margin:30px 0;
 }
-#signup-container img {
-    width: 50%;
-}
-#btn-signup {
+#btn-signup, #loginButton, #signUpButton {
     padding: 8px;
     font-family: "Koh Santepheap", serif;
     border: 1px solid var(--logoDarkBlue);
@@ -104,63 +109,6 @@ a {
     color: var(--logoDarkBlue);
     background-color: var(--white);
     cursor: pointer;
-}
-.signup-form {
-    margin-bottom: 15px;
-}
-.already-user {
-    margin-top: 30px;
-}
-
-/* Styles for login page */
-.login {
-    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-}
-#login{
-    height: 100vh;
-    position: relative;
-}
-#login input{
-    display: block;
-    margin: 5px auto;
-    border: 2px solid var(--logoDarkBlue);
-    padding: 5px;
-    font-family: "Koh Santepheap", serif;
-    color: #424141;
-    border-radius: .5em;
-}
-#login-container {
-    background-color: var(--logoBlue);
-    width: 50%;
-    padding: 80px;
-    text-align: center;
-    border-radius: 1em;
-    border: 3px solid var(--logoDarkBlue);
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    right: 25%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-#login-container img {
-    width: 50%;
-}
-.login-item {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#loginButton, #signUpButton{
-    padding: 8px;
-    font-family: "Koh Santepheap", serif;
-    border: 1px solid var(--logoDarkBlue);
-    border-radius: .5em;
-    color: var(--logoDarkBlue);
-    background-color: var(--white);
-    cursor: pointer;
-}
-#signUpButton{
-    margin-bottom: 20px;
 }
 #guestLink{
     color: var(--logoDarkBlue)

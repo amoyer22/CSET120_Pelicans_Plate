@@ -12,30 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <title>Pelican's Plate: Login</title>
 </head>
-<body class="login">
-    <section id="login">
-        <div id="login-container">
-            <div class="login-item">
-                <img src="images/Pelicans-Plate-logo.png" alt="logo">
-                <h1>Login</h1>
-                <input type="email" placeholder="Email Address" id="email">
-                <input type="password" placeholder="Password" id="password" maxlength="12">
-                <button id="loginButton" onclick="login()">Login!</button>
-            </div>
-            <div class="login-item">
-                <h2>Don't have an account?</h2>
-                <a href="index.html" style="text-decoration: none;"><button id="signUpButton">Sign up!</button></a>
-            </div>
-            <div class="login-item">
-                <a href="home.html" id="guestLink">...Or continue as guest</a>
-            </div>
+<body class="login" id="login">
+    <div id="login-container">
+        <div class="login-item">
+            <img src="images/Pelicans-Plate-logo.png" alt="logo">
+            <h1>Login</h1>
+            <input type="email" placeholder="Email Address" id="email">
+            <input type="password" placeholder="Password" id="password" maxlength="12">
+            <button id="loginButton" onclick="login()">Login!</button>
         </div>
-        
-
-        
-
-        
-    </section>
+        <div class="login-item">
+            <h2>Don't have an account?</h2>
+            <a href="index.html" style="text-decoration: none;"><button id="signUpButton">Sign up!</button></a>
+        </div>
+        <div class="login-item">
+            <a href="home.html" id="guestLink">...Or continue as guest</a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
