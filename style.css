@@ -208,6 +208,9 @@ header{
     width: 500px;
     list-style-type: none;
 }
+#navigation a{
+    text-decoration: none;
+}
 #menuContainer{
     display: flex;
     height: 79%;
