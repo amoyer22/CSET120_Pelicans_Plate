@@ -186,9 +186,20 @@ form {
     border-radius: .5em;
     width: 60%;
 }
+form .flex {
+    flex-direction: column;
+}
 form input {
     display: inline;
+    margin: 10px 0;
 }
+form button {
+    margin: 10px 0;
+}
+.form-section {
+    display: block;
+}
+
 
 /* Styles for footer */
 footer {

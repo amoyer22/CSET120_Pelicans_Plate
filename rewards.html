@@ -45,22 +45,29 @@
             <small>*Every $1 spent = 1 point. Point redemption is not avaliable online, must redeem at our in person location.*</small>
             <form action="mailto:tmcdowell7037@stevenscollege.edu" method="post">
                 <h2>Pelican's Plate Rewards Program</h2>
-                <label for="fname">First Name*:</label>
-                <input type="text" id="fname" required>
-
-                <label for="lname">Last Name*:</label>
-                <input type="text" id="lname" required>
-
-                <label for="email">Email*:</label>
-                <input type="text" id="email" required>
-
-                <label for="phone">Phone Number*:</label>
-                <input type="tel" id="phone" required maxlength="12">
-
-                <label for="dob">Date Of Birth:</label>
-                <input type="date" id="dob">
-
-                <button type="submit" class="btn-signup">Sign Up!</button>
+                <div class="flex">
+                    <div class="form-section">
+                        <label for="fname">First Name*:</label>
+                        <input type="text" id="fname" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="lname">Last Name*:</label>
+                        <input type="text" id="lname" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="email">Email*:</label>
+                        <input type="text" id="email" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="phone">Phone Number*:</label>
+                        <input type="tel" id="phone" required maxlength="12">
+                    </div>
+                    <div class="form-section">
+                        <label for="dob">Date Of Birth:</label>
+                        <input type="date" id="dob">
+                    </div>
+                </div> 
+                <button type="submit" class="btn-signup" onclick="rewardsSignUp()">Sign Up!</button>
             </form>
         </div>
     </section>

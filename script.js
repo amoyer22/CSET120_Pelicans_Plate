@@ -29,3 +29,8 @@ function login(){
         }
     }
 }
+
+// Function for rewards page form
+function rewardsSignUp() {
+    
+}
