@@ -224,7 +224,7 @@ header{
 #itemContainer{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 #item{
     display: flex;
@@ -250,38 +250,35 @@ header{
     background-color: var(--logoDarkBlue);
 }
 #cartHeading h1{
-    padding: 20px 40px 0px 40px;
+    padding: 20px 20px 0px 20px;
     color: var(--white);
 }
 #cart{
-    padding: 20px 40px;
+    padding: 20px 20px;
     overflow-y: auto;
 }
 #cart h1{
     color: var(--white);
 }
 #cart #item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
     margin-bottom: 10px;
     border: none;
 }
-#cart #itemImage{
-    width: 10%;
-}
 #cart #itemDescription{
-    width: 60%;
-    text-align: center;
+    width: 70%;
+}
+#cart #itemDescription h2{
+    margin-bottom: 5px;
     font-size: 14px;
 }
 #itemInfo #itemPrice{
     display: inline-block;
     margin-right: 10px;
+    font-size: 14px;
 }
 #itemAdd, #itemEdit{
-    padding: 5px;
+    padding: 3px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
@@ -294,13 +291,7 @@ header{
     margin-right: 10px;
 }
 #cart #itemRemove{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-#cart #itemRemove button{
-    padding: 5px;
+    padding: 3px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
@@ -310,7 +301,8 @@ header{
     cursor: pointer;
 }
 #purchaseContainer h2{
-    padding: 0px 40px 0px 40px;
+    margin: .5em 0px 0px 0px;
+    padding: 0px 20px 20px 20px;
     color: var(--white);
 }
 #purchaseButton{

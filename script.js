@@ -32,3 +32,84 @@ function login(){
         }
     }
 }
+
+let cart = []
+let items = new Map([
+    ["Crab Cakes", 14],
+    ["Crispy Calamari", 12],
+    ["Shrimp Cocktail", 16],
+    ["Oysters Rockefeller", 18],
+    ["Fish Tacos", 13],
+    ["New England Clam Chowder", 12],
+    ["Seafood Bisque", 14],
+    ["Pelicans House Salad", 8],
+    ["Ceasar Salad with Grilled Salmon", 16],
+    ["Citrus Shrimp Salad", 18],
+    ["Blackened Grouper", 26],
+    ["Lobster Tail", 36],
+    ["Pan seared Scallops", 28],
+    ["Shrimp and Grits", 22],
+    ["Seafood Paella", 30],
+    ["Pelicans Punch", 9],
+    ["Homemade Lemonade", 5],
+    ["Citrus Cooler", 6],
+    ["Frozen Pina Colada", 10],
+    ["Margarita", 9]
+])
+
+function addToCart(event){
+    let itemEle = event.target.closest("#item")
+    let itemName = itemEle.querySelector("h2").textContent
+    let itemPrice = itemEle.querySelector("#itemPrice").textContent
+    let itemImage = itemEle.querySelector("img").src
+
+    let item = {
+        name: itemName,
+        price: itemPrice,
+        image: itemImage
+    }
+    cart.push(item)
+
+    updateCart()
+}
+
+function removeFromCart(index){
+    cart.splice(index, 1)
+    updateCart()
+}
+
+function updateCart(){
+    let cartContainer = document.querySelector("#cart")
+    cartContainer.innerHTML = ""
+    let total = 0
+
+    cart.forEach((item, index) => {
+        let itemPrice = parseFloat(item.price.replace("$", ""))
+        total += itemPrice
+
+        let cartItem = document.createElement("div")
+        cartItem.classList.add("cart-item")
+        cartItem.innerHTML = `
+        <div id="itemContainer">
+            <div id="item">
+                <div id="itemImage">
+                    <img src="${item.image}" width="45px" alt="${item.name}">
+                </div>
+                <div id="itemDescription">
+                    <h2>${item.name}</h2>
+                    <div id="itemInfo">
+                        <p id="itemPrice">${item.price}</p>
+                        <button id="itemEdit">Edit</button>
+                        <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        cartContainer.appendChild(cartItem)
+    })
+
+    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`
+}
+
+function placeOrder(){
+}
