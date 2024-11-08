@@ -140,7 +140,7 @@ header {
 .navbar {
     text-align: center;
 }
-.navbar img {
+.navbar .logo {
     width: 12%;
 }
 .navbar ul {
