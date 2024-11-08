@@ -99,6 +99,8 @@ function updateCart(){
                     <h2>${item.name}</h2>
                     <div id="itemInfo">
                         <p id="itemPrice">${item.price}</p>
+                        <label for="quantity" id="quantityLabel">Qty</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="1" min="1" max="99">
                         <button id="itemEdit">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
                     </div>

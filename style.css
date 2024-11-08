@@ -288,7 +288,7 @@ header{
     cursor: pointer;
 }
 #itemEdit{
-    margin-right: 10px;
+    margin: 0px 10px 0px 10px;
 }
 #cart #itemRemove{
     padding: 3px;
@@ -315,4 +315,7 @@ header{
     font-family: "Koh Santepheap", serif;
     font-size: 20px;
     cursor: pointer;
+}
+#quantityLabel, #quantity input[type=number]{
+    font-size: 14px;
 }
