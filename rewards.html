@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Pelican's Plate: Home Page</title>
+    <title>Pelican's Plate: Rewards</title>
 </head>
 <body>
     <header>
@@ -43,7 +43,25 @@
             <h1>Rewards Program</h1>
             <p>The Pelican's Plate rewards program gives you points every time you order in restaurant or online! You can redeem your points at our restaurant for exclusive deals and merchandise! It's perfect for our loyal customers who keep coming back for more. Sign up for our members rewards program in the form below!</p>
             <small>*Every $1 spent = 1 point. Point redemption is not avaliable online, must redeem at our in person location.*</small>
-            <form></form>
+            <form action="mailto:tmcdowell7037@stevenscollege.edu" method="post">
+                <h2>Pelican's Plate Rewards Program</h2>
+                <label for="fname">First Name*:</label>
+                <input type="text" id="fname" required>
+
+                <label for="lname">Last Name*:</label>
+                <input type="text" id="lname" required>
+
+                <label for="email">Email*:</label>
+                <input type="text" id="email" required>
+
+                <label for="phone">Phone Number*:</label>
+                <input type="tel" id="phone" required maxlength="12">
+
+                <label for="dob">Date Of Birth:</label>
+                <input type="date" id="dob">
+
+                <button type="submit" class="btn-signup">Sign Up!</button>
+            </form>
         </div>
     </section>
 

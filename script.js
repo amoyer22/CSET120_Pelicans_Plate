@@ -14,24 +14,18 @@ function login(){
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
     
-    if(email === "pelicans.plate@mail.com" && password === "manager"){
+    if (email === "pelicans.plate@mail.com" && password === "manager"){
         alert("Successful login!")
-        location.replace("home.html")
-    }
-    else{
+        location.replace("home.html")   
+    } else {
         if(localStorage.getItem(email)){
             if(password === localStorage.getItem(email)){
                 location.replace("home.html")
-            }
-            else{
+            } else {
                 alert("Incorrect password entered. Please try again.")
             }
-        }
-        else{
+        } else {
             alert("User cannot be found. Please try again.")
         }
     }
 }
-
-
-// FUTURE CODE

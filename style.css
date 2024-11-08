@@ -101,7 +101,7 @@ a {
     width: 200px;
     height: auto;
 }
-#signup input, #login input {
+input {
     display: block;
     margin: 5px auto;
     border: 2px solid var(--logoDarkBlue);
@@ -174,6 +174,21 @@ header {
     border-radius: 1.5em;
 }
 
+
+/* Styles for LTO section */
+
+
+/* Styles for rewards page */
+form {
+    background-color: rgba(122, 193, 216, .3);
+    padding: 30px 0;
+    margin: 30px auto;
+    border-radius: .5em;
+    width: 60%;
+}
+form input {
+    display: inline;
+}
 
 /* Styles for footer */
 footer {
