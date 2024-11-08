@@ -265,19 +265,62 @@ header{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: none;
 }
 #cart #itemImage{
-    width: 20%;
+    width: 10%;
 }
 #cart #itemDescription{
-    width: 80%
+    width: 60%;
+    text-align: center;
+    font-size: 14px;
+}
+#itemInfo #itemPrice{
+    display: inline-block;
+    margin-right: 10px;
+}
+#itemAdd, #itemEdit{
+    padding: 5px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#itemEdit{
+    margin-right: 10px;
 }
 #cart #itemRemove{
-    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+#cart #itemRemove button{
+    padding: 5px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#purchaseContainer h2{
+    padding: 0px 40px 0px 40px;
+    color: var(--white);
 }
 #purchaseButton{
     width: 100%;
-    height: 50px;
+    height: 60px;
+    padding: 5px;
+    border: 3px solid var(--logoDarkBlue);
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 20px;
+    cursor: pointer;
 }
