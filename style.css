@@ -191,11 +191,12 @@ footer {
 header{
     display: flex;
     justify-content: space-between;
-    padding: 10px 80px;
+    padding: 10px 70px;
     width: auto;
-    height: auto;
+    height: 21%;
     background-color: var(--logoBlue);
     color: var(--logoDarkBlue);
+    border-bottom: 3px solid var(--logoDarkBlue);
     font-family: "Averia Sans Libre", sans-serif;
     font-size: 200%;
     font-weight: 600;
@@ -207,19 +208,76 @@ header{
     width: 500px;
     list-style-type: none;
 }
+#navigation a{
+    text-decoration: none;
+}
 #menuContainer{
     display: flex;
+    height: 79%;
 }
 #menu{
-    padding: 20px 80px;
-    width: 65%;
-    background-color: gray;
+    padding: 20px 70px;
+    width: 75%;
+    overflow-y: auto;
+    background-color: var(--blue);
 }
 #itemContainer{
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+#item{
+    display: flex;
+    width: 485px;
+    height: auto;
+    background-color: var(--logoBlue);
+    border: 3px solid var(--logoDarkBlue);
+}
+#itemImage{
+    margin-right: 25px;
+}
+#itemImage img{
+    display: flex;
+}
+#itemDescription h2{
+    margin: 0;
+}
+#cartContainer{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 25%;
+    background-color: var(--logoDarkBlue);
+}
+#cartHeading h1{
+    padding: 20px 40px 0px 40px;
+    color: var(--white);
 }
 #cart{
-    padding: 20px 80px;
-    width: 35%;
-    background-color: #b8b8b8;
+    padding: 20px 40px;
+    overflow-y: auto;
+}
+#cart h1{
+    color: var(--white);
+}
+#cart #item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    border: none;
+}
+#cart #itemImage{
+    width: 20%;
+}
+#cart #itemDescription{
+    width: 80%
+}
+#cart #itemRemove{
+    width: 20%;
+}
+#purchaseButton{
+    width: 100%;
+    height: 50px;
 }
