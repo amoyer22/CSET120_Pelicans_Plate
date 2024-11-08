@@ -29,6 +29,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 1em;
 }
 .flex {
     display: flex;
@@ -170,12 +171,19 @@ header {
 .about-item {
     width: 45%;
 }
-.about-item img {
-    border-radius: 1.5em;
-}
 
 
 /* Styles for LTO section */
+#deals .flex {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.deals-flex {
+    margin: 30px 0;
+}
+.deals-card {
+    width: 30%;
+}
 
 
 /* Styles for rewards page */
