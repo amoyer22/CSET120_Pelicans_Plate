@@ -149,7 +149,7 @@ header {
     align-items: center;
 }
 .navbar li {
-    width: 8%;
+    width: 10%;
 }
 .navbar a {
     text-decoration: none;
@@ -178,10 +178,8 @@ header {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-.deals-flex {
-    margin: 30px 0;
-}
 .deals-card {
+    margin-top: 15px;
     width: 30%;
 }
 
