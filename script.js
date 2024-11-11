@@ -43,15 +43,16 @@ function timeGeneration() {
     let cartItems = document.querySelector("#cart-items");
     let childElements = cartItems.children;
     let cartArray = Array.from(childElements);
+    let time = "";
     console.log(cartArray.length);
-    if (cartItems.length < 4) {
-        let time = 45;
-    } else if (cartItems.length < 7) {
-        let time = 60;
+    if (cartArray.length >= 4) {
+        time = 45 + " minutes.";
+    } else if (cartArray.length >= 8) {
+        time = 1 + " hour.";
     } else {
-        time = 35;
+        time = 35 + " minutes.";
     }
-    let timeEst = "Your order will be ready in " + time + " minutes.";
+    let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
 }
 
