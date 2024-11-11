@@ -123,9 +123,10 @@ function removeFromCart(index){
 function checkout(){
     if(cart.length === 0){
         alert("You have no items in your cart!")
-    }
-    else{
-        let cartString = cart.map(item => `${item.name}|${item.price}|{item.quantity}`).join(";");
+    } else {
+        cart.forEach((item, index) => {
+            localStorage.setItem(`cartItem${index}`, `${item.name}|${item.price}|${item.quantity}`);
+        });
         let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         localStorage.setItem("cartTotal", total);
         window.location.href = "receipt.html"
@@ -170,7 +171,12 @@ function receiptTotal() {
         receiptTotalCost.innerHTML = "Total: $" + 0;
     }
 }
-function clearTotal() {
+function clearReceipt() {
+    let i = 0
+    while (localStorage.getItem(`cartItem${i}`)) {
+        localStorage.removeItem(`cartItem${i}`);
+        index++;
+    }
     localStorage.removeItem("cartTotal");
     window.location.href = "home.html";
 }
