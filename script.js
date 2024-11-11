@@ -127,6 +127,11 @@ function removeFromCart(index){
     updateCart()
 }
 
-function placeOrder(){
-    window.location.href = "receipt.html";
+function checkout(){
+    if(cart.length === 0){
+        alert("You have no items in your cart!")
+    }
+    else{
+        window.location.href = "checkout.html"
+    }
 }
