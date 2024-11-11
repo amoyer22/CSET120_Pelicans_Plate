@@ -178,5 +178,5 @@ function clearReceipt() {
         index++;
     }
     localStorage.removeItem("cartTotal");
-    window.location.href = "home.html";
+    window.location.href = "menu.html";
 }
