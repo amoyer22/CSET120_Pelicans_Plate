@@ -133,6 +133,23 @@ input {
 .mobile-nav {
     display: none;
 }
+/* Styles for login page */
+.login {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+}
+#login{
+    height: 100vh;
+    position: relative;
+}
+#login input{
+    display: block;
+    margin: 5px auto;
+    border: 2px solid var(--logoDarkBlue);
+    padding: 5px;
+    font-family: "Koh Santepheap", serif;
+    color: #424141;
+    border-radius: .5em;
+}
 header {
     background-color: var(--logoBlue);
     padding: 2em 0;
@@ -289,4 +306,141 @@ footer .flex {
     text-align: center;
     font-size: 80%;
     color: var(--white);
+}
+#guestLink{
+    color: var(--logoDarkBlue)
+}
+
+
+/* Styles for menu page */
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 70px;
+    width: auto;
+    height: 21%;
+    background-color: var(--logoBlue);
+    color: var(--logoDarkBlue);
+    border-bottom: 3px solid var(--logoDarkBlue);
+    font-family: "Averia Sans Libre", sans-serif;
+    font-size: 200%;
+    font-weight: 600;
+}
+#navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    list-style-type: none;
+}
+#navigation a{
+    text-decoration: none;
+}
+#menuContainer{
+    display: flex;
+    height: 79%;
+}
+#menu{
+    padding: 20px 70px;
+    width: 75%;
+    overflow-y: auto;
+    background-color: var(--blue);
+}
+#itemContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+#item{
+    display: flex;
+    width: 485px;
+    height: auto;
+    background-color: var(--logoBlue);
+    border: 3px solid var(--logoDarkBlue);
+}
+#itemImage{
+    margin-right: 25px;
+}
+#itemImage img{
+    display: flex;
+}
+#itemDescription h2{
+    margin: 0;
+}
+#cartContainer{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    width: 25%;
+    background-color: var(--logoDarkBlue);
+}
+#cartHeading h1{
+    padding: 20px 20px 0px 20px;
+    color: var(--white);
+}
+#cart{
+    padding: 20px 20px;
+    overflow-y: auto;
+}
+#cart h1{
+    color: var(--white);
+}
+#cart #item{
+    width: 100%;
+    margin-bottom: 5px;
+    border: none;
+}
+#cart #itemDescription{
+    width: 70%;
+}
+#cart #itemDescription h2{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+#itemInfo #itemPrice{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+}
+#itemAdd, #itemEdit{
+    padding: 3px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#itemEdit{
+    margin: 0px 10px 0px 10px;
+}
+#cart #itemRemove{
+    padding: 3px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#purchaseContainer h2{
+    margin: .5em 0px 0px 0px;
+    padding: 0px 20px 20px 20px;
+    color: var(--white);
+}
+#purchaseButton{
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+    border: 3px solid var(--logoDarkBlue);
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+#quantityLabel, #quantity input[type=number]{
+    font-size: 14px;
 }
