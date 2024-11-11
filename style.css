@@ -335,6 +335,16 @@ form button {
 }
 
 
+/* Styles for checkout page */
+form {
+    padding: 30px 50px;
+}
+.formFlex{
+    display: flex;
+    justify-content: space-around;
+}
+
+
 /* Styles for footer */
 footer {
     padding: 30px 0;
