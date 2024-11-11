@@ -10,7 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Pelican's Plate: Home</title>
+    <script>
+        window.onload = function() {
+            orderNumGenerator();
+            timeGeneration();
+        }
+    </script>
+    <title>Pelican's Plate: Your Receipt</title>
 </head>
 <body>
     <header>
@@ -40,7 +46,8 @@
     <section id="receipt">
         <div class="container flex">
             <div class="receipt-container">
-                <h1 id="order-number">Order Number: </h1>
+                <h1>Receipt</h1>
+                <h2 id="order-number">Order Number: </h2>
                 <h2 id="customer-name">Name: </h2>
                 <h2>Your Order:</h2>
                 <div id="cart-items">

@@ -34,9 +34,8 @@ function login(){
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
 
-
 function orderNumGenerator() {
-    let orderNum = "Order Number: " + Math.floor(Math.random() * 99) + 1;
+    let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
     orderNumber.innerHTML = orderNum;
 }
 function timeGeneration() {
@@ -47,7 +46,8 @@ function timeGeneration() {
     console.log(cartArray.length);
     if (cartArray.length >= 4) {
         time = 45 + " minutes.";
-    } else if (cartArray.length >= 8) {
+    } 
+    else if (cartArray.length >= 8) {
         time = 1 + " hour.";
     } else {
         time = 35 + " minutes.";
@@ -55,6 +55,3 @@ function timeGeneration() {
     let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
 }
-
-orderNumGenerator();
-timeGeneration();
