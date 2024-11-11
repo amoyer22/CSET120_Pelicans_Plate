@@ -30,7 +30,8 @@ function login(){
     }
 }
 
-// Function for rewards page form
-function rewardsSignUp() {
-    
+//Functions for receipt functionality
+let orderNum = document.getElementById("order-number");
+function orderNumGenerator() {
+
 }
