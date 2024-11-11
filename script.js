@@ -68,9 +68,14 @@ function addToCart(event){
         price: itemPrice,
         image: itemImage
     }
-    cart.push(item)
 
+    cart.push(item)
     updateCart()
+    
+    if(cart.includes(item) === 1){
+        alert("This item is already in your cart!")
+        return
+    }
 }
 
 function removeFromCart(index){
@@ -79,6 +84,7 @@ function removeFromCart(index){
 }
 
 function updateCart(){
+    console.log(cart)
     let cartContainer = document.querySelector("#cart")
     cartContainer.innerHTML = ""
     let total = 0
@@ -114,4 +120,5 @@ function updateCart(){
 }
 
 function placeOrder(){
+    window.location.href = "order.html";
 }
