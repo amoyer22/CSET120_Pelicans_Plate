@@ -31,7 +31,29 @@ function login(){
 }
 
 //Functions for receipt functionality
-let orderNum = document.getElementById("order-number");
-function orderNumGenerator() {
+let orderNumber = document.getElementById("order-number");
+let timeEstimate = document.getElementById("time-estimate");
 
+
+function orderNumGenerator() {
+    let orderNum = "Order Number: " + Math.floor(Math.random() * 99) + 1;
+    orderNumber.innerHTML = orderNum;
 }
+function timeGeneration() {
+    let cartItems = document.querySelector("#cart-items");
+    let childElements = cartItems.children;
+    let cartArray = Array.from(childElements);
+    console.log(cartArray.length);
+    if (cartItems.length < 4) {
+        let time = 45;
+    } else if (cartItems.length < 7) {
+        let time = 60;
+    } else {
+        time = 35;
+    }
+    let timeEst = "Your order will be ready in " + time + " minutes.";
+    timeEstimate.innerHTML = timeEst;
+}
+
+orderNumGenerator();
+timeGeneration();
