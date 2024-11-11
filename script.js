@@ -60,27 +60,24 @@ let items = new Map([
 function addToCart(event){
     let itemEle = event.target.closest("#item")
     let itemName = itemEle.querySelector("h2").textContent
-    let itemPrice = itemEle.querySelector("#itemPrice").textContent
+    let itemPrice = parseFloat(itemEle.querySelector("#itemPrice").textContent.replace("$", ""))
     let itemImage = itemEle.querySelector("img").src
 
-    let item = {
-        name: itemName,
-        price: itemPrice,
-        image: itemImage
-    }
+    let existingItem = cart.find(cartItem => cartItem.name === itemName)
 
-    cart.push(item)
-    updateCart()
-    
-    if(cart.includes(item) === 1){
+    if(existingItem){
         alert("This item is already in your cart!")
-        return
     }
-}
-
-function removeFromCart(index){
-    cart.splice(index, 1)
-    updateCart()
+    else{
+        let item = {
+            name: itemName,
+            price: itemPrice,
+            image: itemImage,
+            quantity: 1
+        }
+        cart.push(item)
+        updateCart()
+    }
 }
 
 function updateCart(){
@@ -90,8 +87,8 @@ function updateCart(){
     let total = 0
 
     cart.forEach((item, index) => {
-        let itemPrice = parseFloat(item.price.replace("$", ""))
-        total += itemPrice
+        let itemTotalPrice = item.price * item.quantity
+        total += itemTotalPrice
 
         let cartItem = document.createElement("div")
         cartItem.classList.add("cart-item")
@@ -104,21 +101,32 @@ function updateCart(){
                 <div id="itemDescription">
                     <h2>${item.name}</h2>
                     <div id="itemInfo">
-                        <p id="itemPrice">${item.price}</p>
+                        <p id="itemPrice">$${itemTotalPrice}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
-                        <input type="number" id="quantity" name="quantity" placeholder="1" min="1" max="99">
+                        <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
                         <button id="itemEdit">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
                     </div>
                 </div>
             </div>
         </div>`
+
+        cartItem.querySelector("#quantity").addEventListener("input", (e) =>{
+            let newQuantity = parseInt(e.target.value)
+            item.quantity = isNaN(newQuantity) ? 1 : newQuantity
+            updateCart()
+        })
         cartContainer.appendChild(cartItem)
     })
 
     document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`
 }
 
+function removeFromCart(index){
+    cart.splice(index, 1)
+    updateCart()
+}
+
 function placeOrder(){
-    window.location.href = "order.html";
+    window.location.href = "receipt.html";
 }
