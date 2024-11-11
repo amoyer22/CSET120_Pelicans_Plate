@@ -54,7 +54,6 @@ let items = new Map([
     ["Frozen Pina Colada", 10],
     ["Margarita", 9]
 ])
-
 function addToCart(event){
     let itemEle = event.target.closest("#item")
     let itemName = itemEle.querySelector("h2").textContent
@@ -77,7 +76,6 @@ function addToCart(event){
         updateCart()
     }
 }
-
 function updateCart(){
     console.log(cart)
     let cartContainer = document.querySelector("#cart")
@@ -115,22 +113,23 @@ function updateCart(){
             updateCart()
         })
         cartContainer.appendChild(cartItem)
+        
     })
 
-    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`
+    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`;
 }
-
 function removeFromCart(index){
     cart.splice(index, 1)
     updateCart()
 }
-
 function checkout(){
     if(cart.length === 0){
         alert("You have no items in your cart!")
     }
     else{
-        window.location.href = "checkout.html"
+        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        localStorage.setItem("cartTotal", total);
+        window.location.href = "receipt.html"
     }
 }
 
@@ -138,6 +137,7 @@ function checkout(){
 //Functions for receipt functionality
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
+let receiptTotalCost = document.getElementById("total");
 
 function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
@@ -159,4 +159,16 @@ function timeGeneration() {
     }
     let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
+}
+function receiptTotal() {
+    let total = localStorage.getItem("cartTotal");    
+    if (total) {
+        receiptTotalCost.innerHTML = "Total: $" + total;
+    } else {
+        receiptTotalCost.innerHTML = "Total: $" + 0;
+    }
+}
+function clearTotal() {
+    localStorage.removeItem("cartTotal");
+    window.location.href = "home.html";
 }
