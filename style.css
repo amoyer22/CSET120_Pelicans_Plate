@@ -25,6 +25,7 @@ body {
     background-position: center;
     background-repeat: repeat;
     background-size: cover;
+    height: 100vh;
 }
 img {
     max-width: 100%;
@@ -294,6 +295,7 @@ header {
     font-size: 14px;
 }
 
+
 /* Styles for receipt section */
 #receipt p {
     margin: 5px 0;
@@ -305,7 +307,15 @@ header {
     border-radius: 0.5em;
 }
 #cart-items {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+}
+.item {
+    background-color: rgba(248, 245, 241, 0.5);
+    border-radius: 0.5em;
+    margin-bottom: 5px;
+}
+div.item.flex {
+    justify-content: space-around;
 }
 #thank-you {
     margin-top: 30px;

@@ -113,9 +113,7 @@ function updateCart(){
             updateCart()
         })
         cartContainer.appendChild(cartItem)
-        
     })
-
     document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`;
 }
 function removeFromCart(index){
@@ -127,6 +125,7 @@ function checkout(){
         alert("You have no items in your cart!")
     }
     else{
+        let cartString = cart.map(item => `${item.name}|${item.price}|{item.quantity}`).join(";");
         let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         localStorage.setItem("cartTotal", total);
         window.location.href = "receipt.html"
@@ -139,6 +138,9 @@ let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
 let receiptTotalCost = document.getElementById("total");
 
+function updateReceipt() {
+    
+}
 function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
     orderNumber.innerHTML = orderNum;
