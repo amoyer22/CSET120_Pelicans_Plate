@@ -194,7 +194,7 @@ header {
     padding: 80px;
     border-radius: 0.5em;
 }
-.cart-items {
+#cart-items {
     margin-bottom: 60px;
 }
 #thank-you {
