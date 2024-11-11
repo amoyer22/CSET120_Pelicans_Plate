@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     outline: 0;
     box-sizing: border-box;
 }
@@ -15,25 +16,37 @@
 html {
     color: var(--logoDarkBlue);
     background-color: var(--white);
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.3em;
+    scroll-behavior: smooth;
 }
-html, body {
-    height: 100%;
+body {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='75' height='75' patternTransform='scale(8) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23f8f5f1ff'/><path d='M15.896-3.379a3.051 3.051 0 0 0-3.044 3.045 3.051 3.051 0 0 0 3.044 3.045A3.05 3.05 0 0 0 18.94-.334a3.05 3.05 0 0 0-3.043-3.045zm0 .764a2.275 2.275 0 0 1 2.282 2.281 2.275 2.275 0 0 1-2.282 2.281 2.275 2.275 0 0 1-2.28-2.281 2.275 2.275 0 0 1 2.28-2.281zm29.479 5.742a4.13 4.13 0 0 0-4.123 4.123 4.13 4.13 0 0 0 4.123 4.123 4.13 4.13 0 0 0 4.123-4.123 4.13 4.13 0 0 0-4.123-4.123zm0 1.03a3.086 3.086 0 0 1 3.094 3.093 3.086 3.086 0 0 1-3.094 3.094 3.086 3.086 0 0 1-3.094-3.094 3.086 3.086 0 0 1 3.094-3.094zM66.299 8.89c-3.73 0-6.78 3.048-6.78 6.779 0 3.73 3.05 6.777 6.78 6.777 3.73 0 6.777-3.046 6.777-6.777 0-3.73-3.047-6.78-6.777-6.78zm0 2.214a4.547 4.547 0 0 1 4.562 4.565 4.547 4.547 0 0 1-4.562 4.564 4.548 4.548 0 0 1-4.565-4.564 4.548 4.548 0 0 1 4.565-4.565zm-24.653 9.2a4.499 4.499 0 0 0-4.488 4.486 4.499 4.499 0 0 0 4.488 4.486 4.497 4.497 0 0 0 4.487-4.486 4.497 4.497 0 0 0-4.487-4.486zm0 1.46a3.014 3.014 0 0 1 3.026 3.026 3.014 3.014 0 0 1-3.026 3.025 3.014 3.014 0 0 1-3.025-3.025 3.014 3.014 0 0 1 3.025-3.025zm24.086 9.94A2.3 2.3 0 0 0 63.438 34a2.3 2.3 0 0 0 2.294 2.295A2.298 2.298 0 0 0 68.025 34a2.298 2.298 0 0 0-2.293-2.295zm0 .576c.953 0 1.72.766 1.72 1.719 0 .953-.767 1.719-1.72 1.719A1.714 1.714 0 0 1 64.014 34c0-.953.765-1.719 1.718-1.719zm-49.234 6.545c-2.952 0-5.363 2.413-5.363 5.365a5.376 5.376 0 0 0 5.363 5.364 5.376 5.376 0 0 0 5.363-5.364c0-2.952-2.41-5.365-5.363-5.365zm0 1.744c2.01 0 3.621 1.611 3.621 3.621s-1.61 3.621-3.621 3.621a3.608 3.608 0 0 1-3.621-3.62 3.608 3.608 0 0 1 3.621-3.622zm33.84 6.348a4.318 4.318 0 0 0-4.307 4.309 4.318 4.318 0 0 0 4.307 4.308 4.32 4.32 0 0 0 4.308-4.308 4.32 4.32 0 0 0-4.308-4.309zm0 1.398a2.9 2.9 0 0 1 2.91 2.91 2.9 2.9 0 0 1-2.91 2.91 2.898 2.898 0 0 1-2.908-2.91 2.898 2.898 0 0 1 2.908-2.91zm18.367 1.897A4.499 4.499 0 0 0 64.22 54.7a4.497 4.497 0 0 0 4.486 4.486 4.499 4.499 0 0 0 4.488-4.486 4.5 4.5 0 0 0-4.488-4.488zm0 1.463A3.014 3.014 0 0 1 71.73 54.7a3.014 3.014 0 0 1-3.025 3.026A3.014 3.014 0 0 1 65.68 54.7a3.014 3.014 0 0 1 3.025-3.025zm-36.771 1.92c-4.85 0-8.813 3.963-8.813 8.812 0 4.85 3.963 8.81 8.813 8.81 4.849 0 8.812-3.96 8.812-8.81 0-4.85-3.963-8.812-8.812-8.812zm0 2.892a5.897 5.897 0 0 1 5.918 5.92 5.896 5.896 0 0 1-5.918 5.918 5.896 5.896 0 0 1-5.918-5.918 5.897 5.897 0 0 1 5.918-5.92zM15.896 71.621a3.051 3.051 0 0 0-3.044 3.045 3.051 3.051 0 0 0 3.044 3.045 3.05 3.05 0 0 0 3.043-3.045 3.05 3.05 0 0 0-3.043-3.045zm0 .764a2.275 2.275 0 0 1 2.282 2.281 2.275 2.275 0 0 1-2.282 2.281 2.275 2.275 0 0 1-2.28-2.281 2.275 2.275 0 0 1 2.28-2.281z'  stroke-width='1' stroke='none' fill='%2379c0d815'/><path d='M57.973.85a3.756 3.756 0 1 0 .067 7.512A3.756 3.756 0 0 0 57.973.85zM6.449 2.625a2.357 2.357 0 1 0 0 4.714 2.357 2.357 0 0 0 0-4.714Zm24.643 7.744a3.756 3.756 0 1 0 .067 7.512 3.756 3.756 0 0 0-.067-7.512zm-17.848 5.467a2.357 2.357 0 1 0 .175 4.71 2.357 2.357 0 0 0-.175-4.71zM-.25 23.363a2.136 2.136 0 1 0 0 4.274 2.136 2.136 0 1 0 0-4.274Zm75 0a2.136 2.136 0 1 0 0 4.274 2.136 2.136 0 1 0 0-4.274Zm-49.031 5.178a2.283 2.283 0 1 0 .054 4.566 2.283 2.283 0 0 0-.054-4.566zm30.404-1.512a1.473 1.473 0 1 0 0 2.946 1.473 1.473 0 0 0 0-2.946zm-9.525 9.088a2.578 2.578 0 1 0-.001 5.156 2.578 2.578 0 0 0 0-5.156zm-41.442.93a1.473 1.473 0 1 0-.003 2.946 1.473 1.473 0 0 0 .003-2.946zm62.455 3.314a1.473 1.473 0 1 0 .001 2.946 1.473 1.473 0 0 0 0-2.946zm-33.51 2.135a1.473 1.473 0 1 0-.003 2.946 1.473 1.473 0 0 0 .004-2.946ZM8.599 56.072a3.756 3.756 0 1 0 .067 7.512 3.756 3.756 0 0 0-.067-7.512zm40.49 7.658a2.357 2.357 0 1 0-.001 4.714 2.357 2.357 0 0 0 0-4.714zm22.129 5.833a2.136 2.136 0 1 0 .072 4.27 2.136 2.136 0 0 0-.072-4.27z'  stroke-width='1' stroke='none' fill='%2379c0d815'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em;
 }
 .flex {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 .container {
+    max-width: 1400px;
     width: 80%;
     margin: 0 auto;
 }
 section {
-    margin: 30px 0;
-    background-color: var(--white);
+    padding: 30px 0;
     text-align: center;
 }
+
 
 /* Styles for text */
 h1, h2, h3 {
@@ -89,13 +102,14 @@ a {
     width: 200px;
     height: auto;
 }
-#signup input, #login input {
+input {
     display: block;
     margin: 5px auto;
     border: 2px solid var(--logoDarkBlue);
     padding: 5px;
     font-family: "Koh Santepheap", serif;
     color: #424141;
+    background-color: var(--white);
     border-radius: .5em;
 }
 .signup-item, .login-item {
@@ -104,7 +118,7 @@ a {
 .btn-signup {
     padding: 8px;
     font-family: "Koh Santepheap", serif;
-    border: 1px solid var(--logoDarkBlue);
+    border: 2px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
     background-color: var(--white);
@@ -139,11 +153,12 @@ a {
 header {
     background-color: var(--logoBlue);
     padding: 2em 0;
+    border-bottom: 3px solid var(--logoDarkBlue);
 }
 .navbar {
     text-align: center;
 }
-.navbar img {
+.navbar .logo {
     width: 12%;
 }
 .navbar ul {
@@ -162,22 +177,132 @@ header {
 }
 
 
+/* Styles for about section */
+#about .flex {
+    justify-content: space-evenly !important;
+}
+.first-para {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.about-item {
+    width: 45%;
+}
+
+
+/* Styles for LTO section */
+#deals .flex {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.deals-card {
+    margin-top: 15px;
+    width: 30%;
+}
+
+
+/* Styles for receipt section */
+#receipt p {
+    margin: 5px 0;
+}
+.receipt-container{
+    background-color: rgba(122, 193, 216, .3);
+    margin: 30px 0;
+    padding: 80px;
+    border-radius: 0.5em;
+}
+#cart-items {
+    margin-bottom: 60px;
+}
+#thank-you {
+    margin-top: 30px;
+}
+
+
+/* Styles for rewards page */
+form {
+    background-color: rgba(122, 193, 216, .3);
+    padding: 30px 0;
+    margin: 30px auto;
+    border-radius: .5em;
+    width: 60%;
+}
+form .flex {
+    flex-direction: column;
+}
+form input {
+    display: inline;
+    margin: 10px 0;
+}
+form button {
+    margin: 10px 0;
+}
+.form-section {
+    display: block;
+}
+
 
 /* Styles for footer */
 footer {
     padding: 30px 0;
     background-color: var(--logoDarkBlue);
+}
+footer .flex {
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-nav h2 {
+    font-family: "Koh Santepheap", serif;
     color: var(--white);
 }
-.footer-nav ul{
+.footer-nav ul {
     list-style-type: none;
 }
-.footer-nav li a{
+.footer-nav ul li a {
     text-decoration: none;
     color: var(--white);
 }
+.footer-nav ul li a:hover {
+    color: var(--blue);
+    transition: .15s;
+}
+.right-side.flex {
+    justify-content: end;
+    flex-direction: column;
+}
+.socials {
+    margin-bottom: 15px;
+    color: var(--white);
+}
+.socials .flex {
+    justify-content: space-evenly;
+}
+.socials p, .subscribe p {
+    text-align: center;
+    color: var(--white);
+}
+.socials a {
+    color: var(--white);
+    font-size: 150%;
+    margin-top: 5px;
+}
+.socials a:hover {
+    color: var(--blue);
+    transition: .15s;
+}
+.subscribe input {
+    display: block;
+    margin: 5px auto;
+    margin-right: 10px;
+    border: 2px solid var(--logoDarkBlue);
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    color: #424141;
+    background-color: var(--white);
+    border-radius: .5em;
+}
 .copyright {
-    padding: 5em 0;
+    padding-top: 3em;
     text-align: center;
     font-size: 80%;
     color: var(--white);
