@@ -224,7 +224,7 @@ header{
 #itemContainer{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 #item{
     display: flex;
@@ -250,34 +250,72 @@ header{
     background-color: var(--logoDarkBlue);
 }
 #cartHeading h1{
-    padding: 20px 40px 0px 40px;
+    padding: 20px 20px 0px 20px;
     color: var(--white);
 }
 #cart{
-    padding: 20px 40px;
+    padding: 20px 20px;
     overflow-y: auto;
 }
 #cart h1{
     color: var(--white);
 }
 #cart #item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border: none;
 }
-#cart #itemImage{
-    width: 20%;
-}
 #cart #itemDescription{
-    width: 80%
+    width: 70%;
+}
+#cart #itemDescription h2{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+#itemInfo #itemPrice{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+}
+#itemAdd, #itemEdit{
+    padding: 3px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#itemEdit{
+    margin: 0px 10px 0px 10px;
 }
 #cart #itemRemove{
-    width: 20%;
+    padding: 3px;
+    border: 1px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+#purchaseContainer h2{
+    margin: .5em 0px 0px 0px;
+    padding: 0px 20px 20px 20px;
+    color: var(--white);
 }
 #purchaseButton{
     width: 100%;
-    height: 50px;
+    height: 60px;
+    padding: 5px;
+    border: 3px solid var(--logoDarkBlue);
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    font-family: "Koh Santepheap", serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+#quantityLabel, #quantity input[type=number]{
+    font-size: 14px;
 }
