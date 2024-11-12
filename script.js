@@ -188,6 +188,6 @@ function creditSelect(){
         creditDiv.style.display = "none"
     }
 }
-function placeOrder(){
+function checkout(){
     window.location.href = "receipt.html"
 }
