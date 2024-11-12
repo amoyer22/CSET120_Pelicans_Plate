@@ -175,6 +175,9 @@ header {
 
 
 /* Styles for LTO section */
+#deals {
+    margin-bottom: 30px;
+}
 #deals .flex {
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -182,6 +185,9 @@ header {
 .deals-card {
     margin-top: 15px;
     width: 30%;
+}
+.deals-card img {
+    width: 100%;
 }
 
 
