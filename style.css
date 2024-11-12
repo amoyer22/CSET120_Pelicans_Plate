@@ -337,11 +337,20 @@ form button {
 
 /* Styles for checkout page */
 form {
-    padding: 30px 50px;
+    padding: 30px 70px;
 }
 .formFlex{
     display: flex;
     justify-content: space-around;
+}
+#checkoutBtn{
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    cursor: pointer;
 }
 
 
