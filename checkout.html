@@ -16,6 +16,20 @@
         <div class="container">
             <h1>Checkout</h1>
             <form>
+                <h2>Order Information</h2>
+                <div class="form-section">
+                    <label for="orderName">Order Name*:</label>
+                    <input type="text" name="orderName" id="orderName" required>
+                </div>
+                <div class="form-section">
+                    <label for="email">Email*:</label>
+                    <input type="email" name="email" id="email" placeholder="pelican@example.com" required>
+                </div>
+                <div class="form-section">
+                    <label for="phone">Phone Number*:</label>
+                    <input type="tel" name="phone" id="phone" maxlength="12" placeholder="555-555-5555" required>
+                </div>
+
                 <h2>Payment Type</h2>
                 <div class="form-section">
                     <div class="formFlex">
@@ -29,19 +43,21 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-section">
                     <div id="cashDiv" style="display: none">
                         <label for="cashAmount">Cash Amount*:</label>
-                        <input type="text" name="cashAmount" id="cashAmount" placeholder="$" required>
+                        <input type="text" name="cashAmount" id="cashAmount" placeholder="$0.00" required>
                     </div>
                 </div>
-
                 <div class="form-section">
                     <div id="creditDiv" style="display: block">
                         <label for="cashAmount">Credit Card Number*:</label>
-                        <input type="text" name="cashAmount" id="cashAmount" required>
+                        <input type="text" name="creditAmount" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444" required>
                     </div>
+                </div>
+                <div class="form-section">
+                    <label for="tip">Tip Amount:</label>
+                    <input type="text" name="tip" id="tip" placeholder="$0.00">
                 </div>
 
                 <button type="submit" id="checkoutBtn" onclick="placeOrder()">Place Order</button>
