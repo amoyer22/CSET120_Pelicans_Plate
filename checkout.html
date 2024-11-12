@@ -19,30 +19,30 @@
                 <h2>Order Information</h2>
                 <div class="form-section">
                     <label for="orderName">Order Name*:</label>
-                    <input type="text" name="orderName" id="orderName" required>
+                    <input type="text" name="orderName" id="orderName">
                 </div>
                 <div class="form-section">
                     <label for="email">Email*:</label>
-                    <input type="email" name="email" id="email" placeholder="pelican@example.com" required>
+                    <input type="email" name="email" id="email" placeholder="pelican@example.com">
                 </div>
                 <div class="form-section">
                     <label for="phone">Phone Number*:</label>
-                    <input type="tel" name="phone" id="phone" maxlength="12" placeholder="555-555-5555" required>
+                    <input type="tel" name="phone" id="phone" maxlength="12" placeholder="555-555-5555">
                 </div>
                 <div class="form-section">
                     <label for="address">Address*:</label>
-                    <input type="text" name="address" id="address" required>
+                    <input type="text" name="address" id="address">
                 </div>
 
                 <h2 style="margin-top: 1em;">Payment Type</h2>
                 <div class="form-section">
                     <div class="formFlex">
                         <div>
-                            <input type="radio" name="payType" id="cash" onclick="cashSelect()" required>
+                            <input type="radio" name="payType" id="cash" onclick="cashSelect()">
                             <label for="cash">Cash</label>
                         </div>
                         <div>
-                            <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked required>
+                            <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked>
                             <label for="credit">Credit</label>
                         </div>
                     </div>
@@ -50,30 +50,30 @@
                 <div class="form-section">
                     <div id="cashDiv" style="display: none">
                         <label for="cashAmount">Cash Amount*:</label>
-                        <input type="text" name="cashAmount" id="cashAmount" placeholder="$0.00" required>
+                        <input type="text" name="cashAmount" id="cashAmount" placeholder="$0.00">
                     </div>
                 </div>
                 <div class="form-section">
                     <div id="creditDiv" style="display: block">
                         <div>
                             <label for="cardName">Name on Card*:</label>
-                            <input type="text" name="cardName" id="cardName" required>
+                            <input type="text" name="cardName" id="cardName">
                         </div>
                         <div>
                             <label for="creditAmount">Credit Card Number*:</label>
-                            <input type="text" name="creditAmount" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444" required>
+                            <input type="text" name="creditAmount" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444">
                         </div>
                         <div>
                             <label for="expMonth">Exp. Month*:</label>
-                            <input type="text" name="expMonth" id="expMonth" placeholder="September" required>
+                            <input type="text" name="expMonth" id="expMonth" placeholder="September">
                         </div>
                         <div>
                             <label for="expYear">Exp. Year*:</label>
-                            <input type="text" name="expYear" id="expYear" maxlength="4" placeholder="2037" required>
+                            <input type="text" name="expYear" id="expYear" maxlength="4" placeholder="2037">
                         </div>
                         <div>
                             <label for="cvv">CVV*:</label>
-                            <input type="text" name="cvv" id="cvv" maxlength="3" placeholder="555" required>
+                            <input type="text" name="cvv" id="cvv" maxlength="3" placeholder="555">
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     <textarea name="extra" id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
                 </div>
 
-                <button type="submit" id="checkoutBtn" onclick="placeOrder()">Place Order</button>
+                <a href="receipt.html"><button type="submit" id="checkoutBtn">Place Order</button></a>
             </form>
         </div>
     </section>
