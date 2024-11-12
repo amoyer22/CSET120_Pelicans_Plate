@@ -197,3 +197,15 @@ function clearReceipt() {
 
 
 // Functions for mobile nav
+let mobileNav = document.getElementById("mobile-nav");
+let mobileNavIcon = document.getElementById("mobile-nav-icon");
+
+mobileNavIcon.onclick = function() {
+    mobileNav.classList.toggle("open-menu");
+
+    if(mobileNav.classList.contains("open-menu")) {
+        mobileNavIcon.src = "images/PP_mobile-nav-icon-close.png";
+    } else {
+        mobileNavIcon.src = "images/PP_mobile-nav-icon.png";
+    }
+}
