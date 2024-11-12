@@ -12,26 +12,26 @@
 </head>
 <body>
 
-    <section id="">
+    <section id="checkout">
         <div class="container">
             <h1>Checkout</h1>
             <form>
                 <h2>Order Information</h2>
                 <div class="form-section">
                     <label for="orderName">Order Name*:</label>
-                    <input type="text" name="orderName" id="orderName">
+                    <input type="text" id="orderName">
                 </div>
                 <div class="form-section">
                     <label for="email">Email*:</label>
-                    <input type="email" name="email" id="email" placeholder="pelican@example.com">
+                    <input type="email" id="email" placeholder="pelican@example.com">
                 </div>
                 <div class="form-section">
                     <label for="phone">Phone Number*:</label>
-                    <input type="tel" name="phone" id="phone" maxlength="12" placeholder="555-555-5555">
+                    <input type="tel" id="phone" maxlength="12" placeholder="555-555-5555">
                 </div>
                 <div class="form-section">
                     <label for="address">Address*:</label>
-                    <input type="text" name="address" id="address">
+                    <input type="text" id="address">
                 </div>
 
                 <h2 style="margin-top: 1em;">Payment Type</h2>
@@ -50,44 +50,44 @@
                 <div class="form-section">
                     <div id="cashDiv" style="display: none">
                         <label for="cashAmount">Cash Amount*:</label>
-                        <input type="text" name="cashAmount" id="cashAmount" placeholder="$0.00">
+                        <input type="text" id="cashAmount" placeholder="$0.00">
                     </div>
                 </div>
                 <div class="form-section">
                     <div id="creditDiv" style="display: block">
                         <div>
                             <label for="cardName">Name on Card*:</label>
-                            <input type="text" name="cardName" id="cardName">
+                            <input type="text"id="cardName">
                         </div>
                         <div>
                             <label for="creditAmount">Credit Card Number*:</label>
-                            <input type="text" name="creditAmount" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444">
+                            <input type="text" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444">
                         </div>
                         <div>
                             <label for="expMonth">Exp. Month*:</label>
-                            <input type="text" name="expMonth" id="expMonth" placeholder="September">
+                            <input type="text" id="expMonth" placeholder="September">
                         </div>
                         <div>
                             <label for="expYear">Exp. Year*:</label>
-                            <input type="text" name="expYear" id="expYear" maxlength="4" placeholder="2037">
+                            <input type="text" id="expYear" maxlength="4" placeholder="2037">
                         </div>
                         <div>
                             <label for="cvv">CVV*:</label>
-                            <input type="text" name="cvv" id="cvv" maxlength="3" placeholder="555">
+                            <input type="text" id="cvv" maxlength="3" placeholder="555">
                         </div>
                     </div>
                 </div>
                 <div class="form-section">
                     <label for="tip">Tip Amount:</label>
-                    <input type="text" name="tip" id="tip" placeholder="$0.00">
+                    <input type="text" id="tip" placeholder="$0.00">
                 </div>
 
                 <h2 style="margin-top: 1em;">Extra Information</h2>
                 <div class="form-section">
-                    <textarea name="extra" id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
+                    <textarea id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
                 </div>
 
-                <a href="receipt.html"><button type="submit" id="checkoutBtn">Place Order</button></a>
+                <button type="submit" id="checkoutBtn" onclick="placeOrder()">Place Order</button>
             </form>
         </div>
     </section>
