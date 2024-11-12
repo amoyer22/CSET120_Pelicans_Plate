@@ -140,7 +140,23 @@ let timeEstimate = document.getElementById("time-estimate");
 let receiptTotalCost = document.getElementById("total");
 
 function updateReceipt() {
-    
+    let ItemsContainer = document.getElementById("cart-items");
+    let index = 0;
+
+    while(localStorage.getItem(`cartItem${index}`)) {
+        let [name, price, quantity] = localStorage.getItem(`cartItem${index}`).split("|");
+        let itemElement = document.createElement("tr");
+        itemElement.classList.add("item", "flex");
+        itemElement.innerHTML = `
+            <tr>
+                <td class="item-name">${name}</td>
+                <td class="item-quantity">${quantity}</td>
+                <td class="item-price">$${(parseFloat(price) * parseInt(quantity)).toFixed(2)}</td>
+            <tr>
+        `;
+        ItemsContainer.appendChild(itemElement);
+        index++;
+    }
 }
 function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
@@ -172,9 +188,9 @@ function receiptTotal() {
     }
 }
 function clearReceipt() {
-    let i = 0
-    while (localStorage.getItem(`cartItem${i}`)) {
-        localStorage.removeItem(`cartItem${i}`);
+    let index = 0
+    while (localStorage.getItem(`cartItem${index}`)) {
+        localStorage.removeItem(`cartItem${index}`);
         index++;
     }
     localStorage.removeItem("cartTotal");
