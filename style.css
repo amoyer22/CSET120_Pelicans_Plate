@@ -420,3 +420,17 @@ footer .flex {
     font-size: 80%;
     color: var(--white);
 }
+
+
+/* Media queiries for mobile viewport */
+@media screen and (max-width: 750px), print {
+    .mobile-nav {
+        display: block;
+    }
+    .navigation {
+        display: none;
+    }
+    form {
+        width: 100%;
+    }
+}

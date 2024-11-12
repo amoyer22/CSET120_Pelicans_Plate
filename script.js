@@ -30,6 +30,7 @@ function login(){
     }
 }
 
+
 // Functions for cart
 let cart = []
 let items = new Map([
@@ -193,3 +194,6 @@ function clearReceipt() {
     localStorage.removeItem("cartTotal");
     window.location.href = "menu.html";
 }
+
+
+// Functions for mobile nav
