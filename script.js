@@ -140,21 +140,18 @@ let timeEstimate = document.getElementById("time-estimate");
 let receiptTotalCost = document.getElementById("total");
 
 function updateReceipt() {
-    let ItemsContainer = document.getElementById("cart-items");
+    let ItemsContainer = document.querySelector("#receipt-table tbody");
     let index = 0;
 
     while(localStorage.getItem(`cartItem${index}`)) {
         let [name, price, quantity] = localStorage.getItem(`cartItem${index}`).split("|");
-        let itemElement = document.createElement("tr");
-        itemElement.classList.add("item", "flex");
-        itemElement.innerHTML = `
-            <tr>
-                <td class="item-name">${name}</td>
-                <td class="item-quantity">${quantity}</td>
-                <td class="item-price">$${(parseFloat(price) * parseInt(quantity)).toFixed(2)}</td>
-            <tr>
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="item-name">${name}</td>
+            <td class="item-quantity">${quantity}</td>
+            <td class="item-price">$${(parseFloat(price) * parseInt(quantity)).toFixed(2)}</td>
         `;
-        ItemsContainer.appendChild(itemElement);
+        ItemsContainer.appendChild(row);
         index++;
     }
 }

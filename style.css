@@ -302,24 +302,27 @@ header {
 }
 .receipt-container{
     background-color: rgba(122, 193, 216, .3);
-    margin: 30px 0;
     padding: 80px;
     border-radius: 0.5em;
-    width: 60%;
+    width: 100%;
 }
 #cart-items {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
-.item {
+table {
+    margin: 0 auto;
+    width: 50%;
+}
+tr {
     background-color: rgba(248, 245, 241, 0.5);
     border-radius: 0.5em;
-    margin-bottom: 5px;
+    border: none;
 }
 div.item.flex {
     justify-content:space-evenly;
 }
 #thank-you {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 
