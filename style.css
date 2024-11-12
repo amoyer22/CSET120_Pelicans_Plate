@@ -422,6 +422,14 @@ footer .flex {
 }
 
 
+/* Media query for nav */
+@media screen and (max-width: 1200px), print {
+    .navbar li {
+        width: 15%;
+    }
+}
+
+
 /* Media queiries for mobile viewport */
 @media screen and (max-width: 750px), print {
     .mobile-nav {
@@ -466,10 +474,10 @@ footer .flex {
         opacity: 0;
     }
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(10px) rotate(45deg);
+        transform: translateY(10px) rotate(-45deg);
     }
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-10px) rotate(-45deg);
+        transform: translateY(-10px) rotate(45deg);
     }
     .mobile-nav-list {
         position: fixed;
