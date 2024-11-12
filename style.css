@@ -207,10 +207,14 @@ header {
     justify-content: space-between;
     margin-bottom: 10px;
 }
+#menuContainer h1 {
+    margin-top: 20px;
+}
 #item{
     display: flex;
-    width: 485px;
+    width: calc(50% - 5px);
     height: auto;
+    padding: 10px;
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
 }
@@ -253,6 +257,9 @@ header {
     margin-bottom: 5px;
     font-size: 14px;
 }
+#item p{
+    margin: 5px 0;
+}
 #itemInfo #itemPrice{
     display: inline-block;
     margin-right: 10px;
@@ -290,7 +297,8 @@ header {
     width: 100%;
     height: 60px;
     padding: 5px;
-    border: 3px solid var(--logoDarkBlue);
+    border-left: 3px solid var(--logoDarkBlue);
+    border-right: 3px solid var(--logoDarkBlue);
     color: var(--logoDarkBlue);
     background-color: var(--white);
     font-family: "Koh Santepheap", serif;
@@ -525,6 +533,20 @@ footer .flex {
     footer div.container.flex {
         flex-direction: column;
     }    
+
+
+    /* Style rules for menu */
+    #itemContainer {
+        display: block;
+        margin: 0;
+    }
+    #item {
+        width: 100%;
+        margin: 10px 0;   
+    }
+    #cartContainer {
+        width: 50%;
+    }
 
 
     /* Style rules for footer */
