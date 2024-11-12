@@ -30,7 +30,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 1em;
+    border-radius: .5em;
 }
 .flex {
     display: flex;
@@ -183,11 +183,11 @@ header {
     justify-content: space-evenly;
 }
 .deals-card {
-    margin-top: 15px;
+    margin: 15px 0;
     width: 30%;
 }
 .deals-card img {
-    width: 100%;
+    width: 80%;
 }
 
 
@@ -500,5 +500,33 @@ footer .flex {
     }
     #menuContainer {
         margin-top: 110px;
+    }
+
+
+    /* Styles for flexboxes */
+    #about .flex {
+        display: block;
+    }
+    .about-item {
+        width: 100%;
+    }
+    .deals-card {
+        width: 100%;
+        margin: 25px 0;
+    }
+    footer div.container.flex {
+        flex-direction: column;
+    }    
+
+
+    /* Style rules for footer */
+    .footer-nav {
+        display: none;
+    }
+    footer div.right-side.flex {
+        margin-top: 15px;
+    }
+    .socials a {
+        font-size: 200%;
     }
 }
