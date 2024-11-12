@@ -433,5 +433,72 @@ footer .flex {
 
 
     /* Styles for mobile nav */
-    
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    .mobile-navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .mobile-navbar a {
+       color: var(--logoDarkBlue);
+        font-family: "Averia Sans Libre", sans-serif;
+        font-size: 200%;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .bar {
+        display: block;
+        width: 35px;
+        height: 4px;
+        margin: 6px 0;
+        border-radius: 1em;
+        transition: all 0.3s ease;
+        background-color: var(--logoDarkBlue);
+    }
+    .hamburger {
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+    .mobile-nav-list {
+        position: fixed;
+        top: -100%;
+        gap: 0;
+        flex-direction: column;
+        background-color: var(--logoBlue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        border-bottom: 3px solid var(--logoDarkBlue);
+    }
+    .mobile-nav-list li {
+        margin: 16px 0;
+    }
+    .mobile-nav-list a {
+        text-decoration: none;
+        font-size: 150%;
+        color: var(--logoDarkBlue);
+        font-family: "Averia Sans Libre", sans-serif;
+        font-weight: 600;
+    }
+    .mobile-nav-list.active {
+        top: 0;
+    }
+    #about, #rewards {
+        margin-top: 140px;
+    }
+    #menuContainer {
+        margin-top: 110px;
+    }
 }

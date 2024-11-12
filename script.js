@@ -130,7 +130,7 @@ function checkout(){
         });
         let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         localStorage.setItem("cartTotal", total);
-        window.location.href = "receipt.html"
+        window.location.href = "checkout.html"
     }
 }
 
@@ -197,15 +197,11 @@ function clearReceipt() {
 
 
 // Functions for mobile nav
-let mobileNav = document.getElementById("mobile-nav");
-let mobileNavIcon = document.getElementById("mobile-nav-icon");
+let mobileNav = document.querySelector(".hamburger");
+let navList = document.querySelector(".mobile-nav-list");
+let header = document.querySelector("header");
 
-mobileNavIcon.onclick = function() {
-    mobileNav.classList.toggle("open-menu");
-
-    if(mobileNav.classList.contains("open-menu")) {
-        mobileNavIcon.src = "images/PP_mobile-nav-icon-close.png";
-    } else {
-        mobileNavIcon.src = "images/PP_mobile-nav-icon.png";
-    }
-}
+mobileNav.addEventListener("click", () => {
+    mobileNav.classList.toggle("active");
+    navList.classList.toggle("active");
+})
