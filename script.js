@@ -55,7 +55,6 @@ let items = new Map([
     ["Frozen Pina Colada", 10],
     ["Margarita", 9]
 ])
-
 function addToCart(event){
     let itemEle = event.target.closest("#item")
     let itemName = itemEle.querySelector("h2").textContent
@@ -78,7 +77,6 @@ function addToCart(event){
         updateCart()
     }
 }
-
 function updateCart(){
     console.log(cart)
     let cartContainer = document.querySelector("#cart")
@@ -117,32 +115,68 @@ function updateCart(){
         })
         cartContainer.appendChild(cartItem)
     })
-
-    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`
+    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`;
 }
-
 function removeFromCart(index){
     cart.splice(index, 1)
     updateCart()
 }
-
 function checkout(){
     if(cart.length === 0){
         alert("You have no items in your cart!")
-    }
-    else{
+    } else {
+        cart.forEach((item, index) => {
+            localStorage.setItem(`cartItem${index}`, `${item.name}|${item.price}|${item.quantity}`);
+        });
+        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        localStorage.setItem("cartTotal", total);
         window.location.href = "checkout.html"
     }
+}
+function clearLocalStorage() {
+    let index = 0
+    while (localStorage.getItem(`cartItem${index}`)) {
+        localStorage.removeItem(`cartItem${index}`);
+        index++;
+    }
+    localStorage.removeItem("cartTotal");
 }
 
 
 //Functions for receipt functionality
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
+let receiptTotalCost = document.getElementById("total");
+let orderName = document.getElementById("customer-name");
 
 function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
     orderNumber.innerHTML = orderNum;
+}
+
+function updateReceipt() {
+    let ItemsContainer = document.querySelector("#receipt-table tbody");
+    let index = 0;
+
+    while(localStorage.getItem(`cartItem${index}`)) {
+        let [name, price, quantity] = localStorage.getItem(`cartItem${index}`).split("|");
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="item-name">${name}</td>
+            <td class="item-quantity">${quantity}</td>
+            <td class="item-price">$${(parseFloat(price) * parseInt(quantity)).toFixed(2)}</td>
+        `;
+        ItemsContainer.appendChild(row);
+        index++;
+    }
+}
+function receiptTotal() {
+    let total = localStorage.getItem("cartTotal");    
+    if (total) {
+        receiptTotalCost.innerHTML = "Total: $" + total;
+    } else {
+        receiptTotalCost.innerHTML = "Total: $" + 0;
+    }
 }
 function timeGeneration() {
     let cartItems = document.querySelector("#cart-items");
@@ -161,6 +195,26 @@ function timeGeneration() {
     let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
 }
+function clearReceipt() {
+    let index = 0
+    while (localStorage.getItem(`cartItem${index}`)) {
+        localStorage.removeItem(`cartItem${index}`);
+        index++;
+    }
+    localStorage.removeItem("cartTotal");
+    window.location.href = "menu.html";
+}
+
+
+// Functions for mobile nav
+let mobileNav = document.querySelector(".hamburger");
+let navList = document.querySelector(".mobile-nav-list");
+let header = document.querySelector("header");
+
+mobileNav.addEventListener("click", () => {
+    mobileNav.classList.toggle("active");
+    navList.classList.toggle("active");
+})
 
 
 // Functions for checkout page

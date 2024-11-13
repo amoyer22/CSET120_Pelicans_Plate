@@ -10,18 +10,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script>
+        window.onload = function() {
+            clearLocalStorage();
+        }
+    </script>
     <title>Pelican's Plate: Menu</title>
 </head>
 <body>
     <header>
         <div class="mobile-nav">
-            <img class="logo" src="#" alt="hamburger icon">
             <nav class="mobile-navbar">
+                <a href="home.html">Pelican's Plate</a>
                 <ul class="mobile-nav-list">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="menu.html">Our Menu</a></li>
                     <li><a href="rewards.html">Rewards</a></li>
                 </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </nav>
         </div>
         <div class="navigation">
@@ -38,7 +48,7 @@
 
     <div id="menuContainer">
         <div id="menu">
-            <h1>Appetizers</h1>
+            <h1 class="first-menu-catagory">Appetizers</h1>
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -69,7 +79,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -100,7 +109,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -119,7 +127,7 @@
             </div>
 
 
-            <h1>Soups</h1>
+            <h1 class="menu-catagory">Soups</h1>
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -152,7 +160,7 @@
             </div>
 
 
-            <h1>Salads</h1>
+            <h1 class="menu-catagory">Salads</h1>
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -201,7 +209,7 @@
             </div>
 
 
-            <h1>Entrees</h1>
+            <h1 class="menu-catagory">Entrees</h1>
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -232,7 +240,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -263,7 +270,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -282,7 +288,7 @@
             </div>
 
 
-            <h1>Beverages</h1>
+            <h1 class="menu-catagory">Beverages</h1>
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -313,7 +319,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -344,7 +349,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="itemContainer">
                 <div id="item">
                     <div id="itemImage">
@@ -379,6 +383,7 @@
         </div>
     </div>
 
+
     <footer>
         <div class="container flex">
             <div class="footer-nav">
@@ -411,6 +416,9 @@
         <p class="copyright">Copyright&copy; 2024 All rights reserved. Created by Ailish Moyer and Tyler McDowell.</p>
     </footer>
 
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
