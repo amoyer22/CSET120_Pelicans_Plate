@@ -16,7 +16,7 @@ function login(){
     
     if (email === "pelicans.plate@mail.com" && password === "manager"){
         alert("Successful login!")
-        location.replace("home.html")   
+        location.replace("manager.html")
     } else {
         if(localStorage.getItem(email)){
             if(password === localStorage.getItem(email)){
@@ -219,7 +219,7 @@ function clearReceipt() {
 }
 
 
-// Functions for mobile nav
+// Script for mobile nav
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
@@ -228,6 +228,18 @@ mobileNav.addEventListener("click", () => {
     mobileNav.classList.toggle("active");
     navList.classList.toggle("active");
 })
+
+
+// Script for footer subscription
+function subscribe() {
+    let subscriptionbox = document.getElementById("subscribe");
+    if (subscriptionbox.value == "") {
+        alert("Please enter an email if you wish to subscribe.");
+    } else {
+        alert("You have now signed up for email notifications. Thank you!");
+        subscriptionbox.value = ""; 
+    }
+}
 
 
 // Functions for checkout page
@@ -257,4 +269,10 @@ function creditSelect(){
 }
 function purchase(){
     window.location.href = "receipt.html"
+}
+
+
+// Functions for manager menu
+function removeItem() {
+
 }
