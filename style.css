@@ -314,7 +314,7 @@ header {
 #quantityLabel, #quantity input[type=number]{
     font-size: 14px;
 }
-.editPopup{
+#editPopup{
     margin: auto;
     padding: 15px;
     width: 30%;
@@ -322,7 +322,7 @@ header {
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
 }
-.editPopup h1{
+#editPopup h1{
     text-align: center;
     font-size: 32px;
 }

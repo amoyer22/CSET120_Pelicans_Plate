@@ -12,11 +12,11 @@
 </head>
 <body>
     <div id="itemInfo">
-        <button id="itemEdit" onclick="editItem()">Edit</button>
+        <button id="itemEdit" onclick="editOpen()">Edit</button>
     </div>
 
-    <div class="editOverlay">
-        <div class="editPopup">
+    <div id="editOverlay">
+        <div id="editPopup">
             <h1>Edit Item</h1>
             <div id="editDetails">
                 <form id="editForm">
@@ -42,7 +42,7 @@
                     </div>
                 </form>
                 <div id="closeDiv">
-                    <button id="editClose">Close</button>
+                    <button id="editClose" onclick="editClose()">Close</button>
                 </div>
             </div>
         </div>

@@ -121,8 +121,15 @@ function removeFromCart(index){
     cart.splice(index, 1)
     updateCart()
 }
-function editItem(){
-    console.log("edit item")
+function editOpen(){
+    console.log("edit open")
+    let x = document.getElementById("editPopup")
+    x.style.display = "block";
+}
+function editClose(){
+    console.log("edit close")
+    let x = document.getElementById("editPopup")
+    x.style.display = "none";
 }
 function checkout(){
     if(cart.length === 0){
