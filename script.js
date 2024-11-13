@@ -273,7 +273,52 @@ function purchase(){
 
 
 // Functions for manager menu
+function addItem() {
+    let locationQuestion = prompt("Where would you like to add this item?");
+    let location = locationQuestion.toUpperCase();
+    let itemName = prompt("What would you like to add?");
+    let itemImage = "";
+    let itemDesc = prompt("What is the description of the item?");
+    let itemPrice = prompt("How much does the item cost? (Number Only)");
+    let newItem = document.createElement("div");
+    newItem.classList.add("item");
+    newItem.innerHTML = `
+        <div class="itemImage">
+            <img src="images/crab-cakes.jpg" style="max-width: 100px;" alt="${itemName}">
+        </div>
+        <div class="itemDescription">
+            <h2>${itemName}</h2>
+            <p>${itemDesc}</p>
+            <div class="itemInfo">
+                <p class="itemPrice">$${itemPrice}</p>
+                <button type="button" class="btn-signup" onclick="removeItem()">Remove</button>
+            </div>
+        </div>
+    `;
 
+    if (location === "APPETIZERS") {
+        let appetizers = document.getElementById("appetizers");
+        appetizers.appendChild(newItem);
+    }
+    else if (location === "SOUPS") {
+        let soups = document.getElementById("soups");
+        soups.appendChild(newItem);
+    }
+    else if (location === "SALADS") {
+        let salads = document.getElementById("salads");
+        salads.appendChild(newItem);
+    }
+    else if (location === "ENTREES") {
+        let entrees = document.getElementById("entrees");
+        entrees.appendChild(newItem);
+    }
+    else if (location === "BEVERAGES") {
+        let beverages = document.getElementById("beverages");
+        beverages.appendChild(newItem);
+    } else {
+        alert("Error: Couldn't add item. Please try again.");
+    }
+}
 
 function removeItem() {
 
