@@ -369,6 +369,31 @@ form button {
 }
 
 
+/* Styles for checkout page */
+.formFlex{
+    display: flex;
+    justify-content: space-around;
+}
+#extra{
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    resize: none;
+}
+#checkoutBtn{
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+
 /* Styles for footer */
 footer {
     padding: 30px 0;

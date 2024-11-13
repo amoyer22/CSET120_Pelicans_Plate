@@ -205,3 +205,33 @@ mobileNav.addEventListener("click", () => {
     mobileNav.classList.toggle("active");
     navList.classList.toggle("active");
 })
+
+
+// Functions for checkout page
+function cashSelect(){
+    let cashButton = document.getElementById("cash")
+    let cashDiv = document.getElementById("cashDiv")
+
+    if(cashButton.checked){
+        cashDiv.style.display = "block"
+        creditDiv.style.display = "none"
+    }
+    else{
+        cashDiv.style.display = "none"
+    }
+}
+function creditSelect(){
+    let creditButton = document.getElementById("credit")
+    let creditDiv = document.getElementById("creditDiv")
+
+    if(creditButton.checked){
+        creditDiv.style.display = "block"
+        cashDiv.style.display = "none"
+    }
+    else{
+        creditDiv.style.display = "none"
+    }
+}
+function purchase(){
+    window.location.href = "receipt.html"
+}
