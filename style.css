@@ -317,7 +317,13 @@ header {
 #editOverlay{
     height: 100%;
     width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    overflow: auto;
 }
 #editPopup{
     margin: auto;
@@ -326,6 +332,7 @@ header {
     height: auto;
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
+    position: relative;
 }
 #editPopup h1{
     text-align: center;
