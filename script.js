@@ -143,6 +143,14 @@ function clearLocalStorage() {
 }
 
 
+// Function for payment option section */
+function nameSave() {
+    let customerNameElement = document.getElementById("orderName");
+    let customerName = customerNameElement.value;
+    localStorage.setItem("customerName", customerName);
+}
+
+
 //Functions for receipt functionality
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
@@ -153,7 +161,11 @@ function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
     orderNumber.innerHTML = orderNum;
 }
-
+function nameOnOrder() {
+    let name = localStorage.getItem("customerName");
+    let customerName = "Order Name: " + name;
+    orderName.innerHTML = customerName;
+}
 function updateReceipt() {
     let ItemsContainer = document.querySelector("#receipt-table tbody");
     let index = 0;
@@ -202,6 +214,7 @@ function clearReceipt() {
         index++;
     }
     localStorage.removeItem("cartTotal");
+    localStorage.removeItem("customerName");
     window.location.href = "menu.html";
 }
 
