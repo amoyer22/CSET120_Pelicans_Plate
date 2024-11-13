@@ -56,9 +56,9 @@ let items = new Map([
     ["Margarita", 9]
 ])
 function addToCart(event){
-    let itemEle = event.target.closest("#item")
+    let itemEle = event.target.closest(".item")
     let itemName = itemEle.querySelector("h2").textContent
-    let itemPrice = parseFloat(itemEle.querySelector("#itemPrice").textContent.replace("$", ""))
+    let itemPrice = parseFloat(itemEle.querySelector(".itemPrice").textContent.replace("$", ""))
     let itemImage = itemEle.querySelector("img").src
 
     let existingItem = cart.find(cartItem => cartItem.name === itemName)
@@ -90,18 +90,18 @@ function updateCart(){
         let cartItem = document.createElement("div")
         cartItem.classList.add("cart-item")
         cartItem.innerHTML = `
-        <div id="itemContainer">
-            <div id="item">
-                <div id="itemImage">
+        <div class="itemContainer">
+            <div class="item">
+                <div class="itemImage">
                     <img src="${item.image}" width="45px" alt="${item.name}">
                 </div>
-                <div id="itemDescription">
+                <div class="itemDescription">
                     <h2>${item.name}</h2>
-                    <div id="itemInfo">
-                        <p id="itemPrice">$${itemTotalPrice}</p>
+                    <div class="itemInfo">
+                        <p class="itemPrice">$${itemTotalPrice}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button id="itemEdit">Edit</button>
+                        <button class="itemEdit">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
                     </div>
                 </div>
@@ -273,6 +273,8 @@ function purchase(){
 
 
 // Functions for manager menu
+
+
 function removeItem() {
 
 }
