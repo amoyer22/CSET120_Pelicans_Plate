@@ -314,6 +314,11 @@ header {
 #quantityLabel, #quantity input[type=number]{
     font-size: 14px;
 }
+#editOverlay{
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
 #editPopup{
     margin: auto;
     padding: 15px;

@@ -143,9 +143,11 @@ function clearLocalStorage() {
 }
 function editOpen(){
     document.getElementById("editPopup").style.display = "block";
+    document.getElementById("editOverlay").style.display = "block";
 }
 function editClose(){
     document.getElementById("editPopup").style.display = "none";
+    document.getElementById("editOverlay").style.display = "none";
 }
 
 
