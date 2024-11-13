@@ -133,12 +133,26 @@ function checkout(){
         window.location.href = "checkout.html"
     }
 }
+function clearLocalStorage() {
+    let index = 0
+    while (localStorage.getItem(`cartItem${index}`)) {
+        localStorage.removeItem(`cartItem${index}`);
+        index++;
+    }
+    localStorage.removeItem("cartTotal");
+}
 
 
 //Functions for receipt functionality
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
 let receiptTotalCost = document.getElementById("total");
+let orderName = document.getElementById("customer-name");
+
+function orderNumGenerator() {
+    let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
+    orderNumber.innerHTML = orderNum;
+}
 
 function updateReceipt() {
     let ItemsContainer = document.querySelector("#receipt-table tbody");
@@ -156,9 +170,13 @@ function updateReceipt() {
         index++;
     }
 }
-function orderNumGenerator() {
-    let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
-    orderNumber.innerHTML = orderNum;
+function receiptTotal() {
+    let total = localStorage.getItem("cartTotal");    
+    if (total) {
+        receiptTotalCost.innerHTML = "Total: $" + total;
+    } else {
+        receiptTotalCost.innerHTML = "Total: $" + 0;
+    }
 }
 function timeGeneration() {
     let cartItems = document.querySelector("#cart-items");
@@ -176,14 +194,6 @@ function timeGeneration() {
     }
     let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
-}
-function receiptTotal() {
-    let total = localStorage.getItem("cartTotal");    
-    if (total) {
-        receiptTotalCost.innerHTML = "Total: $" + total;
-    } else {
-        receiptTotalCost.innerHTML = "Total: $" + 0;
-    }
 }
 function clearReceipt() {
     let index = 0
