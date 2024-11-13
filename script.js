@@ -121,16 +121,6 @@ function removeFromCart(index){
     cart.splice(index, 1)
     updateCart()
 }
-function editOpen(){
-    console.log("edit open")
-    let x = document.getElementById("editPopup")
-    x.style.display = "block";
-}
-function editClose(){
-    console.log("edit close")
-    let x = document.getElementById("editPopup")
-    x.style.display = "none";
-}
 function checkout(){
     if(cart.length === 0){
         alert("You have no items in your cart!")
@@ -150,6 +140,12 @@ function clearLocalStorage() {
         index++;
     }
     localStorage.removeItem("cartTotal");
+}
+function editOpen(){
+    document.getElementById("editPopup").style.display = "block";
+}
+function editClose(){
+    document.getElementById("editPopup").style.display = "none";
 }
 
 
