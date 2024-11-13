@@ -11,8 +11,142 @@
     <title>Pelican's Plate: Checkout</title>
 </head>
 <body>
-    <h1>Checkout</h1>
+    <header>
+        <div class="mobile-nav">
+            <img class="logo" src="#" alt="hamburger icon">
+            <nav class="mobile-navbar">
+                <ul class="mobile-nav-list">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="rewards.html">Rewards</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navigation">
+            <nav class="navbar">
+                <a href="home.html"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
+                <ul class="nav-list flex">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="rewards.html">Rewards</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <section id="checkout">
+        <div class="container">
+            <h1>Checkout</h1>
+            <form>
+                <h2>Order Information</h2>
+                <div class="form-section">
+                    <label for="orderName">Order Name*:</label>
+                    <input type="text" id="orderName">
+                </div>
+                <div class="form-section">
+                    <label for="email">Email*:</label>
+                    <input type="email" id="email" placeholder="pelican@example.com">
+                </div>
+                <div class="form-section">
+                    <label for="phone">Phone Number*:</label>
+                    <input type="tel" id="phone" maxlength="12" placeholder="555-555-5555">
+                </div>
+                <div class="form-section">
+                    <label for="address">Address*:</label>
+                    <input type="text" id="address">
+                </div>
+
+                <h2 style="margin-top: 1em;">Payment Type</h2>
+                <div class="form-section">
+                    <div class="formFlex">
+                        <div>
+                            <input type="radio" name="payType" id="cash" onclick="cashSelect()">
+                            <label for="cash">Cash</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked>
+                            <label for="credit">Credit</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div id="cashDiv" style="display: none">
+                        <label for="cashAmount">Cash Amount*:</label>
+                        <input type="text" id="cashAmount" placeholder="$0.00">
+                    </div>
+                </div>
+                <div class="form-section">
+                    <div id="creditDiv" style="display: block">
+                        <div>
+                            <label for="cardName">Name on Card*:</label>
+                            <input type="text"id="cardName">
+                        </div>
+                        <div>
+                            <label for="creditAmount">Credit Card Number*:</label>
+                            <input type="text" id="creditAmount" maxlength="19" placeholder="1111-2222-3333-4444">
+                        </div>
+                        <div>
+                            <label for="expMonth">Exp. Month*:</label>
+                            <input type="text" id="expMonth" placeholder="September">
+                        </div>
+                        <div>
+                            <label for="expYear">Exp. Year*:</label>
+                            <input type="text" id="expYear" maxlength="4" placeholder="2037">
+                        </div>
+                        <div>
+                            <label for="cvv">CVV*:</label>
+                            <input type="text" id="cvv" maxlength="3" placeholder="555">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <label for="tip">Tip Amount:</label>
+                    <input type="text" id="tip" placeholder="$0.00">
+                </div>
+
+                <h2 style="margin-top: 1em;">Extra Information</h2>
+                <div class="form-section">
+                    <textarea id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
+                </div>
+            </form>
+            <button type="submit" id="checkoutBtn" onclick="purchase()">Place Order</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container flex">
+            <div class="footer-nav">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="menu.html">Our Menu</a></li>
+                    <li><a href="rewards.html">Rewards</a></li>
+                </ul>
+            </div>
+            <div class="right-side flex">
+                <div class="socials">
+                    <p>Find us on these socials!</p>
+                    <div class="flex">
+                        <a href="https://x.com/?lang=en" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="https://www.facebook.com/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="https://www.instagram.com/sem/campaign/emailsignup/?campaign_id=13530334509&extra_1=s%7Cc%7C547348909639%7Ce%7Cinstagram%20%27%7C&placement=&creative=547348909639&keyword=instagram%20%27&partner_id=googlesem&extra_2=campaignid%3D13530334509%26adgroupid%3D126262421974%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1321618851291%26loc_physical_ms%3D1025001%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gclid=Cj0KCQiAire5BhCNARIsAM53K1hjxf2Eb0WLGTGTy42ytXcmj4lQ4t-0I-X3YV2-IES9q4oc91CaVdIaAlNOEALw_wcB" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="https://www.youtube.com/" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="subscribe">
+                    <p>Subscribe for updates about us!</p>
+                    <div class="flex">
+                        <input type="email" id="subscribe" placeholder="Email Address">
+                        <button type="submit" class="btn-signup">Subscribe!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright&copy; 2024 All rights reserved. Created by Ailish Moyer and Tyler McDowell.</p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

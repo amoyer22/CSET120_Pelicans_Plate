@@ -30,6 +30,7 @@ function login(){
     }
 }
 
+
 // Functions for cart
 let cart = []
 let items = new Map([
@@ -159,4 +160,34 @@ function timeGeneration() {
     }
     let timeEst = "Your order will be ready in " + time;
     timeEstimate.innerHTML = timeEst;
+}
+
+
+// Functions for checkout page
+function cashSelect(){
+    let cashButton = document.getElementById("cash")
+    let cashDiv = document.getElementById("cashDiv")
+
+    if(cashButton.checked){
+        cashDiv.style.display = "block"
+        creditDiv.style.display = "none"
+    }
+    else{
+        cashDiv.style.display = "none"
+    }
+}
+function creditSelect(){
+    let creditButton = document.getElementById("credit")
+    let creditDiv = document.getElementById("creditDiv")
+
+    if(creditButton.checked){
+        creditDiv.style.display = "block"
+        cashDiv.style.display = "none"
+    }
+    else{
+        creditDiv.style.display = "none"
+    }
+}
+function purchase(){
+    window.location.href = "receipt.html"
 }

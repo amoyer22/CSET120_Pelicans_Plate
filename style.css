@@ -133,23 +133,6 @@ input {
 .mobile-nav {
     display: none;
 }
-/* Styles for login page */
-.login {
-    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='80' height='23.5' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%2379add8ff'/><path d='M-20.133 4.568C-13.178 4.932-6.452 7.376 0 10c6.452 2.624 13.036 5.072 20 5 6.967-.072 13.56-2.341 20-5 6.44-2.659 13.033-4.928 20-5 6.964-.072 13.548 2.376 20 5s13.178 5.068 20.133 5.432'  stroke-width='0.5' stroke='%237ac1d8ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-}
-#login{
-    height: 100vh;
-    position: relative;
-}
-#login input{
-    display: block;
-    margin: 5px auto;
-    border: 2px solid var(--logoDarkBlue);
-    padding: 5px;
-    font-family: "Koh Santepheap", serif;
-    color: #424141;
-    border-radius: .5em;
-}
 header {
     background-color: var(--logoBlue);
     padding: 2em 0;
@@ -201,141 +184,7 @@ header {
 }
 
 
-/* Styles for receipt section */
-#receipt p {
-    margin: 5px 0;
-}
-.receipt-container{
-    background-color: rgba(122, 193, 216, .3);
-    margin: 30px 0;
-    padding: 80px;
-    border-radius: 0.5em;
-}
-#cart-items {
-    margin-bottom: 60px;
-}
-#thank-you {
-    margin-top: 30px;
-}
-
-
-/* Styles for rewards page */
-form {
-    background-color: rgba(122, 193, 216, .3);
-    padding: 30px 0;
-    margin: 30px auto;
-    border-radius: .5em;
-    width: 60%;
-}
-form .flex {
-    flex-direction: column;
-}
-form input {
-    display: inline;
-    margin: 10px 0;
-}
-form button {
-    margin: 10px 0;
-}
-.form-section {
-    display: block;
-}
-
-
-/* Styles for footer */
-footer {
-    padding: 30px 0;
-    background-color: var(--logoDarkBlue);
-}
-footer .flex {
-    align-items: center;
-    justify-content: space-between;
-}
-.footer-nav h2 {
-    font-family: "Koh Santepheap", serif;
-    color: var(--white);
-}
-.footer-nav ul {
-    list-style-type: none;
-}
-.footer-nav ul li a {
-    text-decoration: none;
-    color: var(--white);
-}
-.footer-nav ul li a:hover {
-    color: var(--blue);
-    transition: .15s;
-}
-.right-side.flex {
-    justify-content: end;
-    flex-direction: column;
-}
-.socials {
-    margin-bottom: 15px;
-    color: var(--white);
-}
-.socials .flex {
-    justify-content: space-evenly;
-}
-.socials p, .subscribe p {
-    text-align: center;
-    color: var(--white);
-}
-.socials a {
-    color: var(--white);
-    font-size: 150%;
-    margin-top: 5px;
-}
-.socials a:hover {
-    color: var(--blue);
-    transition: .15s;
-}
-.subscribe input {
-    display: block;
-    margin: 5px auto;
-    margin-right: 10px;
-    border: 2px solid var(--logoDarkBlue);
-    padding: 8px;
-    font-family: "Koh Santepheap", serif;
-    color: #424141;
-    background-color: var(--white);
-    border-radius: .5em;
-}
-.copyright {
-    padding-top: 3em;
-    text-align: center;
-    font-size: 80%;
-    color: var(--white);
-}
-#guestLink{
-    color: var(--logoDarkBlue)
-}
-
-
-/* Styles for menu page */
-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 70px;
-    width: auto;
-    height: 21%;
-    background-color: var(--logoBlue);
-    color: var(--logoDarkBlue);
-    border-bottom: 3px solid var(--logoDarkBlue);
-    font-family: "Averia Sans Libre", sans-serif;
-    font-size: 200%;
-    font-weight: 600;
-}
-#navigation{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    list-style-type: none;
-}
-#navigation a{
-    text-decoration: none;
-}
+/* Styles for menu */
 #menuContainer{
     display: flex;
     height: 79%;
@@ -443,4 +292,136 @@ header{
 }
 #quantityLabel, #quantity input[type=number]{
     font-size: 14px;
+}
+
+/* Styles for receipt section */
+#receipt p {
+    margin: 5px 0;
+}
+.receipt-container{
+    background-color: rgba(122, 193, 216, .3);
+    margin: 30px 0;
+    padding: 80px;
+    border-radius: 0.5em;
+}
+#cart-items {
+    margin-bottom: 60px;
+}
+#thank-you {
+    margin-top: 30px;
+}
+
+
+/* Styles for rewards page */
+form {
+    background-color: rgba(122, 193, 216, .3);
+    padding: 30px 0;
+    margin: 30px auto;
+    border-radius: .5em;
+    width: 60%;
+}
+form .flex {
+    flex-direction: column;
+}
+form input {
+    display: inline;
+    margin: 10px 0;
+}
+form button {
+    margin: 10px 0;
+}
+.form-section {
+    display: block;
+}
+
+
+/* Styles for checkout page */
+.formFlex{
+    display: flex;
+    justify-content: space-around;
+}
+#extra{
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    resize: none;
+}
+#checkoutBtn{
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+
+/* Styles for footer */
+footer {
+    padding: 30px 0;
+    background-color: var(--logoDarkBlue);
+}
+footer .flex {
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-nav h2 {
+    font-family: "Koh Santepheap", serif;
+    color: var(--white);
+}
+.footer-nav ul {
+    list-style-type: none;
+}
+.footer-nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+}
+.footer-nav ul li a:hover {
+    color: var(--blue);
+    transition: .15s;
+}
+.right-side.flex {
+    justify-content: end;
+    flex-direction: column;
+}
+.socials {
+    margin-bottom: 15px;
+    color: var(--white);
+}
+.socials .flex {
+    justify-content: space-evenly;
+}
+.socials p, .subscribe p {
+    text-align: center;
+    color: var(--white);
+}
+.socials a {
+    color: var(--white);
+    font-size: 150%;
+    margin-top: 5px;
+}
+.socials a:hover {
+    color: var(--blue);
+    transition: .15s;
+}
+.subscribe input {
+    display: block;
+    margin: 5px auto;
+    margin-right: 10px;
+    border: 2px solid var(--logoDarkBlue);
+    padding: 8px;
+    font-family: "Koh Santepheap", serif;
+    color: #424141;
+    background-color: var(--white);
+    border-radius: .5em;
+}
+.copyright {
+    padding-top: 3em;
+    text-align: center;
+    font-size: 80%;
+    color: var(--white);
 }
