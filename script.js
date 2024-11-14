@@ -246,21 +246,14 @@ let items = [
         ]
     }
 ]
-
 function addToCart(event){
     let itemEle = event.target.closest("#item")
     let itemName = itemEle.querySelector("h2").textContent
     let itemPrice = parseFloat(itemEle.querySelector("#itemPrice").textContent.replace("$", ""))
     let itemImage = itemEle.querySelector("img").src
 
-    let selectedAddOns = []
-    document.querySelectorAll("#editForm input[type='checkbox']:checked").forEach(addOnCheckbox => {
-        let addOnName = addOnCheckbox.nextElementSibling.textContent
-        let addOnPrice = parseFloat(addOnCheckbox.dataset.price)
-        selectedAddOns.push({name: addOnName, price: addOnPrice})
-    })
-
     let existingItem = cart.find(cartItem => cartItem.name === itemName)
+
     if(existingItem){
         alert("This item is already in your cart!")
     }
@@ -297,7 +290,6 @@ function updateCart(){
                     <h2>${item.name}</h2>
                     <div id="itemInfo">
                         <p id="itemPrice">$${itemTotalPrice}</p>
-                        <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
                         <button id="itemEdit" onclick="editOpen()">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
