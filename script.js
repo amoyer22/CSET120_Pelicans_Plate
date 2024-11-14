@@ -247,9 +247,9 @@ let items = [
     }
 ]
 function addToCart(event){
-    let itemEle = event.target.closest("#item")
+    let itemEle = event.target.closest(".item")
     let itemName = itemEle.querySelector("h2").textContent
-    let itemPrice = parseFloat(itemEle.querySelector("#itemPrice").textContent.replace("$", ""))
+    let itemPrice = parseFloat(itemEle.querySelector(".itemPrice").textContent.replace("$", ""))
     let itemImage = itemEle.querySelector("img").src
 
     let existingItem = cart.find(cartItem => cartItem.name === itemName)
