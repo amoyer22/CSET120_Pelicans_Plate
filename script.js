@@ -43,8 +43,7 @@ function addToCart(event){
 
     if(existingItem){
         alert("This item is already in your cart!")
-    }
-    else{
+    } else {
         let item = {
             name: itemName,
             price: itemPrice,
@@ -209,7 +208,6 @@ function clearReceipt() {
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
-
 mobileNav.addEventListener("click", () => {
     mobileNav.classList.toggle("active");
     navList.classList.toggle("active");
@@ -236,8 +234,7 @@ function cashSelect(){
     if(cashButton.checked){
         cashDiv.style.display = "block"
         creditDiv.style.display = "none"
-    }
-    else{
+    } else{
         cashDiv.style.display = "none"
     }
 }
@@ -248,8 +245,7 @@ function creditSelect(){
     if(creditButton.checked){
         creditDiv.style.display = "block"
         cashDiv.style.display = "none"
-    }
-    else{
+    } else{
         creditDiv.style.display = "none"
     }
 }
