@@ -204,7 +204,7 @@ header {
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
 }
-#itemContainer{
+.itemContainer{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -216,7 +216,7 @@ header {
     margin-top: 20px;
     margin-bottom: 12px;
 }
-#item{
+.item{
     display: flex;
     width: calc(50% - 5px);
     height: auto;
@@ -224,13 +224,13 @@ header {
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
 }
-#itemImage{
+.itemImage{
     margin-right: 25px;
 }
-#itemImage img{
+.itemImage img{
     display: flex;
 }
-#itemDescription h2{
+.itemDescription h2{
     margin: 0;
 }
 #cartContainer{
@@ -263,15 +263,15 @@ header {
     margin-bottom: 5px;
     font-size: 14px;
 }
-#item p{
+.item p{
     margin: 5px 0;
 }
-#itemInfo #itemPrice{
+.itemInfo .itemPrice{
     display: inline-block;
     margin-right: 10px;
     font-size: 14px;
 }
-#itemAdd, #itemEdit{
+.itemAdd, .itemEdit{
     padding: 3px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
@@ -281,7 +281,7 @@ header {
     font-size: 12px;
     cursor: pointer;
 }
-#itemEdit{
+.itemEdit{
     margin: 0px 10px 0px 10px;
 }
 #cart #itemRemove{
