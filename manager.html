@@ -10,17 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Pelican's Plate: Rewards</title>
+    
+    <title>MANAGER MENU</title>
 </head>
 <body>
     <header>
         <div class="mobile-nav">
             <nav class="mobile-navbar">
-                <a href="home.html">Pelican's Plate</a>
+                <a href="#">Pelican's Plate</a>
                 <ul class="mobile-nav-list">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="manager.html">Menu</a></li>
+                    <li><a href="lto.html">LTO Creation</a></li>
+                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -31,50 +32,55 @@
         </div>
         <div class="navigation">
             <nav class="navbar">
-                <a href="home.html"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
+                <a href="#"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
                 <ul class="nav-list flex">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="manager.html">Menu</a></li>
+                    <li><a href="lto.html">LTO Creation</a></li>
+                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <div id="menuContainer">
+        <div id="menu">
+            <button type="button" class="btn-manager" onclick="addItem()">ADD MENU ITEM</button>
+            <h1 class="first-menu-catagory">Appetizers</h1>
+            <div class="itemContainer" id="appetizers">
 
-    <section id="rewards">
-        <div class="container">
-            <h1>Rewards Program</h1>
-            <p>The Pelican's Plate rewards program gives you points every time you order in restaurant or online! You can redeem your points at our restaurant for exclusive deals and merchandise! It's perfect for our loyal customers who keep coming back for more. Sign up for our members rewards program in the form below!</p>
-            <small>*Every $1 spent = 1 point. Point redemption is not avaliable online, must redeem at our in person location.*</small>
-            <form action="mailto:tmcdowell7037@stevenscollege.edu" method="post">
-                <h2>Pelican's Plate Rewards Program</h2>
-                <div class="flex">
-                    <div class="form-section">
-                        <label for="fname">First Name*:</label>
-                        <input type="text" id="fname" required>
-                    </div>
-                    <div class="form-section">
-                        <label for="lname">Last Name*:</label>
-                        <input type="text" id="lname" required>
-                    </div>
-                    <div class="form-section">
-                        <label for="email">Email*:</label>
-                        <input type="text" id="email" required>
-                    </div>
-                    <div class="form-section">
-                        <label for="phone">Phone Number*:</label>
-                        <input type="tel" id="phone" required maxlength="12">
-                    </div>
-                    <div class="form-section">
-                        <label for="dob">Date Of Birth:</label>
-                        <input type="date" id="dob">
-                    </div>
-                </div> 
-                <button type="submit" class="btn-signup" onclick="rewardsSignUp()">Sign Up!</button>
-            </form>
+            </div>
+            <h1 class="menu-catagory">Soups</h1>
+            <div class="itemContainer" id="soups">
+                
+            </div>
+            <h1 class="menu-catagory">Salads</h1>
+            <div class="itemContainer" id="salad">
+                
+            </div>
+            <h1 class="menu-catagory">Entrees</h1>
+            <div class="itemContainer" id="entree">
+                
+            </div>
+            <h1 class="menu-catagory">Beverages</h1>
+            <div class="itemContainer" id="bev">
+                
+            </div>
         </div>
-    </section>
+
+        <div id="cartContainer">
+            <div id="cartHeading">
+                <h1>Your Cart</h1>
+            </div>
+
+            <div id="cart">
+            </div>
+
+            <div id="purchaseContainer">
+                <h2>Total: $0</h2>
+                <button id="purchaseButton">Checkout</button>
+            </div>
+        </div>
+    </div>
 
 
     <footer>
@@ -82,9 +88,9 @@
             <div class="footer-nav">
                 <h2>Links</h2>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Menu</a></li>
+                    <li><a href="#">Rewards</a></li>
                 </ul>
             </div>
             <div class="right-side flex">
@@ -101,7 +107,7 @@
                     <p>Subscribe for updates about us!</p>
                     <div class="flex">
                         <input type="email" id="subscribe" placeholder="Email Address">
-                        <button type="button" class="btn-signup" onclick="subscribe()">Subscribe!</button>
+                        <button type="button" class="btn-signup">Subscribe!</button>
                     </div>
                 </div>
             </div>
@@ -113,5 +119,14 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            createManagerMenuItems("appetizers", appMenu);
+            createManagerMenuItems("soups", soupMenu);
+            createManagerMenuItems("salad", saladMenu);
+            createManagerMenuItems("entree", entreeMenu);
+            createManagerMenuItems("bev", bevMenu);
+        })
+    </script>
 </body>
 </html>
