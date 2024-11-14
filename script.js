@@ -33,28 +33,6 @@ function login(){
 
 // Functions for cart
 let cart = []
-let items = new Map([
-    ["Crab Cakes", 14],
-    ["Crispy Calamari", 12],
-    ["Shrimp Cocktail", 16],
-    ["Oysters Rockefeller", 18],
-    ["Fish Tacos", 13],
-    ["New England Clam Chowder", 12],
-    ["Seafood Bisque", 14],
-    ["Pelicans House Salad", 8],
-    ["Ceasar Salad with Grilled Salmon", 16],
-    ["Citrus Shrimp Salad", 18],
-    ["Blackened Grouper", 26],
-    ["Lobster Tail", 36],
-    ["Pan seared Scallops", 28],
-    ["Shrimp and Grits", 22],
-    ["Seafood Paella", 30],
-    ["Pelicans Punch", 9],
-    ["Homemade Lemonade", 5],
-    ["Citrus Cooler", 6],
-    ["Frozen Pina Colada", 10],
-    ["Margarita", 9]
-])
 function addToCart(event){
     let itemEle = event.target.closest(".item")
     let itemName = itemEle.querySelector("h2").textContent
@@ -273,53 +251,82 @@ function purchase(){
 
 
 // Functions for manager menu
-function addItem() {
-    let locationQuestion = prompt("Where would you like to add this item?");
-    let location = locationQuestion.toUpperCase();
-    let itemName = prompt("What would you like to add?");
-    let itemImage = "";
-    let itemDesc = prompt("What is the description of the item?");
-    let itemPrice = prompt("How much does the item cost? (Number Only)");
-    let newItem = document.createElement("div");
-    newItem.classList.add("item");
-    newItem.innerHTML = `
-        <div class="itemImage">
-            <img src="images/crab-cakes.jpg" style="max-width: 100px;" alt="${itemName}">
-        </div>
-        <div class="itemDescription">
-            <h2>${itemName}</h2>
-            <p>${itemDesc}</p>
-            <div class="itemInfo">
-                <p class="itemPrice">$${itemPrice}</p>
-                <button type="button" class="btn-signup" onclick="removeItem()">Remove</button>
-            </div>
-        </div>
-    `;
+let appMenu = new Map ([
+    ["Crab Cakes", {price: 14, description: "A delicious fishcake made with fresh crab meat. Deep fried to perfection.", image: "images/crab-cakes.jpg"}],
+    ["Crispy Calamari", {price: 12, description: "", image: "images/crispy-calamari.png"}],
+    ["Shrimp Cocktail", {price: 16, description: "", image: "images/shrimp-cocktail.jpg"}],
+    ["Oysters Rockefeller (6 Pc.)", {price: 18, description: "", image: "images/oysters-rockefeller.png"}],
+    ["Fish Tacos", {price: 13, description: "", image: "images/fish-tacos.jpg"}]
+])
+let soupMenu = new Map ([
+    ["New England Clam Chowder", {price: 12, description: "", image: "images/new-england-clam-chowder.jpg"}],
+    ["Seafood Bisque", {price: 14, description: "", image: "images/seafood-bisque.jpg"}]
+])
+let saladMenu = new Map ([
+    ["Pelican's House Salad", {price: 8, description: "", image: "images/house-salad.jpg"}],
+    ["Caesar Salad with Grilled Salmon", {price: 16, description: "", image: "images/grilled-salmon-salad.jpg"}],
+    ["Citrus Shrimp Salad", {price: 18, description: "", image: "images/citrus-shrimp-salad.png"}]
+])
+let entreeMenu = new Map ([
+    ["Blackened Grouper", {price: 26, description: "", image: "images/blackened-grouper.jpg"}],
+    ["Lobster Tail", {price: 36, description: "", image: "images/lobster-tail.jpg"}],
+    ["Pan-seared Scallops", {price: 28, description: "", image: "images/pan-seared-scallops.jpg"}],
+    ["Shrimp & Grits", {price: 22, description: "", image: "images/shrimp-and-grits.jpg"}],
+    ["Seafood Paella", {price: 30, description: "", image: "images/seafood-paella.png"}]
+])
+let bevMenu = new Map ([
+    ["Pelican's Punch", {price: 9, description: "", image: "images/pelicans-punch.jpg"}],
+    ["Homemade Lemonade", {price: 5, description: "", image: "images/lemonade.jpg"}],
+    ["Citrus Cooler", {price: 6, description: "", image: "images/citrus-cooler.jpg"}],
+    ["Frozen Piña Colada", {price: 10, description: "", image: "images/frozen-pina-colada.jpg"}],
+    ["Margartia", {price: 9, description: "", image: "images/margarita.png"}]
+])
 
-    if (location === "APPETIZERS") {
-        let appetizers = document.getElementById("appetizers");
-        appetizers.appendChild(newItem);
-    }
-    else if (location === "SOUPS") {
-        let soups = document.getElementById("soups");
-        soups.appendChild(newItem);
-    }
-    else if (location === "SALADS") {
-        let salads = document.getElementById("salads");
-        salads.appendChild(newItem);
-    }
-    else if (location === "ENTREES") {
-        let entrees = document.getElementById("entrees");
-        entrees.appendChild(newItem);
-    }
-    else if (location === "BEVERAGES") {
-        let beverages = document.getElementById("beverages");
-        beverages.appendChild(newItem);
+function createMenuItems(catagoryId, itemsMap) {
+    let container = document.getElementById(catagoryId);
+    itemsMap.forEach((item, name) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        itemDiv.innerHTML = `
+            <div class="itemImage">
+                <img src="${item.image}" style="max-width: 100px;" alt="${name}">
+            </div>
+            <div class="itemDescription">
+                <h2>${name}</h2>
+                <p>${item.description}</p>
+                <div class="itemInfo">
+                    <p class="itemPrice">$${item.price}</p>
+                    <button type="button" class="btn-signup" onclick="removeItem("${name}", "${catagoryId}")">Remove</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(itemDiv);
+    });
+}
+document.addEventListener("DOMContentLoaded", () => {
+    createMenuItems("appetizers", appMenu);
+    createMenuItems("soups", soupMenu);
+    createMenuItems("salad", saladMenu);
+    createMenuItems("entree", entreeMenu);
+    createMenuItems("bev", bevMenu);
+})
+function addItem() {
+    let catagory = prompt("Enter catagory: ").toLowerCase();
+    let name = prompt("Enter item name: ");
+    let image = prompt("Enter image url: ");
+    let description = prompt("Enter description: ");
+    let price = prompt("Enter price (Number Only): ");
+
+    if (catagory && name && !isNaN(price) && image) {
+        createMenuItems.set(name, {price, description, image});
+        createMenuItems(catagory, menuItems);
     } else {
-        alert("Error: Couldn't add item. Please try again.");
+        alert("Error. Please try again.")
     }
 }
-
-function removeItem() {
-
+function removeItem(name, catagoryId) {
+    if (menuItems.has(name)) {
+        menuItems.delete(name);
+        createMenuItems(catagoryId, menuItems);
+    }
 }
