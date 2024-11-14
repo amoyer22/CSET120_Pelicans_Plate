@@ -33,28 +33,220 @@ function login(){
 
 // Functions for cart
 let cart = []
-let items = new Map([
-    ["Crab Cakes", 14],
-    ["Crispy Calamari", 12],
-    ["Shrimp Cocktail", 16],
-    ["Oysters Rockefeller", 18],
-    ["Fish Tacos", 13],
-    ["New England Clam Chowder", 12],
-    ["Seafood Bisque", 14],
-    ["Pelicans House Salad", 8],
-    ["Ceasar Salad with Grilled Salmon", 16],
-    ["Citrus Shrimp Salad", 18],
-    ["Blackened Grouper", 26],
-    ["Lobster Tail", 36],
-    ["Pan seared Scallops", 28],
-    ["Shrimp and Grits", 22],
-    ["Seafood Paella", 30],
-    ["Pelicans Punch", 9],
-    ["Homemade Lemonade", 5],
-    ["Citrus Cooler", 6],
-    ["Frozen Pina Colada", 10],
-    ["Margarita", 9]
-])
+let items = [
+    {
+        name: "Crab Cakes",
+        price: 14,
+        image: "images/crab-cakes.jpg",
+        addOns: [
+            {name: "Extra lemon wedge", price: 0.50},
+            {name: "Extra dipping sauce", price: 1},
+            {name: "No herbs", price: 1}
+        ]
+    },
+    {
+        name: "Crispy Calamari",
+        price: 12,
+        image: "images/crispy-calamari.png",
+        addOns: [
+            {name: "No chili flakes", price: 0},
+            {name: "Extra marinara", price: 0.75},
+            {name: "Lemon wedge", price: 0.50}
+        ]
+    },
+    {
+        name: "Shrimp Cocktail",
+        price: 16,
+        image: "images/shrimp-cocktail.jpg",
+        addOns: [
+            {name: "4 extra shrimp", price: 2},
+            {name: "8 extra shrimp", price: 4},
+            {name: "Extra lemon", price: 0.50},
+            {name: "No cocktail sauce", price: 0}
+        ]
+    },
+    {
+        name: "Oysters Rockefeller",
+        price: 18,
+        image: "images/oysters-rockefeller.png",
+        addOns: [
+            {name: "Extra spinach", price: 1},
+            {name: "Substitute breadcrumbs for parmesan", price: 1.50},
+            {name: "No parmesan", price: 0}
+        ]
+    },
+    {
+        name: "Fish Tacos",
+        price: 13,
+        image: "images/fish-tacos.jpg",
+        addOns: [
+            {name: "No cilantro", price: 0},
+            {name: "Add avocado", price: 1.50},
+            {name: "Spicy sauce", price: 0.50},
+            {name: "Mild sauce", price: 0.50}
+        ]
+    },
+    {
+        name: "Oysters Rockefeller",
+        price: 18,
+        image: "images/oysters-rockefeller.png",
+        addOns: [
+            {name: "Extra spinach", price: 1},
+            {name: "Substitute breadcrumbs for parmesan", price: 1.50},
+            {name: "No parmesan", price: 0}
+        ]
+    },
+    {
+        name: "New England Clam Chowder",
+        price: 12,
+        image: "images/new-england-clam-chowder.jpg",
+        addOns: [
+            {name: "Extra crackers", price: 0.50},
+            {name: "Add hot sauce on the side", price: 0.25},
+            {name: "No bacon", price: 0}
+        ]
+    },
+    {
+        name: "Seafood Bisque",
+        price: 14,
+        image: "images/seafood-bisque.jpg",
+        addOns: [
+            {name: "Extra cream", price: 0.75},
+            {name: "No garlic", price: 0},
+            {name: "No sherry drizzle", price: 0}
+        ]
+    },
+    {
+        name: "Pelican's House Salad",
+        price: 8,
+        image: "images/house-salad.jpg",
+        addOns: [
+            {name: "No onions", price: 0},
+            {name: "Extra croutons", price: 0.50},
+            {name: "Add avocado", price: 1.50}
+        ]
+    },
+    {
+        name: "Caesar Salad with Grilled Salmon",
+        price: 16,
+        image: "images/grilled-salmon-salad.jpg",
+        addOns: [
+            {name: "No croutons", price: 0},
+            {name: "Extra parmesan", price: 0.50},
+            {name: "Dressing on the side", price: 0}
+        ]
+    },
+    {
+        name: "Citrus Shrimp Salad",
+        price: 18,
+        image: "images/citrus-shrimp-salad.png",
+        addOns: [
+            {name: "No citrus dressing", price: 0},
+            {name: "Add avocado", price: 0.50},
+            {name: "Substitute grilled chicken for shrimp", price: 2}
+        ]
+    },
+    {
+        name: "Blackened Grouper",
+        price: 26,
+        image: "images/blackened-grouper.jpg",
+        addOns: [
+            {name: "Make it mild spice", price: 0},
+            {name: "No blackened seasoning", price: 0},
+            {name: "Add lemon butter", price: 1}
+        ]
+    },
+    {
+        name: "Lobster Tail",
+        price: 36,
+        image: "images/lobster-tail.jpg",
+        addOns: [
+            {name: "No garlic butter", price: 0},
+            {name: "Extra lemon", price: 0.50},
+            {name: "Shell removed", price: 0}
+        ]
+    },
+    {
+        name: "Pan-seared Scallops",
+        price: 28,
+        image: "images/pan-seared-scallops.jpg",
+        addOns: [
+            {name: "No seasoning", price: 0},
+            {name: "Extra sear", price: 0.50},
+            {name: "Side of melted butter", price: 1}
+        ]
+    },
+    {
+        name: "Shrimp and Grits",
+        price: 22,
+        image: "images/shrimp-and-grits.jpg",
+        addOns: [
+            {name: "No bacon", price: 0},
+            {name: "Extra cheese in grits", price: 1},
+            {name: "Swap to mild shrimp", price: 0.50}
+        ]
+    },
+    {
+        name: "Seafood Paella",
+        price: 30,
+        image: "images/seafood-paella.png",
+        addOns: [
+            {name: "No mussels", price: 0},
+            {name: "4 extra shrimp", price: 2},
+            {name: "8 extra shrimp", price: 4},
+            {name: "Add mild spice", price: 0.50}
+        ]
+    },
+    {
+        name: "Pelican's Punch",
+        price: 9,
+        image: "images/pelicans-punch.jpg",
+        addOns: [
+            {name: "Less sugar", price: 0},
+            {name: "Extra fruit garnish", price: 0.75}
+        ]
+    },
+    {
+        name: "Homemade Lemonade",
+        price: 5,
+        image: "images/lemonade.jpg",
+        addOns: [
+            {name: "Less sugar", price: 0},
+            {name: "Add mint", price: 0.50},
+            {name: "Make it sparkling", price: 0.75}
+        ]
+    },
+    {
+        name: "Citrus Cooler",
+        price: 6,
+        image: "images/citrus-cooler.jpg",
+        addOns: [
+            {name: "No lime", price: 0},
+            {name: "Extra citrus", price: 0.75},
+            {name: "Add soda water", price: 0.50}
+        ]
+    },
+    {
+        name: "Frozen Piña Colada",
+        price: 10,
+        image: "images/frozen-pina-colada.jpg",
+        addOns: [
+            {name: "No whipped cream", price: 0},
+            {name: "Add a cherry", price: 0.50}
+        ]
+    }, 
+    {
+        name: "Margarita",
+        price: 9,
+        image: "images/margarita.png",
+        addOns: [
+            {name: "No salt rim", price: 0},
+            {name: "Extra lime", price: 0.50},
+            {name: "Add jalapeño slices", price: 0.75}
+        ]
+    }
+]
+
 function addToCart(event){
     let itemEle = event.target.closest("#item")
     let itemName = itemEle.querySelector("h2").textContent
