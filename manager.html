@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    
     <title>MANAGER MENU</title>
 </head>
 <body>
@@ -21,7 +20,6 @@
                 <ul class="mobile-nav-list">
                     <li><a href="manager.html">Menu</a></li>
                     <li><a href="lto.html">LTO Creation</a></li>
-                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -36,7 +34,6 @@
                 <ul class="nav-list flex">
                     <li><a href="manager.html">Menu</a></li>
                     <li><a href="lto.html">LTO Creation</a></li>
-                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,6 +42,10 @@
     <div id="menuContainer">
         <div id="menu">
             <button type="button" class="btn-manager" onclick="addItem()">ADD MENU ITEM</button>
+            <div class="menu-link">
+                <a href="menu.html">Look at customer menu here.</a>
+            </div>
+            
             <h1 class="first-menu-catagory">Appetizers</h1>
             <div class="itemContainer" id="appetizers">
 
@@ -54,15 +55,15 @@
                 
             </div>
             <h1 class="menu-catagory">Salads</h1>
-            <div class="itemContainer" id="salad">
+            <div class="itemContainer" id="salads">
                 
             </div>
             <h1 class="menu-catagory">Entrees</h1>
-            <div class="itemContainer" id="entree">
+            <div class="itemContainer" id="entrees">
                 
             </div>
             <h1 class="menu-catagory">Beverages</h1>
-            <div class="itemContainer" id="bev">
+            <div class="itemContainer" id="beverages">
                 
             </div>
         </div>
@@ -123,9 +124,9 @@
         document.addEventListener("DOMContentLoaded", () => {
             createManagerMenuItems("appetizers", appMenu);
             createManagerMenuItems("soups", soupMenu);
-            createManagerMenuItems("salad", saladMenu);
-            createManagerMenuItems("entree", entreeMenu);
-            createManagerMenuItems("bev", bevMenu);
+            createManagerMenuItems("salads", saladMenu);
+            createManagerMenuItems("entrees", entreeMenu);
+            createManagerMenuItems("beverages", bevMenu);
         })
     </script>
 </body>

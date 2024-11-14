@@ -43,8 +43,7 @@ function addToCart(event){
 
     if(existingItem){
         alert("This item is already in your cart!")
-    }
-    else{
+    } else {
         let item = {
             name: itemName,
             price: itemPrice,
@@ -79,8 +78,8 @@ function updateCart(){
                         <p class="itemPrice">$${itemTotalPrice}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button class="itemEdit" onclick="editOpen()">Edit</button>
-                        <button onclick="removeFromCart(${index})" class="itemRemove">Remove</button>
+                        <button id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                        <button onclick="removeFromCart(${index})" id="itemRemove" class="btn-signup">Remove</button>
                     </div>
                 </div>
             </div>
@@ -209,14 +208,13 @@ function clearReceipt() {
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
-
 mobileNav.addEventListener("click", () => {
     mobileNav.classList.toggle("active");
     navList.classList.toggle("active");
 })
 
 
-// Script for footer subscription
+// Function for footer subscription
 function subscribe() {
     let subscriptionbox = document.getElementById("subscribe");
     if (subscriptionbox.value == "") {
@@ -236,8 +234,7 @@ function cashSelect(){
     if(cashButton.checked){
         cashDiv.style.display = "block"
         creditDiv.style.display = "none"
-    }
-    else{
+    } else{
         cashDiv.style.display = "none"
     }
 }
@@ -248,8 +245,7 @@ function creditSelect(){
     if(creditButton.checked){
         creditDiv.style.display = "block"
         cashDiv.style.display = "none"
-    }
-    else{
+    } else{
         creditDiv.style.display = "none"
     }
 }
@@ -289,7 +285,6 @@ let bevMenu = new Map ([
     ["Frozen Piña Colada", {price: 10, description: "", image: "images/frozen-pina-colada.jpg"}],
     ["Margartia", {price: 9, description: "", image: "images/margarita.png"}]
 ])
-
 function createManagerMenuItems(catagoryId, itemsMap) {
     let container = document.getElementById(catagoryId);
     container.innerHTML = "";
@@ -327,8 +322,8 @@ function createCustomerMenuItems(catagoryId, itemsMap) {
                 <p>${item.description}</p>
                 <div class="itemInfo">
                     <p class="itemPrice">$${item.price}</p>
-                    <button id="itemEdit" onclick="editOpen()">Edit</button>
-                    <button id="itemAdd" onclick="addToCart(event)">Add to Cart</button>
+                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                    <button type="button" id="itemAdd" class="btn-signup" onclick="addToCart(event)">Add to Cart</button>
                 </div>
             </div>
         `;
@@ -344,23 +339,23 @@ function addItem() {
 
     if (catagory && name && !isNaN(price) && image && catagory == "appetizers") {
         appMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, appMenu);
     } 
-    else if (catagory && name && !isNaN(price) && image && catagory == "soup") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "soups") {
         soupMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, soupMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "salad") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "salads") {
         saladMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, saladMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "entree") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "entrees") {
         entreeMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, entreeMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "bev") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "beverages") {
         bevMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, bevMenu);
     } else {
         alert("Error. Please try again.")
     }
