@@ -251,15 +251,15 @@ header {
 #cart h1{
     color: var(--white);
 }
-#cart #item{
+#cart .item{
     width: 100%;
     margin-bottom: 5px;
     border: none;
 }
-#cart #itemDescription{
+#cart .itemDescription{
     width: 70%;
 }
-#cart #itemDescription h2{
+#cart .itemDescription h2{
     margin-bottom: 5px;
     font-size: 14px;
 }
@@ -284,7 +284,7 @@ header {
 .itemEdit{
     margin: 0px 10px 0px 10px;
 }
-#cart #itemRemove{
+#cart .itemRemove{
     padding: 3px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
@@ -310,9 +310,6 @@ header {
     font-family: "Koh Santepheap", serif;
     font-size: 20px;
     cursor: pointer;
-}
-#quantityLabel, #quantity input[type=number]{
-    font-size: 14px;
 }
 #editOverlay{
     height: 100%;

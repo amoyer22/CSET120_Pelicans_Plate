@@ -281,18 +281,18 @@ function updateCart(){
         let cartItem = document.createElement("div")
         cartItem.classList.add("cart-item")
         cartItem.innerHTML = `
-        <div id="itemContainer">
-            <div id="item">
-                <div id="itemImage">
+        <div class="itemContainer">
+            <div class="item">
+                <div class="itemImage">
                     <img src="${item.image}" width="45px" alt="${item.name}">
                 </div>
-                <div id="itemDescription">
+                <div class="itemDescription">
                     <h2>${item.name}</h2>
-                    <div id="itemInfo">
-                        <p id="itemPrice">$${itemTotalPrice}</p>
+                    <div class="itemInfo">
+                        <p class="itemPrice">$${itemTotalPrice}</p>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button id="itemEdit" onclick="editOpen()">Edit</button>
-                        <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
+                        <button class="itemEdit" onclick="editOpen()">Edit</button>
+                        <button onclick="removeFromCart(${index})" class="itemRemove">Remove</button>
                     </div>
                 </div>
             </div>
