@@ -79,8 +79,8 @@ function updateCart(){
                         <p class="itemPrice">$${itemTotalPrice}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button id="itemEdit" onclick="editOpen()">Edit</button>
-                        <button onclick="removeFromCart(${index})" id="itemRemove">Remove</button>
+                        <button id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                        <button onclick="removeFromCart(${index})" id="itemRemove" class="btn-signup">Remove</button>
                     </div>
                 </div>
             </div>
@@ -326,8 +326,8 @@ function createCustomerMenuItems(catagoryId, itemsMap) {
                 <p>${item.description}</p>
                 <div class="itemInfo">
                     <p class="itemPrice">$${item.price}</p>
-                    <button id="itemEdit" onclick="editOpen()">Edit</button>
-                    <button id="itemAdd" onclick="addToCart(event)">Add to Cart</button>
+                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                    <button type="button" id="itemAdd" class="btn-signup" onclick="addToCart(event)">Add to Cart</button>
                 </div>
             </div>
         `;
