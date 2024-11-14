@@ -216,7 +216,7 @@ mobileNav.addEventListener("click", () => {
 })
 
 
-// Script for footer subscription
+// Function for footer subscription
 function subscribe() {
     let subscriptionbox = document.getElementById("subscribe");
     if (subscriptionbox.value == "") {
@@ -289,7 +289,6 @@ let bevMenu = new Map ([
     ["Frozen Piña Colada", {price: 10, description: "", image: "images/frozen-pina-colada.jpg"}],
     ["Margartia", {price: 9, description: "", image: "images/margarita.png"}]
 ])
-
 function createManagerMenuItems(catagoryId, itemsMap) {
     let container = document.getElementById(catagoryId);
     container.innerHTML = "";
