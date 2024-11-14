@@ -16,7 +16,7 @@ function login(){
     
     if (email === "pelicans.plate@mail.com" && password === "manager"){
         alert("Successful login!")
-        location.replace("home.html")   
+        location.replace("manager.html")
     } else {
         if(localStorage.getItem(email)){
             if(password === localStorage.getItem(email)){
@@ -33,219 +33,6 @@ function login(){
 
 // Functions for cart
 let cart = []
-let items = [
-    {
-        name: "Crab Cakes",
-        price: 14,
-        image: "images/crab-cakes.jpg",
-        addOns: [
-            {name: "Extra lemon wedge", price: 0.50},
-            {name: "Extra dipping sauce", price: 1},
-            {name: "No herbs", price: 1}
-        ]
-    },
-    {
-        name: "Crispy Calamari",
-        price: 12,
-        image: "images/crispy-calamari.png",
-        addOns: [
-            {name: "No chili flakes", price: 0},
-            {name: "Extra marinara", price: 0.75},
-            {name: "Lemon wedge", price: 0.50}
-        ]
-    },
-    {
-        name: "Shrimp Cocktail",
-        price: 16,
-        image: "images/shrimp-cocktail.jpg",
-        addOns: [
-            {name: "4 extra shrimp", price: 2},
-            {name: "8 extra shrimp", price: 4},
-            {name: "Extra lemon", price: 0.50},
-            {name: "No cocktail sauce", price: 0}
-        ]
-    },
-    {
-        name: "Oysters Rockefeller",
-        price: 18,
-        image: "images/oysters-rockefeller.png",
-        addOns: [
-            {name: "Extra spinach", price: 1},
-            {name: "Substitute breadcrumbs for parmesan", price: 1.50},
-            {name: "No parmesan", price: 0}
-        ]
-    },
-    {
-        name: "Fish Tacos",
-        price: 13,
-        image: "images/fish-tacos.jpg",
-        addOns: [
-            {name: "No cilantro", price: 0},
-            {name: "Add avocado", price: 1.50},
-            {name: "Spicy sauce", price: 0.50},
-            {name: "Mild sauce", price: 0.50}
-        ]
-    },
-    {
-        name: "Oysters Rockefeller",
-        price: 18,
-        image: "images/oysters-rockefeller.png",
-        addOns: [
-            {name: "Extra spinach", price: 1},
-            {name: "Substitute breadcrumbs for parmesan", price: 1.50},
-            {name: "No parmesan", price: 0}
-        ]
-    },
-    {
-        name: "New England Clam Chowder",
-        price: 12,
-        image: "images/new-england-clam-chowder.jpg",
-        addOns: [
-            {name: "Extra crackers", price: 0.50},
-            {name: "Add hot sauce on the side", price: 0.25},
-            {name: "No bacon", price: 0}
-        ]
-    },
-    {
-        name: "Seafood Bisque",
-        price: 14,
-        image: "images/seafood-bisque.jpg",
-        addOns: [
-            {name: "Extra cream", price: 0.75},
-            {name: "No garlic", price: 0},
-            {name: "No sherry drizzle", price: 0}
-        ]
-    },
-    {
-        name: "Pelican's House Salad",
-        price: 8,
-        image: "images/house-salad.jpg",
-        addOns: [
-            {name: "No onions", price: 0},
-            {name: "Extra croutons", price: 0.50},
-            {name: "Add avocado", price: 1.50}
-        ]
-    },
-    {
-        name: "Caesar Salad with Grilled Salmon",
-        price: 16,
-        image: "images/grilled-salmon-salad.jpg",
-        addOns: [
-            {name: "No croutons", price: 0},
-            {name: "Extra parmesan", price: 0.50},
-            {name: "Dressing on the side", price: 0}
-        ]
-    },
-    {
-        name: "Citrus Shrimp Salad",
-        price: 18,
-        image: "images/citrus-shrimp-salad.png",
-        addOns: [
-            {name: "No citrus dressing", price: 0},
-            {name: "Add avocado", price: 0.50},
-            {name: "Substitute grilled chicken for shrimp", price: 2}
-        ]
-    },
-    {
-        name: "Blackened Grouper",
-        price: 26,
-        image: "images/blackened-grouper.jpg",
-        addOns: [
-            {name: "Make it mild spice", price: 0},
-            {name: "No blackened seasoning", price: 0},
-            {name: "Add lemon butter", price: 1}
-        ]
-    },
-    {
-        name: "Lobster Tail",
-        price: 36,
-        image: "images/lobster-tail.jpg",
-        addOns: [
-            {name: "No garlic butter", price: 0},
-            {name: "Extra lemon", price: 0.50},
-            {name: "Shell removed", price: 0}
-        ]
-    },
-    {
-        name: "Pan-seared Scallops",
-        price: 28,
-        image: "images/pan-seared-scallops.jpg",
-        addOns: [
-            {name: "No seasoning", price: 0},
-            {name: "Extra sear", price: 0.50},
-            {name: "Side of melted butter", price: 1}
-        ]
-    },
-    {
-        name: "Shrimp and Grits",
-        price: 22,
-        image: "images/shrimp-and-grits.jpg",
-        addOns: [
-            {name: "No bacon", price: 0},
-            {name: "Extra cheese in grits", price: 1},
-            {name: "Swap to mild shrimp", price: 0.50}
-        ]
-    },
-    {
-        name: "Seafood Paella",
-        price: 30,
-        image: "images/seafood-paella.png",
-        addOns: [
-            {name: "No mussels", price: 0},
-            {name: "4 extra shrimp", price: 2},
-            {name: "8 extra shrimp", price: 4},
-            {name: "Add mild spice", price: 0.50}
-        ]
-    },
-    {
-        name: "Pelican's Punch",
-        price: 9,
-        image: "images/pelicans-punch.jpg",
-        addOns: [
-            {name: "Less sugar", price: 0},
-            {name: "Extra fruit garnish", price: 0.75}
-        ]
-    },
-    {
-        name: "Homemade Lemonade",
-        price: 5,
-        image: "images/lemonade.jpg",
-        addOns: [
-            {name: "Less sugar", price: 0},
-            {name: "Add mint", price: 0.50},
-            {name: "Make it sparkling", price: 0.75}
-        ]
-    },
-    {
-        name: "Citrus Cooler",
-        price: 6,
-        image: "images/citrus-cooler.jpg",
-        addOns: [
-            {name: "No lime", price: 0},
-            {name: "Extra citrus", price: 0.75},
-            {name: "Add soda water", price: 0.50}
-        ]
-    },
-    {
-        name: "Frozen Piña Colada",
-        price: 10,
-        image: "images/frozen-pina-colada.jpg",
-        addOns: [
-            {name: "No whipped cream", price: 0},
-            {name: "Add a cherry", price: 0.50}
-        ]
-    }, 
-    {
-        name: "Margarita",
-        price: 9,
-        image: "images/margarita.png",
-        addOns: [
-            {name: "No salt rim", price: 0},
-            {name: "Extra lime", price: 0.50},
-            {name: "Add jalapeño slices", price: 0.75}
-        ]
-    }
-]
 function addToCart(event){
     let itemEle = event.target.closest(".item")
     let itemName = itemEle.querySelector("h2").textContent
@@ -290,6 +77,7 @@ function updateCart(){
                     <h2>${item.name}</h2>
                     <div class="itemInfo">
                         <p class="itemPrice">$${itemTotalPrice}</p>
+                        <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
                         <button class="itemEdit" onclick="editOpen()">Edit</button>
                         <button onclick="removeFromCart(${index})" class="itemRemove">Remove</button>
@@ -341,6 +129,14 @@ function editClose(){
 }
 
 
+// Function for payment option section */
+function nameSave() {
+    let customerNameElement = document.getElementById("orderName");
+    let customerName = customerNameElement.value;
+    localStorage.setItem("customerName", customerName);
+}
+
+
 //Functions for receipt functionality
 let orderNumber = document.getElementById("order-number");
 let timeEstimate = document.getElementById("time-estimate");
@@ -351,7 +147,11 @@ function orderNumGenerator() {
     let orderNum = "Order Number: " + (Math.floor(Math.random() * 899) + 100);
     orderNumber.innerHTML = orderNum;
 }
-
+function nameOnOrder() {
+    let name = localStorage.getItem("customerName");
+    let customerName = "Order Name: " + name;
+    orderName.innerHTML = customerName;
+}
 function updateReceipt() {
     let ItemsContainer = document.querySelector("#receipt-table tbody");
     let index = 0;
@@ -400,11 +200,12 @@ function clearReceipt() {
         index++;
     }
     localStorage.removeItem("cartTotal");
+    localStorage.removeItem("customerName");
     window.location.href = "menu.html";
 }
 
 
-// Functions for mobile nav
+// Script for mobile nav
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
@@ -413,6 +214,18 @@ mobileNav.addEventListener("click", () => {
     mobileNav.classList.toggle("active");
     navList.classList.toggle("active");
 })
+
+
+// Script for footer subscription
+function subscribe() {
+    let subscriptionbox = document.getElementById("subscribe");
+    if (subscriptionbox.value == "") {
+        alert("Please enter an email if you wish to subscribe.");
+    } else {
+        alert("You have now signed up for email notifications. Thank you!");
+        subscriptionbox.value = ""; 
+    }
+}
 
 
 // Functions for checkout page
@@ -442,4 +255,135 @@ function creditSelect(){
 }
 function purchase(){
     window.location.href = "receipt.html"
+}
+
+
+// Functions for manager menu
+let appMenu = new Map ([
+    ["Crab Cakes", {price: 14, description: "A delicious fishcake made with fresh crab meat. Deep fried to perfection.", image: "images/crab-cakes.jpg"}],
+    ["Crispy Calamari", {price: 12, description: "", image: "images/crispy-calamari.png"}],
+    ["Shrimp Cocktail", {price: 16, description: "", image: "images/shrimp-cocktail.jpg"}],
+    ["Oysters Rockefeller (6 Pc.)", {price: 18, description: "", image: "images/oysters-rockefeller.png"}],
+    ["Fish Tacos", {price: 13, description: "", image: "images/fish-tacos.jpg"}]
+])
+let soupMenu = new Map ([
+    ["New England Clam Chowder", {price: 12, description: "", image: "images/new-england-clam-chowder.jpg"}],
+    ["Seafood Bisque", {price: 14, description: "", image: "images/seafood-bisque.jpg"}]
+])
+let saladMenu = new Map ([
+    ["Pelican's House Salad", {price: 8, description: "", image: "images/house-salad.jpg"}],
+    ["Caesar Salad with Grilled Salmon", {price: 16, description: "", image: "images/grilled-salmon-salad.jpg"}],
+    ["Citrus Shrimp Salad", {price: 18, description: "", image: "images/citrus-shrimp-salad.png"}]
+])
+let entreeMenu = new Map ([
+    ["Blackened Grouper", {price: 26, description: "", image: "images/blackened-grouper.jpg"}],
+    ["Lobster Tail", {price: 36, description: "", image: "images/lobster-tail.jpg"}],
+    ["Pan-seared Scallops", {price: 28, description: "", image: "images/pan-seared-scallops.jpg"}],
+    ["Shrimp & Grits", {price: 22, description: "", image: "images/shrimp-and-grits.jpg"}],
+    ["Seafood Paella", {price: 30, description: "", image: "images/seafood-paella.png"}]
+])
+let bevMenu = new Map ([
+    ["Pelican's Punch", {price: 9, description: "", image: "images/pelicans-punch.jpg"}],
+    ["Homemade Lemonade", {price: 5, description: "", image: "images/lemonade.jpg"}],
+    ["Citrus Cooler", {price: 6, description: "", image: "images/citrus-cooler.jpg"}],
+    ["Frozen Piña Colada", {price: 10, description: "", image: "images/frozen-pina-colada.jpg"}],
+    ["Margartia", {price: 9, description: "", image: "images/margarita.png"}]
+])
+
+function createManagerMenuItems(catagoryId, itemsMap) {
+    let container = document.getElementById(catagoryId);
+    container.innerHTML = "";
+    itemsMap.forEach((item, name) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        itemDiv.innerHTML = `
+            <div class="itemImage">
+                <img src="${item.image}" style="max-width: 100px;" alt="${name}">
+            </div>
+            <div class="itemDescription">
+                <h2>${name}</h2>
+                <p>${item.description}</p>
+                <div class="itemInfo">
+                    <p class="itemPrice">$${item.price}</p>
+                    <button type="button" class="btn-signup" onclick="removeItem('${name}', '${catagoryId}')">Remove</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(itemDiv);
+    });
+}
+function createCustomerMenuItems(catagoryId, itemsMap) {
+    let container = document.getElementById(catagoryId);
+    container.innerHTML = "";
+    itemsMap.forEach((item, name) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        itemDiv.innerHTML = `
+            <div class="itemImage">
+                <img src="${item.image}" style="max-width: 100px;" alt="${name}">
+            </div>
+            <div class="itemDescription">
+                <h2>${name}</h2>
+                <p>${item.description}</p>
+                <div class="itemInfo">
+                    <p class="itemPrice">$${item.price}</p>
+                    <button id="itemEdit" onclick="editOpen()">Edit</button>
+                    <button id="itemAdd" onclick="addToCart(event)">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(itemDiv);
+    });
+}
+function addItem() {
+    let catagory = prompt("Enter catagory: ").toLowerCase();
+    let name = prompt("Enter item name: ");
+    let image = prompt("Enter image url: ");
+    let description = prompt("Enter description: ");
+    let price = prompt("Enter price (Number Only): ");
+
+    if (catagory && name && !isNaN(price) && image && catagory == "appetizers") {
+        appMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    } 
+    else if (catagory && name && !isNaN(price) && image && catagory == "soup") {
+        soupMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "salad") {
+        saladMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "entree") {
+        entreeMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "bev") {
+        bevMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    } else {
+        alert("Error. Please try again.")
+    }
+}
+function removeItem(name, catagoryId) {
+    if (appMenu.has(name)) {
+        appMenu.delete(name);
+        createManagerMenuItems(catagoryId, appMenu);
+    }
+    else if (soupMenu.has(name)) {
+        soupMenu.delete(name);
+        createManagerMenuItems(catagoryId, soupMenu);
+    }
+    else if (saladMenu.has(name)) {
+        saladMenu.delete(name);
+        createManagerMenuItems(catagoryId, saladMenu);
+    }
+    else if (entreeMenu.has(name)) {
+        entreeMenu.delete(name);
+        createManagerMenuItems(catagoryId, entreeMenu);
+    }
+    else if (bevMenu.has(name)) {
+        bevMenu.delete(name);
+        createManagerMenuItems(catagoryId, bevMenu);
+    }
 }

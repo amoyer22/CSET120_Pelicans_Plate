@@ -192,7 +192,7 @@ header {
 }
 
 
-/* Styles for menu */
+/* Styles for menus */
 #menuContainer{
     display: flex;
     height: 79%;
@@ -206,8 +206,8 @@ header {
 }
 .itemContainer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 10px;
 }
 .first-menu-catagory {
     margin-bottom: 12px;
@@ -221,6 +221,7 @@ header {
     width: calc(50% - 5px);
     height: auto;
     padding: 10px;
+    margin-bottom: 10px;
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
 }
@@ -309,6 +310,22 @@ header {
     background-color: var(--white);
     font-family: "Koh Santepheap", serif;
     font-size: 20px;
+    cursor: pointer;
+}
+#quantityLabel, #quantity input[type=number]{
+    font-size: 14px;
+}
+.btn-manager {
+    margin-bottom: 30px;
+    padding: 15px;
+    width: 100%;
+    font-family: "Koh Santepheap", serif;
+    font-size: 180%;
+    font-weight: 400;
+    border: 2px solid var(--logoDarkBlue);
+    border-radius: .5em;
+    color: var(--logoDarkBlue);
+    background-color: var(--white);
     cursor: pointer;
 }
 #editOverlay{
@@ -619,12 +636,12 @@ footer .flex {
 
 
     /* Style rules for menu */
-    #itemContainer {
+    .itemContainer {
         display: block;
         width: 100%;
         margin: 0;
     }
-    #item {
+    .item {
         width: 100%;
         margin: 10px 0;   
     }
