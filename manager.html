@@ -10,22 +10,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    <script>
-        window.onload = function() {
-            clearLocalStorage();
-        }
-    </script>
-    <title>Pelican's Plate: Menu</title>
+    
+    <title>MANAGER MENU</title>
 </head>
 <body>
     <header>
         <div class="mobile-nav">
             <nav class="mobile-navbar">
-                <a href="home.html">Pelican's Plate</a>
+                <a href="#">Pelican's Plate</a>
                 <ul class="mobile-nav-list">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="manager.html">Menu</a></li>
+                    <li><a href="lto.html">LTO Creation</a></li>
+                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -36,11 +32,11 @@
         </div>
         <div class="navigation">
             <nav class="navbar">
-                <a href="home.html"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
+                <a href="#"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
                 <ul class="nav-list flex">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="manager.html">Menu</a></li>
+                    <li><a href="lto.html">LTO Creation</a></li>
+                    <li><a href="menu.html">Customer Menu</a></li>
                 </ul>
             </nav>
         </div>
@@ -48,6 +44,7 @@
 
     <div id="menuContainer">
         <div id="menu">
+            <button type="button" class="btn-manager" onclick="addItem()">ADD MENU ITEM</button>
             <h1 class="first-menu-catagory">Appetizers</h1>
             <div class="itemContainer" id="appetizers">
 
@@ -70,7 +67,6 @@
             </div>
         </div>
 
-
         <div id="cartContainer">
             <div id="cartHeading">
                 <h1>Your Cart</h1>
@@ -81,46 +77,10 @@
 
             <div id="purchaseContainer">
                 <h2>Total: $0</h2>
-                <button id="purchaseButton" onclick="checkout()">Checkout</button>
+                <button id="purchaseButton">Checkout</button>
             </div>
         </div>
     </div>
-
-
-    <div id="editOverlay">
-        <div id="editPopup">
-            <h1>Edit Item</h1>
-            <div id="editDetails">
-                <form id="editForm">
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 1 text text <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 2 dikojnfk <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 3 ddfdfdf <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 4 <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 5 djihnkdlkjdndjdnd <small>+ $0.00</small></label>
-                    </div>
-                </form>
-                <div id="closeDiv">
-                    <button id="editClose" onclick="editClose()">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 
 
     <footer>
@@ -128,9 +88,9 @@
             <div class="footer-nav">
                 <h2>Links</h2>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="menu.html">Our Menu</a></li>
-                    <li><a href="rewards.html">Rewards</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Our Menu</a></li>
+                    <li><a href="#">Rewards</a></li>
                 </ul>
             </div>
             <div class="right-side flex">
@@ -147,7 +107,7 @@
                     <p>Subscribe for updates about us!</p>
                     <div class="flex">
                         <input type="email" id="subscribe" placeholder="Email Address">
-                        <button type="button" class="btn-signup" onclick="subscribe()">Subscribe!</button>
+                        <button type="button" class="btn-signup">Subscribe!</button>
                     </div>
                 </div>
             </div>
@@ -156,21 +116,16 @@
     </footer>
 
 
-    <script>
-        // Edit item popup is hidden on load
-        document.getElementById("editPopup").style.display = "none";
-        document.getElementById("editOverlay").style.display = "none";
-    </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            createCustomerMenuItems("appetizers", appMenu);
-            createCustomerMenuItems("soups", soupMenu);
-            createCustomerMenuItems("salad", saladMenu);
-            createCustomerMenuItems("entree", entreeMenu);
-            createCustomerMenuItems("bev", bevMenu);
+            createManagerMenuItems("appetizers", appMenu);
+            createManagerMenuItems("soups", soupMenu);
+            createManagerMenuItems("salad", saladMenu);
+            createManagerMenuItems("entree", entreeMenu);
+            createManagerMenuItems("bev", bevMenu);
         })
     </script>
 </body>
