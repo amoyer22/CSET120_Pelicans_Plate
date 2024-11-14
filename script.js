@@ -344,23 +344,23 @@ function addItem() {
 
     if (catagory && name && !isNaN(price) && image && catagory == "appetizers") {
         appMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, appMenu);
     } 
-    else if (catagory && name && !isNaN(price) && image && catagory == "soup") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "soups") {
         soupMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, soupMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "salad") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "salads") {
         saladMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, saladMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "entree") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "entrees") {
         entreeMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, entreeMenu);
     }
-    else if (catagory && name && !isNaN(price) && image && catagory == "bev") {
+    else if (catagory && name && !isNaN(price) && image && catagory == "beverages") {
         bevMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, menuItems);
+        createManagerMenuItems(catagory, bevMenu);
     } else {
         alert("Error. Please try again.")
     }
