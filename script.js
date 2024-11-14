@@ -282,8 +282,9 @@ let bevMenu = new Map ([
     ["Margartia", {price: 9, description: "", image: "images/margarita.png"}]
 ])
 
-function createMenuItems(catagoryId, itemsMap) {
+function createManagerMenuItems(catagoryId, itemsMap) {
     let container = document.getElementById(catagoryId);
+    container.innerHTML = "";
     itemsMap.forEach((item, name) => {
         let itemDiv = document.createElement("div");
         itemDiv.classList.add("item");
@@ -296,20 +297,36 @@ function createMenuItems(catagoryId, itemsMap) {
                 <p>${item.description}</p>
                 <div class="itemInfo">
                     <p class="itemPrice">$${item.price}</p>
-                    <button type="button" class="btn-signup" onclick="removeItem("${name}", "${catagoryId}")">Remove</button>
+                    <button type="button" class="btn-signup" onclick="removeItem('${name}', '${catagoryId}')">Remove</button>
                 </div>
             </div>
         `;
         container.appendChild(itemDiv);
     });
 }
-document.addEventListener("DOMContentLoaded", () => {
-    createMenuItems("appetizers", appMenu);
-    createMenuItems("soups", soupMenu);
-    createMenuItems("salad", saladMenu);
-    createMenuItems("entree", entreeMenu);
-    createMenuItems("bev", bevMenu);
-})
+function createCustomerMenuItems(catagoryId, itemsMap) {
+    let container = document.getElementById(catagoryId);
+    container.innerHTML = "";
+    itemsMap.forEach((item, name) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        itemDiv.innerHTML = `
+            <div class="itemImage">
+                <img src="${item.image}" style="max-width: 100px;" alt="${name}">
+            </div>
+            <div class="itemDescription">
+                <h2>${name}</h2>
+                <p>${item.description}</p>
+                <div class="itemInfo">
+                    <p class="itemPrice">$${item.price}</p>
+                    <button id="itemEdit" onclick="editOpen()">Edit</button>
+                    <button id="itemAdd" onclick="addToCart(event)">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(itemDiv);
+    });
+}
 function addItem() {
     let catagory = prompt("Enter catagory: ").toLowerCase();
     let name = prompt("Enter item name: ");
@@ -317,16 +334,48 @@ function addItem() {
     let description = prompt("Enter description: ");
     let price = prompt("Enter price (Number Only): ");
 
-    if (catagory && name && !isNaN(price) && image) {
-        createMenuItems.set(name, {price, description, image});
-        createMenuItems(catagory, menuItems);
+    if (catagory && name && !isNaN(price) && image && catagory == "appetizers") {
+        appMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    } 
+    else if (catagory && name && !isNaN(price) && image && catagory == "soup") {
+        soupMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "salad") {
+        saladMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "entree") {
+        entreeMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
+    }
+    else if (catagory && name && !isNaN(price) && image && catagory == "bev") {
+        bevMenu.set(name, {price, description, image});
+        createManagerMenuItems(catagory, menuItems);
     } else {
         alert("Error. Please try again.")
     }
 }
 function removeItem(name, catagoryId) {
-    if (menuItems.has(name)) {
-        menuItems.delete(name);
-        createMenuItems(catagoryId, menuItems);
+    if (appMenu.has(name)) {
+        appMenu.delete(name);
+        createManagerMenuItems(catagoryId, appMenu);
+    }
+    else if (soupMenu.has(name)) {
+        soupMenu.delete(name);
+        createManagerMenuItems(catagoryId, soupMenu);
+    }
+    else if (saladMenu.has(name)) {
+        saladMenu.delete(name);
+        createManagerMenuItems(catagoryId, saladMenu);
+    }
+    else if (entreeMenu.has(name)) {
+        entreeMenu.delete(name);
+        createManagerMenuItems(catagoryId, entreeMenu);
+    }
+    else if (bevMenu.has(name)) {
+        bevMenu.delete(name);
+        createManagerMenuItems(catagoryId, bevMenu);
     }
 }

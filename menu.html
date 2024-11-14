@@ -123,5 +123,14 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            createCustomerMenuItems("appetizers", appMenu);
+            createCustomerMenuItems("soups", soupMenu);
+            createCustomerMenuItems("salad", saladMenu);
+            createCustomerMenuItems("entree", entreeMenu);
+            createCustomerMenuItems("bev", bevMenu);
+        })
+    </script>
 </body>
 </html>
