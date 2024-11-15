@@ -78,7 +78,7 @@ function updateCart(){
                         <p class="itemPrice">$${itemTotalPrice.toFixed(2)}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                        <button id="itemEdit" class="btn-signup" onclick="editOpen(event)">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove" class="btn-signup">Remove</button>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ function clearLocalStorage() {
     }
     localStorage.removeItem("cartTotal");
 }
-function editOpen(){
+function editOpen(event){
     document.getElementById("editPopup").style.display = "block";
     document.getElementById("editOverlay").style.display = "block";
 }
@@ -503,7 +503,7 @@ function createCustomerMenuItems(catagoryId, itemsMap) {
                 <p>${item.description}</p>
                 <div class="itemInfo">
                     <p class="itemPrice">$${item.price.toFixed(2)}</p>
-                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen(event)">Edit</button>
                     <button type="button" id="itemAdd" class="btn-signup" onclick="addToCart(event)">Add to Cart</button>
                 </div>
             </div>
