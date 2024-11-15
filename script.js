@@ -75,7 +75,7 @@ function updateCart(){
                 <div class="itemDescription">
                     <h2>${item.name}</h2>
                     <div class="itemInfo">
-                        <p class="itemPrice">$${itemTotalPrice}</p>
+                        <p class="itemPrice">$${itemTotalPrice.toFixed(2)}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
                         <button id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
@@ -92,7 +92,7 @@ function updateCart(){
         })
         cartContainer.appendChild(cartItem)
     })
-    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`;
+    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total.toFixed(2)}`;
 }
 function removeFromCart(index){
     cart.splice(index, 1)
@@ -502,7 +502,7 @@ function createCustomerMenuItems(catagoryId, itemsMap) {
                 <h2>${name}</h2>
                 <p>${item.description}</p>
                 <div class="itemInfo">
-                    <p class="itemPrice">$${item.price}</p>
+                    <p class="itemPrice">$${item.price.toFixed(2)}</p>
                     <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
                     <button type="button" id="itemAdd" class="btn-signup" onclick="addToCart(event)">Add to Cart</button>
                 </div>
