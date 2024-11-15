@@ -77,8 +77,7 @@
                 <h1>Your Cart</h1>
             </div>
 
-            <div id="cart">
-            </div>
+            <div id="cart"></div>
 
             <div id="purchaseContainer">
                 <h2>Total: $0</h2>
@@ -88,30 +87,14 @@
     </div>
 
 
-    <div id="editOverlay">
-        <div id="editPopup">
+    <div id="editOverlay" style="display: none;">
+        <div id="editPopup" style="display: none;">
             <h1>Edit Item</h1>
             <div id="editDetails">
                 <form id="editForm">
                     <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 1 text text <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 2 dikojnfk <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 3 ddfdfdf <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 4 <small>+ $0.00</small></label>
-                    </div>
-                    <div class="form-section">
-                        <input type="checkbox" name="addon" id="addon">
-                        <label for="addon">Add-on 5 djihnkdlkjdndjdnd <small>+ $0.00</small></label>
+                        <input type="checkbox" name="addon1" id="addon1">
+                        <label for="addon1">Add-on 1 <small>+ $0.50</small></label>
                     </div>
                 </form>
                 <div id="closeDiv">
@@ -154,12 +137,6 @@
         <p class="copyright">Copyright&copy; 2024 All rights reserved. Created by Ailish Moyer and Tyler McDowell.</p>
     </footer>
 
-
-    <script>
-        // Edit item popup is hidden on load
-        document.getElementById("editPopup").style.display = "none";
-        document.getElementById("editOverlay").style.display = "none";
-    </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>

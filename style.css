@@ -204,6 +204,7 @@ header {
 #menu{
     padding: 20px 70px;
     width: 75%;
+    height: calc(130vh - 200px);
     overflow-y: scroll;
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
@@ -252,6 +253,7 @@ header {
 #cart{
     padding: 20px 20px;
     overflow-y: auto;
+    height: calc(100vh - 200px);
 }
 #cart h1{
     color: var(--white);
@@ -342,7 +344,7 @@ header {
     z-index: 1;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     display: none;
     position: fixed;
     overflow: auto;
@@ -358,6 +360,7 @@ header {
     position: absolute;
     background-color: var(--logoBlue);
     border: 3px solid var(--logoDarkBlue);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 }
 #editPopup h1{
     text-align: center;
