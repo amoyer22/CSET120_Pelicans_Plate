@@ -518,48 +518,78 @@ function addItem() {
     let description = prompt("Enter description: ");
     let price = prompt("Enter price (Number Only): ");
 
-    if (catagory && name && !isNaN(price) && image && catagory == "appetizers") {
-        appMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, appMenu);
+    if (catagory && name && !isNaN(price) && image) {
+        let itemString = `${name}|${price}|${description}|${image}`;
+
+        if (catagory === "appetizers") {
+            appMenu.set(name, {price, description, image});
+            saveCategoryToStorage("appetizers", appMenu);
+            createManagerMenuItems(catagory, appMenu);
+        }
+        else if (catagory === "soups") {
+            soupMenu.set(name, {price, description, image});
+            saveCategoryToStorage("soups", soupMenu);
+            createManagerMenuItems(catagory, soupMenu);
+        }
+        else if (catagory === "salads") {
+            saladMenu.set(name, {price, description, image});
+            saveCategoryToStorage("salads", saladMenu);
+            createManagerMenuItems(catagory, saladMenu);
+        }
+        else if (catagory === "entrees") {
+            entreeMenu.set(name, {price, description, image});
+            saveCategoryToStorage("entrees", entreeMenu);
+            createManagerMenuItems(catagory, entreeMenu);
+        }
+        else if (catagory === "beverages") {
+            bevMenu.set(name, {price, description, image});
+            saveCategoryToStorage("beverages", bevMenu);
+            createManagerMenuItems(catagory, bevMenu);
+        }
+        } else {
+            alert("Error. Please try again.")
     } 
-    else if (catagory && name && !isNaN(price) && image && catagory == "soups") {
-        soupMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, soupMenu);
-    }
-    else if (catagory && name && !isNaN(price) && image && catagory == "salads") {
-        saladMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, saladMenu);
-    }
-    else if (catagory && name && !isNaN(price) && image && catagory == "entrees") {
-        entreeMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, entreeMenu);
-    }
-    else if (catagory && name && !isNaN(price) && image && catagory == "beverages") {
-        bevMenu.set(name, {price, description, image});
-        createManagerMenuItems(catagory, bevMenu);
-    } else {
-        alert("Error. Please try again.")
-    }
+}
+function saveCategoryToStorage(categoryName, menuMap) {
+    let menuArray = [];
+    menuMap.forEach((value, key) => {
+        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}`);
+    });
+    localStorage.setItem(categoryName, menuArray.join("#"))
 }
 function removeItem(name, catagoryId) {
-    if (appMenu.has(name)) {
+    if (catagoryId == "appetizers" && appMenu.has(name)) {
         appMenu.delete(name);
+        saveCategoryToStorage("appetizers", appMenu);
         createManagerMenuItems(catagoryId, appMenu);
     }
-    else if (soupMenu.has(name)) {
+    else if (catagoryId == "soups" && soupMenu.has(name)) {
         soupMenu.delete(name);
+        saveCategoryToStorage("soups", soupMenu);
         createManagerMenuItems(catagoryId, soupMenu);
     }
-    else if (saladMenu.has(name)) {
+    else if (catagoryId == "salads" && saladMenu.has(name)) {
         saladMenu.delete(name);
+        saveCategoryToStorage("salads", saladMenu);
         createManagerMenuItems(catagoryId, saladMenu);
     }
-    else if (entreeMenu.has(name)) {
+    else if (catagoryId == "entrees" && entreeMenu.has(name)) {
         entreeMenu.delete(name);
+        saveCategoryToStorage("entrees", entreeMenu);
         createManagerMenuItems(catagoryId, entreeMenu);
     }
-    else if (bevMenu.has(name)) {
+    else if (catagoryId == "beverages" && bevMenu.has(name)) {
         bevMenu.delete(name);
+        saveCategoryToStorage("beverages", bevMenu);
         createManagerMenuItems(catagoryId, bevMenu);
+    }
+}
+function grabMenuItemsFromStorage(categoryName, menuMap) {
+    let storedData = localStorage.getItem(categoryName);
+    if (storedData) {
+        storedData.split("#").forEach(item => {
+            let [name, price, description, image] = item.split("|");
+            menuMap.set(name, {price: parseFloat(price), description, image});
+        })
     }
 }
