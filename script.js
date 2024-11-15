@@ -256,34 +256,214 @@ function purchase(){
 
 // Functions for manager menu
 let appMenu = new Map ([
-    ["Crab Cakes", {price: 14, description: "A delicious fishcake made with fresh crab meat. Deep fried to perfection.", image: "images/crab-cakes.jpg"}],
-    ["Crispy Calamari", {price: 12, description: "Lightly breaded tender calamari, paired with a side of marinara sauce.", image: "images/crispy-calamari.png"}],
-    ["Shrimp Cocktail", {price: 16, description: "Juicy jumbo shrimp served chilled with a side of bold, spicy cocktail sauce.", image: "images/shrimp-cocktail.jpg"}],
-    ["Oysters Rockefeller (6 Pc.)", {price: 18, description: "Fresh oysters topped with spinach, breadcrumbs, and Parmesan cheese.", image: "images/oysters-rockefeller.png"}],
-    ["Fish Tacos", {price: 13, description: "Flaky fish, fresh slaw, and a zesty lime crema in soft tortillas.", image: "images/fish-tacos.jpg"}]
+    ["Crab Cakes", {
+        price: 14,
+        description: "A delicious fishcake made with fresh crab meat. Deep fried to perfection.",
+        image: "images/crab-cakes.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Crispy Calamari", {
+        price: 12,
+        description: "Lightly breaded tender calamari, paired with a side of marinara sauce.",
+        image: "images/crispy-calamari.png",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Shrimp Cocktail", {
+        price: 16,
+        description: "Juicy jumbo shrimp served chilled with a side of bold, spicy cocktail sauce.",
+        image: "images/shrimp-cocktail.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Oysters Rockefeller (6 Pc.)", {
+        price: 18,
+        description: "Fresh oysters topped with spinach, breadcrumbs, and Parmesan cheese.",
+        image: "images/oysters-rockefeller.png",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Fish Tacos", {
+        price: 13,
+        description: "Flaky fish, fresh slaw, and a zesty lime crema in soft tortillas.",
+        image: "images/fish-tacos.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }]
 ])
 let soupMenu = new Map ([
-    ["New England Clam Chowder", {price: 12, description: "Comforting chowder with tender clams, potatoes, and a touch of bacon.", image: "images/new-england-clam-chowder.jpg"}],
-    ["Seafood Bisque", {price: 14, description: "Rich, savory bisque blending together delicious lobster, shrimp, and crab.", image: "images/seafood-bisque.jpg"}]
+    ["New England Clam Chowder", {
+        price: 12,
+        description: "Comforting chowder with tender clams, potatoes, and a touch of bacon.",
+        image: "images/new-england-clam-chowder.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Seafood Bisque", {
+        price: 14,
+        description: "Rich, savory bisque blending together delicious lobster, shrimp, and crab.",
+        image: "images/seafood-bisque.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }]
 ])
 let saladMenu = new Map ([
-    ["Pelican's House Salad", {price: 8, description: "Fresh greens, veggies, and croutons with your choice of dressing.", image: "images/house-salad.jpg"}],
-    ["Caesar Salad with Grilled Salmon", {price: 16, description: "Classic Caesar topped with perfectly grilled salmon.", image: "images/grilled-salmon-salad.jpg"}],
-    ["Citrus Shrimp Salad", {price: 18, description: "Shrimp, mixed greens, and mandarin oranges in citrus vinaigrette.", image: "images/citrus-shrimp-salad.png"}]
+    ["Pelican's House Salad", {
+        price: 8,
+        description: "Fresh greens, veggies, and croutons with your choice of dressing.",
+        image: "images/house-salad.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Caesar Salad with Grilled Salmon", {
+        price: 16,
+        description: "Classic Caesar topped with perfectly grilled salmon.",
+        image: "images/grilled-salmon-salad.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Citrus Shrimp Salad", {
+        price: 18,
+        description: "Shrimp, mixed greens, and mandarin oranges in citrus vinaigrette.",
+        image: "images/citrus-shrimp-salad.png",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }]
 ])
 let entreeMenu = new Map ([
-    ["Blackened Grouper", {price: 26, description: "Boldly seasoned grouper filet, served with your choice of sides.", image: "images/blackened-grouper.jpg"}],
-    ["Lobster Tail", {price: 36, description: "Grilled or butter-poached lobster tail, melt-in-your-mouth tender.", image: "images/lobster-tail.jpg"}],
-    ["Pan-seared Scallops", {price: 28, description: "Golden, caramelized sea scallops perfectly seared with a buttery finish.", image: "images/pan-seared-scallops.jpg"}],
-    ["Shrimp & Grits", {price: 22, description: "Savory shrimp over creamy, cheesy grits for a Southern-inspired classic.", image: "images/shrimp-and-grits.jpg"}],
-    ["Seafood Paella", {price: 30, description: "A vibrant mix of seafood and saffron-infused rice.", image: "images/seafood-paella.png"}]
+    ["Blackened Grouper", {
+        price: 26,
+        description: "Boldly seasoned grouper filet, served with your choice of sides.",
+        image: "images/blackened-grouper.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Lobster Tail", {
+        price: 36,
+        description: "Grilled or butter-poached lobster tail, melt-in-your-mouth tender.",
+        image: "images/lobster-tail.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Pan-seared Scallops", {
+        price: 28,
+        description: "Golden, caramelized sea scallops perfectly seared with a buttery finish.",
+        image: "images/pan-seared-scallops.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Shrimp & Grits", {
+        price: 22,
+        description: "Savory shrimp over creamy, cheesy grits for a Southern-inspired classic.",
+        image: "images/shrimp-and-grits.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Seafood Paella", {
+        price: 30,
+        description: "A vibrant mix of seafood and saffron-infused rice.",
+        image: "images/seafood-paella.png",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }]
 ])
 let bevMenu = new Map ([
-    ["Pelican's Punch", {price: 9, description: "A tropical blend of rum, pineapple juice, and a splash of grenadine.", image: "images/pelicans-punch.jpg"}],
-    ["Homemade Lemonade", {price: 5, description: "Freshly squeezed lemonade with just the right balance of tangy and sweet.", image: "images/lemonade.jpg"}],
-    ["Citrus Cooler", {price: 6, description: "A mix of sparkling water, fresh orange and lime juice, and a hint of mint.", image: "images/citrus-cooler.jpg"}],
-    ["Frozen Piña Colada", {price: 10, description: "Coconut and pineapple blended into a tropical delight, with or without rum.", image: "images/frozen-pina-colada.jpg"}],
-    ["Margartia", {price: 9, description: "Tequila and lime, served classic or blended with a salt rim.", image: "images/margarita.png"}]
+    ["Pelican's Punch", {
+        price: 9,
+        description: "A tropical blend of rum, pineapple juice, and a splash of grenadine.",
+        image: "images/pelicans-punch.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Homemade Lemonade", {
+        price: 5,
+        description: "Freshly squeezed lemonade with just the right balance of tangy and sweet.",
+        image: "images/lemonade.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Citrus Cooler", {
+        price: 6,
+        description: "A mix of sparkling water, fresh orange and lime juice, and a hint of mint.",
+        image: "images/citrus-cooler.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Frozen Piña Colada", {
+        price: 10,
+        description: "Coconut and pineapple blended into a tropical delight, with or without rum.",
+        image: "images/frozen-pina-colada.jpg",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }],
+    ["Margartia", {
+        price: 9,
+        description: "Tequila and lime, served classic or blended with a salt rim.",
+        image: "images/margarita.png",
+        addOns: [
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false},
+            {name: "", price: "", selected: false}
+        ]
+    }]
 ])
 function createManagerMenuItems(catagoryId, itemsMap) {
     let container = document.getElementById(catagoryId);
