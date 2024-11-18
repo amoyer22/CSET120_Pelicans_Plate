@@ -204,7 +204,7 @@ header {
 #menu{
     padding: 20px 70px;
     width: 75%;
-    height: calc(130vh - 200px);
+    /*height: calc(130vh - 200px);*/
     overflow-y: scroll;
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
