@@ -139,6 +139,12 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            grabMenuItemsFromStorage("appetizers", appMenu);
+            grabMenuItemsFromStorage("soups", soupMenu);
+            grabMenuItemsFromStorage("salads", saladMenu);
+            grabMenuItemsFromStorage("entrees", entreeMenu);
+            grabMenuItemsFromStorage("beverages", bevMenu);
+
             createCustomerMenuItems("appetizers", appMenu);
             createCustomerMenuItems("soups", soupMenu);
             createCustomerMenuItems("salads", saladMenu);

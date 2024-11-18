@@ -27,6 +27,11 @@ body {
     background-repeat: repeat;
     background-size: cover;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
 img {
     max-width: 100%;
     height: auto;
@@ -199,7 +204,7 @@ header {
 #menu{
     padding: 20px 70px;
     width: 75%;
-    height: calc(130vh - 200px);
+    /*height: calc(130vh - 200px);*/
     overflow-y: scroll;
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
