@@ -548,6 +548,15 @@ footer .flex {
 }
 
 
+/* Media query for 900px */
+@media screen and (max-width: 900px), print {
+    .item {
+        width: 100%;
+        margin: 10px 0;   
+    }
+}
+
+
 /* Media queiries for 750px */
 @media screen and (max-width: 750px), print {
     .mobile-nav {
@@ -651,10 +660,7 @@ footer .flex {
         width: 100%;
         margin: 0;
     }
-    .item {
-        width: 100%;
-        margin: 10px 0;   
-    }
+    
     #cartContainer {
         width: 50%;
     }
