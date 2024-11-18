@@ -55,7 +55,6 @@ function addToCart(event){
     }
 }
 function updateCart(){
-    console.log(cart)
     let cartContainer = document.querySelector("#cart")
     cartContainer.innerHTML = ""
     let total = 0
