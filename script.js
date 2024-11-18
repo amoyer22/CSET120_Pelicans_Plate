@@ -60,9 +60,9 @@ function updateCart(){
     let total = 0
 
     cart.forEach((item, index) => {
-        let itemTotalPrice = item.price * item.quantity
+        let itemTotalPrice = item.price + (item.addOns ? item.addOns.reduce((sum, addOn) => sum + addOn.price, 0) : 0)
         total += itemTotalPrice
-
+        
         let cartItem = document.createElement("div")
         cartItem.classList.add("cart-item")
         cartItem.innerHTML = `
@@ -118,12 +118,41 @@ function clearLocalStorage() {
     localStorage.removeItem("cartTotal");
 }
 function editOpen(event){
-    document.getElementById("editPopup").style.display = "block";
-    document.getElementById("editOverlay").style.display = "block";
+    let itemName = event.target.closest(".item").querySelector("h2").textContent
+    let itemData = appMenu.get(itemName)
+
+    let editForm = document.getElementById("editForm")
+    editForm.innerHTML = itemData.addOns.map((addOn, index) => `
+        <div class="form-section">
+            <input type="checkbox" name="addon${index}" id="addon${index}" ${addOn.selected ? "checked" : ""}>
+            <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
+        </div>
+    `).join("")
+
+    document.getElementById("editPopup").style.display = "block"
+    document.getElementById("editOverlay").style.display = "block"
+
+    editForm.setAttribute("data-item-name", itemName)
 }
 function editClose(){
-    document.getElementById("editPopup").style.display = "none";
-    document.getElementById("editOverlay").style.display = "none";
+    let editForm = document.getElementById("editForm")
+    let itemName = editForm.getAttribute("data-item-name")
+    let itemData = appMenu.get(itemName)
+
+    let checkboxes = editForm.querySelectorAll("input[type='checkbox']")
+    checkboxes.forEach((checkbox, index) => {
+        itemData.addOns[index].selected = checkbox.checked
+    })
+
+    let cartItem = cart.find(cartItem => cartItem.name === itemName)
+    if(cartItem){
+        cartItem.addOns = itemData.addOns.filter(addOn => addOn.selected)
+        cartItem.totalPrice = cartItem.price + cartItem.addOns.reduce((sum, addOn) => sum + addOn.price, 0)
+    }
+    updateCart()
+
+    document.getElementById("editPopup").style.display = "none"
+    document.getElementById("editOverlay").style.display = "none"
 }
 
 
