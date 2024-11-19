@@ -44,8 +44,41 @@
         <div class="container">
             <h1>Limited Time Offer Creator</h1>
             <h2>Welcome manager. Please select the item you wish to discount.</h2>
-            <div>
+            <div id="item-list">
+                <h1>Appetizers</h1>
+                <div class="item-section">
+                    <div id="appetizers-list">
 
+                    </div>    
+                </div>
+
+                <h1>Soups</h1>
+                <div class="item-section">
+                    <div id="soups-list">
+                        
+                    </div>    
+                </div>
+
+                <h1>Salads</h1>
+                <div class="item-section">
+                    <div id="salads-list">
+                        
+                    </div>    
+                </div>
+                
+                <h1>Entrees</h1>
+                <div class="item-section">
+                    <div id="entrees-list">
+                        
+                    </div>    
+                </div>
+
+                <h1>Beverages</h1>
+                <div class="item-section">
+                    <div id="beverages-list">
+                        
+                    </div>    
+                </div>
             </div>
         </div>
     </section>
@@ -87,5 +120,20 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            grabMenuItemsFromStorage("appetizers", appMenu);
+            grabMenuItemsFromStorage("soups", soupMenu);
+            grabMenuItemsFromStorage("salads", saladMenu);
+            grabMenuItemsFromStorage("entrees", entreeMenu);
+            grabMenuItemsFromStorage("beverages", bevMenu);
+
+            createListItems("appetizers-list", appMenu);
+            createListItems("soups-list", soupMenu);
+            createListItems("salads-list", saladMenu);
+            createListItems("entrees-list", entreeMenu);
+            createListItems("beverages-list", bevMenu);
+        });
+    </script>
 </body>
 </html>

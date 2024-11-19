@@ -540,6 +540,35 @@ footer .flex {
 }
 
 
+/* Styles for LTO Page */
+#item-list h1 {
+    margin-top: 25px;
+}
+.item-section {
+    margin: 10px 0;
+    padding: 10px;
+    border: 3px solid var(--logoDarkBlue);
+    border-radius: 1em;
+}
+.lto-item {
+    width: 80%;
+    margin: 10px auto;
+}
+.lto-item .flex {
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+.lto-item .itemName {
+    width: 60%;
+}
+.lto-item .itemPrice {
+    width: 20%;
+}
+.lto-item .ltoBtn {
+    width: 20%;
+}
+
 /* Media query for 1200px */
 @media screen and (max-width: 1200px), print {
     .navbar li {
