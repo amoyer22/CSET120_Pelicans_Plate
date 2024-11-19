@@ -119,7 +119,7 @@ function clearLocalStorage() {
 }
 function editOpen(event){
     let itemName = event.target.closest(".item").querySelector("h2").textContent
-    let itemData = appMenu.get(itemName)
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
 
     let editForm = document.getElementById("editForm")
     editForm.innerHTML = itemData.addOns.map((addOn, index) => `
@@ -137,7 +137,7 @@ function editOpen(event){
 function editClose(){
     let editForm = document.getElementById("editForm")
     let itemName = editForm.getAttribute("data-item-name")
-    let itemData = appMenu.get(itemName)
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
 
     let checkboxes = editForm.querySelectorAll("input[type='checkbox']")
     checkboxes.forEach((checkbox, index) => {
