@@ -55,15 +55,14 @@ function addToCart(event){
     }
 }
 function updateCart(){
-    console.log(cart)
     let cartContainer = document.querySelector("#cart")
     cartContainer.innerHTML = ""
     let total = 0
 
     cart.forEach((item, index) => {
-        let itemTotalPrice = item.price * item.quantity
+        let itemTotalPrice = item.price + (item.addOns ? item.addOns.reduce((sum, addOn) => sum + addOn.price, 0) : 0)
         total += itemTotalPrice
-
+        
         let cartItem = document.createElement("div")
         cartItem.classList.add("cart-item")
         cartItem.innerHTML = `
@@ -75,10 +74,10 @@ function updateCart(){
                 <div class="itemDescription">
                     <h2>${item.name}</h2>
                     <div class="itemInfo">
-                        <p class="itemPrice">$${itemTotalPrice}</p>
+                        <p class="itemPrice">$${itemTotalPrice.toFixed(2)}</p>
                         <label for="quantity" id="quantityLabel">Qty</label>
                         <input type="number" id="quantity" name="quantity" value="${item.quantity}" placeholder="1" min="1" max="99">
-                        <button id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                        <button id="itemEdit" class="btn-signup" onclick="editOpen(event)">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove" class="btn-signup">Remove</button>
                     </div>
                 </div>
@@ -92,9 +91,18 @@ function updateCart(){
         })
         cartContainer.appendChild(cartItem)
     })
-    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total}`;
+    document.querySelector("#purchaseContainer h2").textContent = `Total: $${total.toFixed(2)}`;
 }
 function removeFromCart(index){
+    let editForm = document.getElementById("editForm")
+    let itemName = editForm.getAttribute("data-item-name")
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
+
+    let checkboxes = editForm.querySelectorAll("input[type='checkbox']")
+    checkboxes.forEach((checkbox, index) => {
+        itemData.addOns[index].selected = checkbox.checked = false
+    })
+
     cart.splice(index, 1)
     updateCart()
 }
@@ -118,13 +126,42 @@ function clearLocalStorage() {
     }
     localStorage.removeItem("cartTotal");
 }
-function editOpen(){
-    document.getElementById("editPopup").style.display = "block";
-    document.getElementById("editOverlay").style.display = "block";
+function editOpen(event){
+    let itemName = event.target.closest(".item").querySelector("h2").textContent
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
+
+    let editForm = document.getElementById("editForm")
+    editForm.innerHTML = itemData.addOns.map((addOn, index) => `
+        <div class="form-section">
+            <input type="checkbox" name="addon${index}" id="addon${index}" ${addOn.selected ? "checked" : ""}>
+            <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
+        </div>
+    `).join("")
+
+    document.getElementById("editPopup").style.display = "block"
+    document.getElementById("editOverlay").style.display = "block"
+
+    editForm.setAttribute("data-item-name", itemName)
 }
 function editClose(){
-    document.getElementById("editPopup").style.display = "none";
-    document.getElementById("editOverlay").style.display = "none";
+    let editForm = document.getElementById("editForm")
+    let itemName = editForm.getAttribute("data-item-name")
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
+
+    let checkboxes = editForm.querySelectorAll("input[type='checkbox']")
+    checkboxes.forEach((checkbox, index) => {
+        itemData.addOns[index].selected = checkbox.checked
+    })
+
+    let cartItem = cart.find(cartItem => cartItem.name === itemName)
+    if(cartItem){
+        cartItem.addOns = itemData.addOns.filter(addOn => addOn.selected)
+        cartItem.totalPrice = cartItem.price + cartItem.addOns.reduce((sum, addOn) => sum + addOn.price, 0)
+    }
+    updateCart()
+
+    document.getElementById("editPopup").style.display = "none"
+    document.getElementById("editOverlay").style.display = "none"
 }
 
 
@@ -480,7 +517,7 @@ function createManagerMenuItems(categoryId, itemsMap) {
                 <h2>${name}</h2>
                 <p>${item.description}</p>
                 <div class="itemInfo">
-                    <p class="itemPrice">$${item.price}</p>
+                    <p class="itemPrice">$${item.price.toFixed(2)}</p>
                     <button type="button" class="btn-signup" onclick="removeItem('${name}', '${categoryId}')">Remove</button>
                 </div>
             </div>
@@ -502,8 +539,8 @@ function createCustomerMenuItems(categoryId, itemsMap) {
                 <h2>${name}</h2>
                 <p>${item.description}</p>
                 <div class="itemInfo">
-                    <p class="itemPrice">$${item.price}</p>
-                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen()">Edit</button>
+                    <p class="itemPrice">$${item.price.toFixed(2)}</p>
+                    <button type="button" id="itemEdit" class="btn-signup" onclick="editOpen(event)">Edit</button>
                     <button type="button" id="itemAdd" class="btn-signup" onclick="addToCart(event)">Add to Cart</button>
                 </div>
             </div>
