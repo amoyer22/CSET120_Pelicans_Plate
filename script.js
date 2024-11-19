@@ -508,7 +508,7 @@ function createManagerMenuItems(categoryId, itemsMap) {
                 <h2>${name}</h2>
                 <p>${item.description}</p>
                 <div class="itemInfo">
-                    <p class="itemPrice">$${item.price}</p>
+                    <p class="itemPrice">$${item.price.toFixed(2)}</p>
                     <button type="button" class="btn-signup" onclick="removeItem('${name}', '${categoryId}')">Remove</button>
                 </div>
             </div>
