@@ -550,9 +550,19 @@ footer .flex {
 
 /* Media query for 900px */
 @media screen and (max-width: 900px), print {
+    #menu {
+        padding: 20px 10px;
+    }
     .item {
+        display: block;
         width: 100%;
         margin: 10px 0;   
+    }
+    .item h2 {
+        margin-top: 5px;
+    }
+    #cartHeading h1 {
+        padding: 20px 0px 0px 20px;
     }
 }
 
@@ -636,7 +646,9 @@ footer .flex {
     #menuContainer {
         margin-top: 110px;
     }
-
+    #lto {
+        margin-top: 110px;
+    }
 
     /* Styles for flexboxes */
     #about .flex {
