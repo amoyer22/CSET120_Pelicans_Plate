@@ -94,6 +94,15 @@ function updateCart(){
     document.querySelector("#purchaseContainer h2").textContent = `Total: $${total.toFixed(2)}`;
 }
 function removeFromCart(index){
+    let editForm = document.getElementById("editForm")
+    let itemName = editForm.getAttribute("data-item-name")
+    let itemData = appMenu.get(itemName) || soupMenu.get(itemName) || saladMenu.get(itemName) || entreeMenu.get(itemName) || bevMenu.get(itemName)
+
+    let checkboxes = editForm.querySelectorAll("input[type='checkbox']")
+    checkboxes.forEach((checkbox, index) => {
+        itemData.addOns[index].selected = checkbox.checked = false
+    })
+
     cart.splice(index, 1)
     updateCart()
 }
