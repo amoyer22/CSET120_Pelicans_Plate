@@ -17,7 +17,7 @@
         <div class="mobile-nav">
             <nav class="mobile-navbar">
                 <a href="home.html">Pelican's Plate</a>
-                <ul class="mobile-nav-list">
+                <ul class="mobile-nav">
                     <li><a href="manager.html">Menu</a></li>
                     <li><a href="lto.html">LTO Creation</a></li>
                 </ul>
@@ -31,7 +31,7 @@
         <div class="navigation">
             <nav class="navbar">
                 <a href="home.html"><img class="logo" src="images/Pelicans-Plate-logo.png" alt="logo"></a>
-                <ul class="nav-list flex">
+                <ul class="nav flex">
                     <li><a href="manager.html">Menu</a></li>
                     <li><a href="lto.html">LTO Creation</a></li>
                 </ul>
@@ -44,38 +44,38 @@
         <div class="container">
             <h1>Limited Time Offer Creator</h1>
             <h2>Welcome manager. Please select the item you wish to discount.</h2>
-            <div id="item-list">
+            <div id="item">
                 <h1>Appetizers</h1>
                 <div class="item-section">
-                    <div id="appetizers-list">
+                    <div id="appetizers">
 
                     </div>    
                 </div>
 
                 <h1>Soups</h1>
                 <div class="item-section">
-                    <div id="soups-list">
+                    <div id="soups">
                         
                     </div>    
                 </div>
 
                 <h1>Salads</h1>
                 <div class="item-section">
-                    <div id="salads-list">
+                    <div id="salads">
                         
                     </div>    
                 </div>
                 
                 <h1>Entrees</h1>
                 <div class="item-section">
-                    <div id="entrees-list">
+                    <div id="entrees">
                         
                     </div>    
                 </div>
 
                 <h1>Beverages</h1>
                 <div class="item-section">
-                    <div id="beverages-list">
+                    <div id="beverages">
                         
                     </div>    
                 </div>
@@ -123,16 +123,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             grabMenuItemsFromStorage("appetizers", appMenu);
-            grabMenuItemsFromStorage("soups", soupMenu);
-            grabMenuItemsFromStorage("salads", saladMenu);
-            grabMenuItemsFromStorage("entrees", entreeMenu);
-            grabMenuItemsFromStorage("beverages", bevMenu);
+            grabMenuItemsFromStorage("appetizers", soupMenu);
+            grabMenuItemsFromStorage("appetizers", saladMenu);
+            grabMenuItemsFromStorage("appetizers", entreeMenu);
+            grabMenuItemsFromStorage("appetizers", bevMenu);
 
-            createListItems("appetizers-list", appMenu);
-            createListItems("soups-list", soupMenu);
-            createListItems("salads-list", saladMenu);
-            createListItems("entrees-list", entreeMenu);
-            createListItems("beverages-list", bevMenu);
+            createListItems("appetizers", appMenu);
+            createListItems("soups", soupMenu);
+            createListItems("salads", saladMenu);
+            createListItems("entrees", entreeMenu);
+            createListItems("beverages", bevMenu);
         });
     </script>
 </body>
