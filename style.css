@@ -357,7 +357,7 @@ header {
     z-index: 1;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 22, 51, 0.4);
     display: none;
     position: fixed;
     overflow: auto;
