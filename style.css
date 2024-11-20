@@ -155,7 +155,7 @@ header {
     align-items: center;
 }
 .navbar li {
-    width: 100%;
+    width: 20%;
 }
 .navbar a {
     text-decoration: none;

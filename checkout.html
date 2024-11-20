@@ -44,76 +44,78 @@
             <h1>Checkout</h1>
             <form>
                 <h2>Order Information</h2>
-                <div class="form-section">
-                    <label for="orderName">Order Name*:</label>
-                    <input type="text" id="orderName" required>
-                </div>
-                <div class="form-section">
-                    <label for="email">Email*:</label>
-                    <input type="email" id="email" placeholder="pelican@example.com" required>
-                </div>
-                <div class="form-section">
-                    <label for="phone">Phone Number*:</label>
-                    <input type="tel" id="phone" maxlength="12" placeholder="555-555-5555" required>
-                </div>
-                <div class="form-section">
-                    <label for="address">Address*:</label>
-                    <input type="text" id="address" required>
-                </div>
-
-                <h2 style="margin-top: 1em;">Payment Type</h2>
-                <div class="form-section">
-                    <div class="formFlex">
-                        <div>
-                            <input type="radio" name="payType" id="cash" onclick="cashSelect()">
-                            <label for="cash">Cash</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked>
-                            <label for="credit">Credit</label>
+                <div class="flex">
+                    <div class="form-section">
+                        <label for="orderName">Order Name*:</label>
+                        <input type="text" id="orderName" autocomplete="name" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="email">Email*:</label>
+                        <input type="email" id="email" placeholder="pelican@example.com" autocomplete="email" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="phone">Phone Number*:</label>
+                        <input type="tel" id="phone" maxlength="12" placeholder="555-555-5555" autocomplete="tel" required>
+                    </div>
+                    <div class="form-section">
+                        <label for="address">Address*:</label>
+                        <input type="text" id="address" required>
+                    </div>
+    
+                    <h2 style="margin-top: 1em;">Payment Type</h2>
+                    <div class="form-section">
+                        <div class="formFlex">
+                            <div>
+                                <input type="radio" name="payType" id="cash" onclick="cashSelect()">
+                                <label for="cash">Cash</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked>
+                                <label for="credit">Credit</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-section">
-                    <div id="cashDiv" style="display: none">
-                        <label for="cashAmount">Cash Amount*:</label>
-                        <input type="text" id="cashAmount" placeholder="$0.00" required>
-                    </div>
-                </div>
-                <div class="form-section">
-                    <div id="creditDiv" style="display: block">
-                        <div>
-                            <label for="cardName">Name on Card*:</label>
-                            <input type="text" id="cardName" autocomplete="cc-name" required>
-                        </div>
-                        <div>
-                            <label for="creditAmount">Credit Card Number*:</label>
-                            <input type="tel" id="creditAmount" maxlength="19" pattern="[0-9/s]{13,19}" inputmode="numeric" placeholder="1111-2222-3333-4444" autocomplete="cc-number">
-                        </div>
-                        <div>
-                            <label for="expMonth">Exp. Month*:</label>
-                            <input type="text" id="expMonth" placeholder="09 (September)" autocomplete="cc-exp-month" required>
-                        </div>
-                        <div>
-                            <label for="expYear">Exp. Year*:</label>
-                            <input type="tel" id="expYear" maxlength="4" placeholder="2037" autocomplete="cc-exp-year" required>
-                        </div>
-                        <div>
-                            <label for="cvv">CVV*:</label>
-                            <input type="tel" id="cvv" maxlength="3" placeholder="555" inputmode="numeric" autocomplete="cc-csc" required>
+                    <div class="form-section">
+                        <div id="cashDiv" style="display: none">
+                            <label for="cashAmount">Cash Amount*:</label>
+                            <input type="text" id="cashAmount" name="cashAmount" placeholder="$0.00" required>
                         </div>
                     </div>
+                    <div class="form-section">
+                        <div id="creditDiv" style="display: block">
+                            <div>
+                                <label for="cardName">Name on Card*:</label>
+                                <input type="text" id="cardName" required>
+                            </div>
+                            <div>
+                                <label for="creditAmount">Credit Card Number*:</label>
+                                <input type="tel" id="creditAmount" maxlength="19" inputmode="numeric" placeholder="1111-2222-3333-4444">
+                            </div>
+                            <div>
+                                <label for="expMonth">Exp. Month*:</label>
+                                <input type="text" id="expMonth" placeholder="09 (September)" maxlength="2" required>
+                            </div>
+                            <div>
+                                <label for="expYear">Exp. Year*:</label>
+                                <input type="tel" id="expYear" maxlength="4" placeholder="2037" required>
+                            </div>
+                            <div>
+                                <label for="cvv">CVV*:</label>
+                                <input type="tel" id="cvv" maxlength="3" placeholder="555" inputmode="numeric" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <label for="tip">Tip Amount:</label>
+                        <input type="text" id="tip" placeholder="$0.00">
+                    </div>
+    
+                    <h2 style="margin-top: 1em;">Extra Information</h2>
+                    <div class="form-section">
+                        <textarea id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
+                    </div>
+                    <button type="submit" id="checkoutBtn">Place Order</button>
                 </div>
-                <div class="form-section">
-                    <label for="tip">Tip Amount:</label>
-                    <input type="text" id="tip" placeholder="$0.00">
-                </div>
-
-                <h2 style="margin-top: 1em;">Extra Information</h2>
-                <div class="form-section">
-                    <textarea id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
-                </div>
-                <button type="submit" id="checkoutBtn" onclick="purchase(), nameSave()">Place Order</button>
             </form>
         </div>
     </section>

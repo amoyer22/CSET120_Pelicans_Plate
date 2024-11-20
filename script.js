@@ -289,9 +289,10 @@ function creditSelect(){
         creditDiv.style.display = "none"
     }
 }
-function purchase(){
-    window.location.href = "receipt.html"
-}
+document.querySelector("form").addEventListener("submit", function(event) {
+    nameSave();
+    window.location.href = "receipt.html";
+})
 
 
 // Functions for manager menu
