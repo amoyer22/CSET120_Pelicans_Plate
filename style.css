@@ -130,6 +130,12 @@ input {
     background-color: var(--white);
     cursor: pointer;
 }
+.btn-signup:hover{
+    background-color: #e6dfd5;
+}
+.btn-signup:active{
+    background-color: #bbb4ad;
+}
 #guestLink{
     color: var(--logoDarkBlue)
 }
@@ -316,6 +322,9 @@ header {
 #purchaseButton:hover{
     background-color: #e6dfd5;
 }
+#purchaseButton:active{
+    background-color: #bbb4ad;
+}
 #quantity{
     display: inline;
     margin: 0;
@@ -377,6 +386,9 @@ header {
 #editClose:hover{
     background-color: #e6dfd5;
 }
+#editClose:active{
+    background-color: #bbb4ad;
+}
 #editForm{
     padding: 0;
     margin: 0;
@@ -400,8 +412,11 @@ small{
     font-size: 18px;
     cursor: pointer;
 }
-#itemAdd:hover, #itemEdit:hover, #itemRemove:hover{
+#itemAdd:hover, #itemEdit:hover, #cart #itemRemove:hover{
     background-color: #e6dfd5;
+}
+#itemAdd:active, #itemEdit:active, #cart #itemRemove:active{
+    background-color: #bbb4ad;
 }
 
 
@@ -480,6 +495,12 @@ form button {
     color: var(--logoDarkBlue);
     background-color: var(--white);
     cursor: pointer;
+}
+#checkoutBtn:hover{
+    background-color: #e6dfd5;
+}
+#checkoutBtn:active{
+    background-color: #bbb4ad;
 }
 
 
