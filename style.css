@@ -196,7 +196,11 @@ ul.nav-list.flex {
     width: 30%;
 }
 .deals-card img {
-    width: 80%;
+    max-width: 80%;
+}
+.discount-price {
+    margin-top: 5px;
+    font-weight: 600;
 }
 
 
@@ -208,7 +212,6 @@ ul.nav-list.flex {
 #menu{
     padding: 20px 70px;
     width: 75%;
-    /*height: calc(130vh - 200px);*/
     overflow-y: scroll;
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
@@ -705,6 +708,9 @@ footer .flex {
     .deals-card {
         width: 100%;
         margin: 25px 0;
+    }
+    .deals-card img {
+        max-width: 100%;
     }
     footer div.container.flex {
         flex-direction: column;

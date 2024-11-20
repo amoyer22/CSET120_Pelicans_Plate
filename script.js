@@ -289,10 +289,6 @@ function creditSelect(){
         creditDiv.style.display = "none"
     }
 }
-document.querySelector("form").addEventListener("submit", function(event) {
-    nameSave();
-    window.location.href = "receipt.html";
-})
 
 
 // Functions for manager menu
@@ -673,5 +669,19 @@ function changePrice(event) {
         item.price = newPrice;
         saveCategoryToStorage(categoryId, categoryMap);
         createListItems(categoryId, categoryMap);
+        createDealCards(itemName, item);
     }
+}
+function createDealCards(name, item) {
+    let container = document.querySelector(".deals-flex");
+    container.innerHTML = "";
+    let ltoCard = document.createElement("div");
+    ltoCard.classList.add("deals-card");
+    ltoCard.innerHTML = `
+        <h2 class="discount-item">${name}</h2>
+        <img class="discount-image" src="${item.image}" alt="${name}">
+        <p class="discount-desc">${item.description}</p>
+        <p class="discount-price">Now: $${item.price.toFixed(2)}!</p>
+    `;
+    container.appendChild(ltoCard);
 }
