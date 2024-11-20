@@ -611,13 +611,66 @@ function removeItem(name, categoryId) {
         createManagerMenuItems(categoryId, menuMap);
     }
 }
-function grabMenuItemsFromStorage(categoryName, menuMap) {
-    let storedData = localStorage.getItem(categoryName);
+function grabMenuItemsFromStorage(categoryId, menuMap) {
+    let storedData = localStorage.getItem(categoryId);
     if (storedData) {
         menuMap.clear();
         storedData.split("#").forEach(item => {
             let [name, price, description, image] = item.split("|");
             menuMap.set(name, {price: parseFloat(price), description, image});
         })
+    }
+}
+
+
+// Functions for limited time offers
+function createListItems(categoryId, itemsMap) {
+    let container = document.getElementById(categoryId);
+    container.innerHTML = "";
+    itemsMap.forEach((item, name) => {
+        let itemDiv = document.createElement("div");
+        itemDiv.classList.add("lto-item");
+        itemDiv.innerHTML = `
+            <div class="flex">
+                <p class="itemName">${name}</p>
+                <p class="itemPrice">$${item.price.toFixed(2)}</p>
+                <button type="button" class="ltoBtn btn-signup" onclick="changePrice(event)">Change Price</button>
+            </div>
+        `;
+        container.appendChild(itemDiv);
+    })
+}
+function changePrice(event) {
+    let itemSection = event.target.closest(".item-section");
+    let categoryId = itemSection.querySelector("div[id]").id;
+
+    let itemName = event.target.closest(".lto-item").querySelector(".itemName").textContent;
+    let newPrice = parseFloat(prompt("Enter new price: "));
+    if (isNaN(newPrice) || newPrice <= 0) {
+        alert("Error. Enter valid price.");
+        return;
+    }
+
+    let categoryMap = "";
+    if (appMenu.has(itemName)) {
+        categoryMap = appMenu;
+    }
+    else if (soupMenu.has(itemName)) {
+        categoryMap = soupMenu;
+    }
+    else if (saladMenu.has(itemName)) {
+        categoryMap = saladMenu;
+    }
+    else if (entreeMenu.has(itemName)) {
+        categoryMap = entreeMenu;
+    }
+    else if (bevMenu.has(itemName)) {
+        categoryMap = bevMenu;
+    }
+    if (categoryMap) {
+        let item = categoryMap.get(itemName);
+        item.price = newPrice;
+        saveCategoryToStorage(categoryId, categoryMap);
+        createListItems(categoryId, categoryMap);
     }
 }
