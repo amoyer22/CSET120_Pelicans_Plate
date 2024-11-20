@@ -75,8 +75,7 @@ function updateCart(){
                     <h2>${item.name}</h2>
                     <div class="itemInfo">
                         <p class="itemPrice">$${itemTotalPrice.toFixed(2)}</p>
-                        <label for="quantity${index}" id="quantityLabel">Qty</label>
-                        <input type="number" id="quantity${index}" name="quantity" class="quantity" value="${item.quantity}" min="1" max="99">
+                        <input type="number" id="quantity" name="quantity" class="quantity" value="${item.quantity}" min="1" max="99">
                         <button id="itemEdit" class="btn-signup" onclick="editOpen(event)">Edit</button>
                         <button onclick="removeFromCart(${index})" id="itemRemove" class="btn-signup">Remove</button>
                     </div>
@@ -84,7 +83,7 @@ function updateCart(){
             </div>
         </div>`
 
-        cartItem.querySelector(`#quantity${index}`).addEventListener("input", (e) =>{
+        cartItem.querySelector(`#quantity`).addEventListener("input", (e) =>{
             let newQuantity = parseInt(e.target.value)
             item.quantity = isNaN(newQuantity) ? 1 : newQuantity
             updateCart()

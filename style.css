@@ -278,27 +278,22 @@ header {
     margin-right: 10px;
     font-size: 14px;
 }
-.itemAdd, .itemEdit{
-    padding: 3px;
+#itemAdd, #itemEdit{
+    padding: 5px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
     background-color: var(--white);
     font-family: "Koh Santepheap", serif;
-    font-size: 12px;
     cursor: pointer;
 }
-.itemEdit{
-    margin: 0px 10px 0px 10px;
-}
-#cart .itemRemove{
-    padding: 3px;
+#cart #itemRemove{
+    padding: 5px;
     border: 1px solid var(--logoDarkBlue);
     border-radius: .5em;
     color: var(--logoDarkBlue);
     background-color: var(--white);
     font-family: "Koh Santepheap", serif;
-    font-size: 12px;
     cursor: pointer;
 }
 #purchaseContainer h2{
@@ -318,7 +313,13 @@ header {
     font-size: 20px;
     cursor: pointer;
 }
-#quantityLabel, #quantity input[type=number]{
+#quantity{
+    display: inline;
+    margin: 0;
+    width: 40px;
+    border: 1px solid var(--logoDarkBlue);
+}
+#quantityLabel{
     font-size: 14px;
 }
 .btn-manager {
