@@ -581,6 +581,9 @@ footer .flex {
 .lto-item .ltoBtn {
     width: 20%;
 }
+.ltoBtn {
+    margin: 0 5px;
+}
 
 /* Media query for 1200px */
 @media screen and (max-width: 1200px), print {
