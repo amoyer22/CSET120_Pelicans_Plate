@@ -509,6 +509,9 @@ let bevMenu = new Map ([
         ]
     }]
 ])
+console.log("Appetizers:", Array.from(appMenu.entries()))
+console.log("Entrees:", Array.from(entreeMenu.entries()))
+
 function createManagerMenuItems(categoryId, itemsMap) {
     let container = document.getElementById(categoryId);
     container.innerHTML = "";
@@ -596,10 +599,11 @@ function addItem() {
 function saveCategoryToStorage(categoryName, menuMap) {
     let menuArray = [];
     menuMap.forEach((value, key) => {
-        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}`);
+        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}|${JSON.stringify(value.addOns || [])}`);
     });
-    localStorage.setItem(categoryName, menuArray.join("#"))
+    localStorage.setItem(categoryName, menuArray.join("#"));
 }
+
 function removeItem(name, categoryId) {
     let menuMap;
     if (categoryId == "appetizers") menuMap = appMenu;
@@ -619,9 +623,15 @@ function grabMenuItemsFromStorage(categoryId, menuMap) {
     if (storedData) {
         menuMap.clear();
         storedData.split("#").forEach(item => {
-            let [name, price, description, image] = item.split("|");
-            menuMap.set(name, {price: parseFloat(price), description, image});
-        })
+            let [name, price, description, image, addOnsString] = item.split("|");
+            let addOns = addOnsString ? JSON.parse(addOnsString) : [];
+            menuMap.set(name, {
+                price: parseFloat(price),
+                description,
+                image,
+                addOns
+            });
+        });
     }
 }
 
