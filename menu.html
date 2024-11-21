@@ -85,9 +85,7 @@
         <div id="editPopup" style="display: none;">
             <h1>Edit Item</h1>
             <div id="editDetails">
-                <form id="editForm">
-                    <div class="form-section"></div>
-                </form>
+                <div id="editForm"></div>
                 <div id="closeDiv">
                     <button id="editClose" onclick="editClose()">Close</button>
                 </div>
@@ -133,10 +131,10 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            grabMenuItemsFromStorage("appetizers", appMenu);
+            // grabMenuItemsFromStorage("appetizers", appMenu);
             grabMenuItemsFromStorage("soups", soupMenu);
             grabMenuItemsFromStorage("salads", saladMenu);
-            grabMenuItemsFromStorage("entrees", entreeMenu);
+            // grabMenuItemsFromStorage("entrees", entreeMenu);
             grabMenuItemsFromStorage("beverages", bevMenu);
 
             createCustomerMenuItems("appetizers", appMenu);
