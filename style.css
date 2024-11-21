@@ -656,6 +656,9 @@ footer .flex {
     section {
         padding: 15px
     }
+    .container {
+        width: 100%;
+    }
 
     /* Styles for mobile nav */
     header {
@@ -758,6 +761,21 @@ footer .flex {
     
     #cartContainer {
         width: 50%;
+    }
+
+
+    /* Styles for lto */
+    .lto-item .flex {
+        width: 100%;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .lto-item .itemName,  .lto-item .itemPrice {
+        width: 50%;
+    }
+    .lto-item .ltoBtn {
+        width: calc(50% - 10px);
+        margin-top: 5px;
     }
 
 
