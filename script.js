@@ -666,22 +666,36 @@ function changePrice(event) {
     }
     if (categoryMap) {
         let item = categoryMap.get(itemName);
-        item.price = newPrice;
+        if (newPrice == item.price) {
+            alert("Error. Please enter a different price.");
+        } else {
+            item.price = newPrice;
+        }
+        localStorage.setItem(
+            `deal_${itemName}`,
+            `${itemName}|${item.price}|${item.description}|${item.image}`
+        );
         saveCategoryToStorage(categoryId, categoryMap);
         createListItems(categoryId, categoryMap);
-        createDealCards(itemName, item);
     }
 }
-function createDealCards(name, item) {
+function createDealCards() {
     let container = document.querySelector(".deals-flex");
     container.innerHTML = "";
-    let ltoCard = document.createElement("div");
-    ltoCard.classList.add("deals-card");
-    ltoCard.innerHTML = `
-        <h2 class="discount-item">${name}</h2>
-        <img class="discount-image" src="${item.image}" alt="${name}">
-        <p class="discount-desc">${item.description}</p>
-        <p class="discount-price">Now: $${item.price.toFixed(2)}!</p>
-    `;
-    container.appendChild(ltoCard);
+
+    for (let key of Object.keys(localStorage)) {
+        if(key.startsWith("deal_")) {
+            let [name, price, description, image] = localStorage.getItem(key).split("|");
+            
+            let ltoCard = document.createElement("div");
+            ltoCard.classList.add("deals-card");
+            ltoCard.innerHTML = `
+                <h2 class="discount-item">${name}</h2>
+                <img class="discount-image" src="${image}" alt="${name}">
+                <p class="discount-desc">${description}</p>
+                <p class="discount-price">Now: $${parseFloat(price).toFixed(2)}!</p>
+            `;
+            container.appendChild(ltoCard);
+        }
+    }    
 }

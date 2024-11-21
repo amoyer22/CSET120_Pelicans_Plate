@@ -184,9 +184,6 @@ ul.nav-list.flex {
 
 
 /* Styles for LTO section */
-#deals {
-    margin-bottom: 30px;
-}
 #deals .flex {
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -202,7 +199,9 @@ ul.nav-list.flex {
     margin-top: 5px;
     font-weight: 600;
 }
-
+.no-deals {
+    margin-top: .5em;
+}
 
 /* Styles for menus */
 #menuContainer{
