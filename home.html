@@ -50,15 +50,7 @@
                     <img src="images/waterfront-location.jpg" alt="Beachside Location">
                 </div>
                 <div class="about-item">
-                    <p>Pelican's Plate began as a small seaside shack nestled along the coast, where fresh, local seafood was a daily staple for residents and fishermen alike. Its founder, a seasoned seafarer named Lou Bennett, wanted to bring the day's freshest catches directly to the community, celebrating the flavors and traditions of coastal cooking. Lou named it "Pelican's Plate" in homage to the pelicans that were always close by, diving into the water for their meals just as he did each morning. What started as a humble shack serving simple, hearty meals became a beloved spot known for its authenticity, welcoming atmosphere, and dedication to sustainable seafood.</p>
-                </div>
-            </div>
-            <div class="flex">
-                <div class="about-item">
-                    <p>As the restaurant grew, Pelican's Plate expanded its menu to include creative interpretations of classic coastal dishes, adding bold, globally inspired flavors alongside traditional favorites. Yet, Lou’s philosophy has remained unchanged: every dish is crafted with care, featuring only the freshest ingredients, responsibly sourced from local waters. With a casual, rustic setting that transports diners straight to the shore, Pelican’s Plate has become a gathering place for friends, families, and food lovers seeking a true taste of the sea, where the spirit of the coast is alive in every bite.</p>
-                </div>
-                <div class="about-item">
-                    <img src="images/fresh-seafood.jpg" alt="Fresh Caught Ingredients">
+                    <p>Pelican's Plate began as a small seaside shack nestled along the coast, where fresh, local seafood was a daily staple for residents and fishermen alike. Its founder, Lou Bennett, wanted to bring the day's freshest catches directly to the community, celebrating the flavors and traditions of coastal cooking. Since then, Pelican’s Plate has become a gathering place for friends, families, and food lovers seeking a true taste of the sea, where the spirit of the coast is alive in every bite.</p>
                 </div>
             </div>
         </div>
@@ -67,25 +59,9 @@
 
     <section id="deals">
         <div class="container">
-            <h1>Limited time discounts!</h1>
+            <h1>Limited time offers!</h1>
             <p id="deals?">Here are some of our current deals!</p>
-            <div class="deals-flex flex">
-                <div class="deals-card">
-                    <h2 class="discount-item">Crab Cakes</h2>
-                    <img class="discount-image" src="images/crab-cakes.jpg" alt="discount 1">
-                    <p class="discount-desc">Lorem ipsum odor amet, consectetuer adipiscing elit. Condimentum metus justo massa dolor cras, eleifend fringilla magnis.</p>
-                </div>
-                <div class="deals-card">
-                    <h2 class="discount-item">Lobster Tail</h2>
-                    <img class="discount-image" src="images/lobster-tail.jpg" alt="discount 2">
-                    <p class="discount-desc">Lorem ipsum odor amet, consectetuer adipiscing elit. Condimentum metus justo massa dolor cras, eleifend fringilla magnis.</p>
-                </div>
-                <div class="deals-card">
-                    <h2 class="discount-item">Margartitas</h2>
-                    <img class="discount-image" src="images/margarita.png" alt="discount 3">
-                    <p class="discount-desc">Lorem ipsum odor amet, consectetuer adipiscing elit. Condimentum metus justo massa dolor cras, eleifend fringilla magnis.</p>
-                </div>
-            </div>
+            <div class="deals-flex flex"></div>
         </div>
     </section>
 
@@ -126,5 +102,17 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            createDealCards();
+            let container = document.querySelector(".deals-flex");
+            while (container.innerHTML == "") {
+                let noDeals = document.createElement("h1");
+                noDeals.innerHTML = "We currently have no special offers. Sorry!";
+                noDeals.classList.add("no-deals");
+                container.appendChild(noDeals);
+            }
+        })
+    </script>
 </body>
 </html>

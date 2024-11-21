@@ -161,7 +161,7 @@ header {
     align-items: center;
 }
 .navbar li {
-    width: 10%;
+    width: 20%;
 }
 .navbar a {
     text-decoration: none;
@@ -170,11 +170,15 @@ header {
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 600;
 }
+ul.nav-list.flex {
+    width: 80%;
+    margin: 0 auto;
+}
 
 
 /* Styles for about section */
 #about .flex {
-    justify-content: space-evenly !important;
+    justify-content: space-evenly;
 }
 .first-para {
     margin-top: 30px;
@@ -186,9 +190,6 @@ header {
 
 
 /* Styles for LTO section */
-#deals {
-    margin-bottom: 30px;
-}
 #deals .flex {
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -198,9 +199,15 @@ header {
     width: 30%;
 }
 .deals-card img {
-    width: 80%;
+    max-width: 80%;
 }
-
+.discount-price {
+    margin-top: 5px;
+    font-weight: 600;
+}
+.no-deals {
+    margin-top: .5em;
+}
 
 /* Styles for menus */
 #menuContainer{
@@ -210,7 +217,6 @@ header {
 #menu{
     padding: 20px 70px;
     width: 75%;
-    /*height: calc(130vh - 200px);*/
     overflow-y: scroll;
     scrollbar-color: var(--logoDarkBlue) transparent;
     scrollbar-width: thin;
@@ -463,13 +469,19 @@ form .flex {
 }
 form input {
     display: inline;
-    margin: 10px 0;
+    margin: 2px 0 10px 0;
+    width: 100%;
+}
+form label {
+    display: block;
+    text-align: left;
 }
 form button {
     margin: 10px 0;
 }
 .form-section {
     display: block;
+    width: 50%;
 }
 
 
@@ -599,6 +611,9 @@ footer .flex {
 .lto-item .ltoBtn {
     width: 20%;
 }
+.ltoBtn {
+    margin: 0 5px;
+}
 
 /* Media query for 1200px */
 @media screen and (max-width: 1200px), print {
@@ -635,7 +650,12 @@ footer .flex {
     .navigation {
         display: none;
     }
-
+    h1 {
+        line-height: 1.1em;
+    }
+    section {
+        padding: 15px
+    }
 
     /* Styles for mobile nav */
     header {
@@ -720,6 +740,9 @@ footer .flex {
     .deals-card {
         width: 100%;
         margin: 25px 0;
+    }
+    .deals-card img {
+        max-width: 100%;
     }
     footer div.container.flex {
         flex-direction: column;
