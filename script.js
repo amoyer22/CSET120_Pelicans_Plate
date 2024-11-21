@@ -180,6 +180,7 @@ function nameSave() {
     let customerNameElement = document.getElementById("orderName");
     let customerName = customerNameElement.value;
     localStorage.setItem("customerName", customerName);
+    window.location.href = "receipt.html";
 }
 
 
@@ -276,24 +277,50 @@ function subscribe() {
 // Functions for checkout page
 function cashSelect(){
     let cashButton = document.getElementById("cash")
-    let cashDiv = document.getElementById("cashDiv")
+    let paymentTypeContainer = document.getElementById("payment-type");
 
     if(cashButton.checked){
-        cashDiv.style.display = "block"
-        creditDiv.style.display = "none"
-    } else{
-        cashDiv.style.display = "none"
+        paymentTypeContainer.innerHTML = "";
+        let cashDiv = document.createElement("div");
+        cashDiv.classList.add("cashDiv");
+        cashDiv.innerHTML = `
+            <label for="cashAmount">Cash Amount*:</label>
+            <input type="text" id="cashAmount" name="cashAmount" placeholder="$0.00" required>
+        `;
+        paymentTypeContainer.appendChild(cashDiv);
     }
 }
 function creditSelect(){
     let creditButton = document.getElementById("credit")
-    let creditDiv = document.getElementById("creditDiv")
+    let paymentTypeContainer = document.getElementById("payment-type");
 
     if(creditButton.checked){
-        creditDiv.style.display = "block"
-        cashDiv.style.display = "none"
-    } else{
-        creditDiv.style.display = "none"
+        paymentTypeContainer.innerHTML = "";
+        let creditDiv = document.createElement("div");
+        creditDiv.classList.add("cashDiv");
+        creditDiv.innerHTML = `
+            <div>
+                <label for="cardName">Name on Card*:</label>
+                <input type="text" id="cardName" required>
+            </div>
+            <div>
+                <label for="creditAmount">Credit Card Number*:</label>
+                <input type="tel" id="creditAmount" maxlength="19" inputmode="numeric" placeholder="1111-2222-3333-4444">
+            </div>
+            <div>
+                <label for="expMonth">Exp. Month*:</label>
+                <input type="text" id="expMonth" placeholder="09 (September)" maxlength="2" required>
+            </div>
+            <div>
+                <label for="expYear">Exp. Year*:</label>
+                <input type="tel" id="expYear" maxlength="4" placeholder="2037" required>
+            </div>
+            <div>
+                <label for="cvv">CVV*:</label>
+                <input type="tel" id="cvv" maxlength="3" placeholder="555" inputmode="numeric" required>
+            </div>
+        `;
+        paymentTypeContainer.appendChild(creditDiv);
     }
 }
 
@@ -510,9 +537,6 @@ let bevMenu = new Map ([
         ]
     }]
 ])
-console.log("Appetizers:", Array.from(appMenu.entries()))
-console.log("Entrees:", Array.from(entreeMenu.entries()))
-
 function createManagerMenuItems(categoryId, itemsMap) {
     let container = document.getElementById(categoryId);
     container.innerHTML = "";
