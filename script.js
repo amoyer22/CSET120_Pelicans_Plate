@@ -133,12 +133,18 @@ function editOpen(event){
     let itemData = menus.find(menu => menu.has(itemName))?.get(itemName)
 
     let editForm = document.getElementById("editForm")
-    editForm.innerHTML = itemData.addOns.map((addOn, index) => `
-        <div class="editFormSection">
-            <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
-            <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
-        </div>
-    `).join("")
+
+    if(itemData?.addOns?.length){
+        editForm.innerHTML = itemData.addOns.map((addOn, index) => `
+            <div class="editFormSection">
+                <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
+                <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
+            </div>
+        `).join("")
+    }
+    else{
+        editForm.innerHTML = "<p>No add-ons are available for this item.</p>"
+    }
 
     document.getElementById("editPopup").style.display = "block"
     document.getElementById("editOverlay").style.display = "block"
