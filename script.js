@@ -134,8 +134,8 @@ function editOpen(event){
 
     let editForm = document.getElementById("editForm")
     editForm.innerHTML = itemData.addOns.map((addOn, index) => `
-        <div class="form-section">
-            <input type="checkbox" name="addon${index}" id="addon${index}" ${addOn.selected ? "checked" : ""}>
+        <div class="editFormSection">
+            <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
             <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
         </div>
     `).join("")
