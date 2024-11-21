@@ -59,28 +59,9 @@
 
     <section id="deals">
         <div class="container">
-            <h1>Limited time discounts!</h1>
+            <h1>Limited time offers!</h1>
             <p id="deals?">Here are some of our current deals!</p>
-            <div class="deals-flex flex">
-                <div class="deals-card">
-                    <h2 class="discount-item">Crab Cakes</h2>
-                    <img class="discount-image" src="images/crab-cakes.jpg" alt="discount 1">
-                    <p class="discount-desc">A delicious fishcake made with fresh crab meat. Deep fried to perfection.</p>
-                    <p class="discount-price">Now: $14!</p>
-                </div>
-                <div class="deals-card">
-                    <h2 class="discount-item">Lobster Tail</h2>
-                    <img class="discount-image" src="images/lobster-tail.jpg" alt="discount 2">
-                    <p class="discount-desc">Grilled or butter-poached lobster tail, melt-in-your-mouth tender.</p>
-                    <p class="discount-price">Now: $36!</p>
-                </div>
-                <div class="deals-card">
-                    <h2 class="discount-item">Margartitas</h2>
-                    <img class="discount-image" src="images/margarita.png" alt="discount 3">
-                    <p class="discount-desc">Tequila and lime, served classic or blended with a salt rim.</p>
-                    <p class="discount-price">Now: $9!</p>
-                </div>
-            </div>
+            <div class="deals-flex flex"></div>
         </div>
     </section>
 
@@ -121,5 +102,17 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            createDealCards();
+            let container = document.querySelector(".deals-flex");
+            while (container.innerHTML == "") {
+                let noDeals = document.createElement("h1");
+                noDeals.innerHTML = "We currently have no special offers. Sorry!";
+                noDeals.classList.add("no-deals");
+                container.appendChild(noDeals);
+            }
+        })
+    </script>
 </body>
 </html>

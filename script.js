@@ -47,6 +47,7 @@ function addToCart(event){
         let item = {
             name: itemName,
             price: itemPrice,
+            originalPrice: itemPrice,
             image: itemImage,
             quantity: 1
         }
@@ -623,15 +624,14 @@ function grabMenuItemsFromStorage(categoryId, menuMap) {
     if (storedData) {
         menuMap.clear();
         storedData.split("#").forEach(item => {
-            let [name, price, description, image, addOnsString] = item.split("|");
-            let addOns = addOnsString ? JSON.parse(addOnsString) : [];
+            let [name, price, description, image, originalPrice] = item.split("|");
             menuMap.set(name, {
                 price: parseFloat(price),
                 description,
-                image,
-                addOns
+                image, 
+                originalPrice: originalPrice ? parseFloat(originalPrice): parseFloat(price)
             });
-        });
+        })
     }
 }
 
@@ -648,6 +648,7 @@ function createListItems(categoryId, itemsMap) {
                 <p class="itemName">${name}</p>
                 <p class="itemPrice">$${item.price.toFixed(2)}</p>
                 <button type="button" class="ltoBtn btn-signup" onclick="changePrice(event)">Change Price</button>
+                <button type="button" class="ltoBtn btn-signup" onclick="resetPrice(event)">Reset Price</button>
             </div>
         `;
         container.appendChild(itemDiv);
@@ -682,22 +683,73 @@ function changePrice(event) {
     }
     if (categoryMap) {
         let item = categoryMap.get(itemName);
-        item.price = newPrice;
+
+        if (!item.originalPrice) {
+            item.originalPrice = item.price;
+        }
+
+        if (newPrice == item.price) {
+            alert("Error. Please enter a different price.");
+        } else {
+            item.price = newPrice;
+        }
+        localStorage.setItem(
+            `deal_${itemName}`,
+            `${itemName}|${item.price}|${item.description}|${item.image}`
+        );
         saveCategoryToStorage(categoryId, categoryMap);
         createListItems(categoryId, categoryMap);
         createDealCards(itemName, item);
     }
 }
-function createDealCards(name, item) {
+function createDealCards() {
     let container = document.querySelector(".deals-flex");
     container.innerHTML = "";
-    let ltoCard = document.createElement("div");
-    ltoCard.classList.add("deals-card");
-    ltoCard.innerHTML = `
-        <h2 class="discount-item">${name}</h2>
-        <img class="discount-image" src="${item.image}" alt="${name}">
-        <p class="discount-desc">${item.description}</p>
-        <p class="discount-price">Now: $${item.price.toFixed(2)}!</p>
-    `;
-    container.appendChild(ltoCard);
+
+    for (let key of Object.keys(localStorage)) {
+        if(key.startsWith("deal_")) {
+            let [name, price, description, image] = localStorage.getItem(key).split("|");
+            
+            let ltoCard = document.createElement("div");
+            ltoCard.classList.add("deals-card");
+            ltoCard.innerHTML = `
+                <h2 class="discount-item">${name}</h2>
+                <img class="discount-image" src="${image}" alt="${name}">
+                <p class="discount-desc">${description}</p>
+                <p class="discount-price">Now: $${parseFloat(price).toFixed(2)}!</p>
+            `;
+            container.appendChild(ltoCard);
+        }
+    }    
+}
+function resetPrice(event) {
+    let itemName = event.target.closest(".lto-item").querySelector(".itemName").textContent;
+    let itemSection = event.target.closest(".item-section");
+    let categoryId = itemSection.querySelector("div[id]").id;
+
+    let categoryMap = "";
+    if (appMenu.has(itemName)) {
+        categoryMap = appMenu;
+    }
+    else if (soupMenu.has(itemName)) {
+        categoryMap = soupMenu;
+    }
+    else if (saladMenu.has(itemName)) {
+        categoryMap = saladMenu;
+    }
+    else if (entreeMenu.has(itemName)) {
+        categoryMap = entreeMenu;
+    }
+    else if (bevMenu.has(itemName)) {
+        categoryMap = bevMenu;
+    }
+    if (categoryMap) {
+        let item = categoryMap.get(itemName);
+        if (item.originalPrice) {
+            item.price = item.originalPrice;
+            localStorage.removeItem(`deal_${itemName}`);
+            saveCategoryToStorage(categoryId, categoryMap);
+            createListItems(categoryId, categoryMap);
+        }
+    }   
 }
