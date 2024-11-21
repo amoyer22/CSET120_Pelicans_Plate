@@ -134,12 +134,18 @@ function editOpen(event){
     let itemData = menus.find(menu => menu.has(itemName))?.get(itemName)
 
     let editForm = document.getElementById("editForm")
-    editForm.innerHTML = itemData.addOns.map((addOn, index) => `
-        <div class="form-section">
-            <input type="checkbox" name="addon${index}" id="addon${index}" ${addOn.selected ? "checked" : ""}>
-            <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
-        </div>
-    `).join("")
+
+    if(itemData?.addOns?.length){
+        editForm.innerHTML = itemData.addOns.map((addOn, index) => `
+            <div class="editFormSection">
+                <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
+                <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
+            </div>
+        `).join("")
+    }
+    else{
+        editForm.innerHTML = "<p>No add-ons are available for this item.</p>"
+    }
 
     document.getElementById("editPopup").style.display = "block"
     document.getElementById("editOverlay").style.display = "block"
@@ -504,6 +510,9 @@ let bevMenu = new Map ([
         ]
     }]
 ])
+console.log("Appetizers:", Array.from(appMenu.entries()))
+console.log("Entrees:", Array.from(entreeMenu.entries()))
+
 function createManagerMenuItems(categoryId, itemsMap) {
     let container = document.getElementById(categoryId);
     container.innerHTML = "";
@@ -591,10 +600,11 @@ function addItem() {
 function saveCategoryToStorage(categoryName, menuMap) {
     let menuArray = [];
     menuMap.forEach((value, key) => {
-        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}`);
+        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}|${JSON.stringify(value.addOns || [])}`);
     });
-    localStorage.setItem(categoryName, menuArray.join("#"))
+    localStorage.setItem(categoryName, menuArray.join("#"));
 }
+
 function removeItem(name, categoryId) {
     let menuMap;
     if (categoryId == "appetizers") menuMap = appMenu;
@@ -689,6 +699,7 @@ function changePrice(event) {
         );
         saveCategoryToStorage(categoryId, categoryMap);
         createListItems(categoryId, categoryMap);
+        createDealCards(itemName, item);
     }
 }
 function createDealCards() {
