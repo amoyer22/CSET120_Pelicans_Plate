@@ -227,18 +227,35 @@ function timeGeneration() {
     let cartItems = document.querySelector("#cart-items");
     let childElements = cartItems.children;
     let cartArray = Array.from(childElements);
-    let time = "";
-    console.log(cartArray.length);
-    if (cartArray.length >= 4) {
-        time = 45 + " minutes.";
-    } 
-    else if (cartArray.length >= 8) {
-        time = 1 + " hour.";
-    } else {
-        time = 35 + " minutes.";
-    }
-    let timeEst = "Your order will be ready in " + time;
-    timeEstimate.innerHTML = timeEst;
+    let totalItems = 0;
+    let totalQuantity = 0;
+
+    cartArray.forEach(item => {
+        let quantityElement = item.querySelector(".item-quantity");
+        let quantity = parseInt(quantityElement.textContent, 10) || 1;
+        totalItems++;
+        totalQuantity += quantity;
+    })
+
+    let totalSeconds = totalQuantity * 600;
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds =totalSeconds % 60;
+    let timeEstimate = document.querySelector("#time-estimate");
+    let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    timeEstimate.textContent = `Your order will be available for pickup in ${time}`;
+    startCountdown(totalSeconds, timeEstimate);
+}
+function startCountdown(totalSeconds, timeEstimate) {
+    let interval = setInterval(() => {
+        totalSeconds--;
+        let hours = Math.floor(totalSeconds / 3600);
+        let minutes = Math.floor((totalSeconds % 3600) / 60);
+        let seconds =totalSeconds % 60;
+
+        let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        timeEstimate.textContent = `Your order will be available for pickup in ${time}`;
+    }, 1000)
 }
 function clearReceipt() {
     let index = 0
