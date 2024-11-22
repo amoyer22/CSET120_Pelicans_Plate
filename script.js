@@ -6,6 +6,7 @@ function signup() {
     if (email === "" || password === ""){
         alert("Please enter a username and password.")
     } else {
+        alert("Thank you for creating an account!");
         localStorage.setItem(email, password);
         window.location.href = "login.html";
     }
@@ -20,6 +21,7 @@ function login(){
     } else {
         if(localStorage.getItem(email)){
             if(password === localStorage.getItem(email)){
+                alert("Successful login!")
                 location.replace("home.html")
             } else {
                 alert("Incorrect password entered. Please try again.")
@@ -273,10 +275,14 @@ function clearReceipt() {
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
-mobileNav.addEventListener("click", () => {
-    mobileNav.classList.toggle("active");
-    navList.classList.toggle("active");
-})
+if (mobileNav === null) {
+    console.error("This appeared because the page does not have a navigation. This is on purpose. IGNORE ERROR.")
+} else {
+    mobileNav.addEventListener("click", () => {
+        mobileNav.classList.toggle("active");
+        navList.classList.toggle("active");
+    });
+}
 
 
 // Function for footer subscription
