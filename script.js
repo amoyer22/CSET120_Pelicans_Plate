@@ -604,7 +604,7 @@ function addItem() {
     let name = prompt("Enter item name: ");
     let image = prompt("Enter image url: ");
     let description = prompt("Enter description: ");
-    let price = prompt("Enter price (Number Only): ");
+    let price = Number(prompt("Enter price (Number Only): "));
 
     if (category && name && !isNaN(price) && image) {
         let itemString = `${name}|${price}|${description}|${image}`;
@@ -740,7 +740,6 @@ function changePrice(event) {
         );
         saveCategoryToStorage(categoryId, categoryMap);
         createListItems(categoryId, categoryMap);
-        createDealCards(itemName, item);
     }
 }
 function createDealCards() {
