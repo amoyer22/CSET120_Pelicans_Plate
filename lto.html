@@ -47,37 +47,27 @@
             <div id="item-list">
                 <h1>Appetizers</h1>
                 <div class="item-section">
-                    <div id="appetizers">
-
-                    </div>    
+                    <div id="appetizers"></div>    
                 </div>
 
                 <h1>Soups</h1>
                 <div class="item-section">
-                    <div id="soups">
-                        
-                    </div>    
+                    <div id="soups"></div>    
                 </div>
 
                 <h1>Salads</h1>
                 <div class="item-section">
-                    <div id="salads">
-                        
-                    </div>    
+                    <div id="salads"></div>    
                 </div>
                 
                 <h1>Entrees</h1>
                 <div class="item-section">
-                    <div id="entrees">
-                        
-                    </div>    
+                    <div id="entrees"></div>    
                 </div>
 
                 <h1>Beverages</h1>
                 <div class="item-section">
-                    <div id="beverages">
-                        
-                    </div>    
+                    <div id="beverages"></div>    
                 </div>
             </div>
         </div>
@@ -123,10 +113,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             grabMenuItemsFromStorage("appetizers", appMenu);
-            grabMenuItemsFromStorage("appetizers", soupMenu);
-            grabMenuItemsFromStorage("appetizers", saladMenu);
-            grabMenuItemsFromStorage("appetizers", entreeMenu);
-            grabMenuItemsFromStorage("appetizers", bevMenu);
+            grabMenuItemsFromStorage("soups", soupMenu);
+            grabMenuItemsFromStorage("salads", saladMenu);
+            grabMenuItemsFromStorage("entrees", entreeMenu);
+            grabMenuItemsFromStorage("beverages", bevMenu);
 
             createListItems("appetizers", appMenu);
             createListItems("soups", soupMenu);
