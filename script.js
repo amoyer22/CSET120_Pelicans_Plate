@@ -2,11 +2,14 @@
 function signup() {
     let email = document.getElementById("email").value;
     let password =  document.getElementById("password").value;
+    let userName = document.getElementById("name").value
 
-    if (email === "" || password === ""){
-        alert("Please enter a username and password.")
+    if (userName === "" || email === "" || password === ""){
+        alert("Please enter a username, email, and password.")
     } else {
+        alert("Thank you for creating an account!");
         localStorage.setItem(email, password);
+        localStorage.setItem("userName", userName);
         window.location.href = "login.html";
     }
 }
@@ -20,6 +23,7 @@ function login(){
     } else {
         if(localStorage.getItem(email)){
             if(password === localStorage.getItem(email)){
+                alert("Successful login!")
                 location.replace("home.html")
             } else {
                 alert("Incorrect password entered. Please try again.")
@@ -177,10 +181,15 @@ function editClose(){
 
 // Function for payment option section */
 function nameSave() {
-    let customerNameElement = document.getElementById("orderName");
-    let customerName = customerNameElement.value;
-    localStorage.setItem("customerName", customerName);
-    window.location.href = "receipt.html";
+    let name1 = localStorage.getItem("userName");
+    if (name1) {
+        window.location.href = "receipt.html";
+    } else {
+        let customerNameElement = document.getElementById("orderName");
+        let customerName = customerNameElement.value;
+        localStorage.setItem("customerName", customerName);
+        window.location.href = "receipt.html";
+    }
 }
 
 
@@ -195,9 +204,16 @@ function orderNumGenerator() {
     orderNumber.innerHTML = orderNum;
 }
 function nameOnOrder() {
-    let name = localStorage.getItem("customerName");
-    let customerName = "Order Name: " + name;
-    orderName.innerHTML = customerName;
+    let name1 = localStorage.getItem("userName");
+    let name2 = localStorage.getItem("customerName");
+    if (name1) {
+        let customerName = "Order Name: " + name1;
+        orderName.innerHTML = customerName;
+    } else {
+        let customerName = "Order Name: " + name2;
+        orderName.innerHTML = customerName;
+    }
+    
 }
 function updateReceipt() {
     let ItemsContainer = document.querySelector("#receipt-table tbody");
@@ -273,10 +289,14 @@ function clearReceipt() {
 let mobileNav = document.querySelector(".hamburger");
 let navList = document.querySelector(".mobile-nav-list");
 let header = document.querySelector("header");
-mobileNav.addEventListener("click", () => {
-    mobileNav.classList.toggle("active");
-    navList.classList.toggle("active");
-})
+if (mobileNav === null) {
+    console.error("This appeared because the page does not have a navigation. This is on purpose. IGNORE ERROR.")
+} else {
+    mobileNav.addEventListener("click", () => {
+        mobileNav.classList.toggle("active");
+        navList.classList.toggle("active");
+    });
+}
 
 
 // Function for footer subscription
