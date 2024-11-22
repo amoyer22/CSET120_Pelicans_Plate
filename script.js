@@ -2,12 +2,14 @@
 function signup() {
     let email = document.getElementById("email").value;
     let password =  document.getElementById("password").value;
+    let userName = document.getElementById("name").value
 
-    if (email === "" || password === ""){
-        alert("Please enter a username and password.")
+    if (userName === "" || email === "" || password === ""){
+        alert("Please enter a username, email, and password.")
     } else {
         alert("Thank you for creating an account!");
         localStorage.setItem(email, password);
+        localStorage.setItem("userName", userName);
         window.location.href = "login.html";
     }
 }
@@ -179,10 +181,15 @@ function editClose(){
 
 // Function for payment option section */
 function nameSave() {
-    let customerNameElement = document.getElementById("orderName");
-    let customerName = customerNameElement.value;
-    localStorage.setItem("customerName", customerName);
-    window.location.href = "receipt.html";
+    let name1 = localStorage.getItem("userName");
+    if (name1) {
+        window.location.href = "receipt.html";
+    } else {
+        let customerNameElement = document.getElementById("orderName");
+        let customerName = customerNameElement.value;
+        localStorage.setItem("customerName", customerName);
+        window.location.href = "receipt.html";
+    }
 }
 
 
@@ -197,9 +204,16 @@ function orderNumGenerator() {
     orderNumber.innerHTML = orderNum;
 }
 function nameOnOrder() {
-    let name = localStorage.getItem("customerName");
-    let customerName = "Order Name: " + name;
-    orderName.innerHTML = customerName;
+    let name1 = localStorage.getItem("userName");
+    let name2 = localStorage.getItem("customerName");
+    if (name1) {
+        let customerName = "Order Name: " + name1;
+        orderName.innerHTML = customerName;
+    } else {
+        let customerName = "Order Name: " + name2;
+        orderName.innerHTML = customerName;
+    }
+    
 }
 function updateReceipt() {
     let ItemsContainer = document.querySelector("#receipt-table tbody");
