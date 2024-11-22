@@ -47,7 +47,7 @@
             <h1>Rewards Program</h1>
             <p>The Pelican's Plate rewards program gives you points every time you order in restaurant or online! You can redeem your points at our restaurant for exclusive deals and merchandise! It's perfect for our loyal customers who keep coming back for more. Sign up for our members rewards program in the form below!</p>
             <small>*Every $1 spent = 1 point. Point redemption is not avaliable online, must redeem at our in person location.*</small>
-            <form action="mailto:tmcdowell7037@stevenscollege.edu" method="post">
+            <form action="mailto:tjmcdowell726@gmail.com" method="post">
                 <h2>Pelican's Plate Rewards Program</h2>
                 <div class="flex">
                     <div class="form-section">
@@ -71,7 +71,7 @@
                         <input type="date" id="dob" autocomplete="bday">
                     </div>
                 </div> 
-                <button type="submit" class="btn-signup" onclick="rewardsSignUp()">Sign Up!</button>
+                <button type="submit" class="btn-signup">Sign Up!</button>
             </form>
         </div>
     </section>
@@ -113,5 +113,14 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            alert("Thank you for signing up for our rewards program! We'll send you can email so you can get started with your rewards!");
+            let inputs = document.querySelectorAll("input");
+            inputs.forEach(input => {
+                input.value = "";
+            });
+        });
+    </script>
 </body>
 </html>
