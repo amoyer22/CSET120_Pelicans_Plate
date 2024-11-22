@@ -66,45 +66,18 @@
                     <div class="form-section">
                         <div class="formFlex">
                             <div>
-                                <input type="radio" name="payType" id="cash" onclick="cashSelect()">
+                                <input type="radio" name="payType" id="cash" required onclick="cashSelect()">
                                 <label for="cash">Cash</label>
                             </div>
                             <div>
-                                <input type="radio" name="payType" id="credit" onclick="creditSelect()" checked>
+                                <input type="radio" name="payType" id="credit" onclick="creditSelect()">
                                 <label for="credit">Credit</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-section">
-                        <div id="cashDiv" style="display: none">
-                            <label for="cashAmount">Cash Amount*:</label>
-                            <input type="text" id="cashAmount" name="cashAmount" placeholder="$0.00" required>
-                        </div>
-                    </div>
-                    <div class="form-section">
-                        <div id="creditDiv" style="display: block">
-                            <div>
-                                <label for="cardName">Name on Card*:</label>
-                                <input type="text" id="cardName" required>
-                            </div>
-                            <div>
-                                <label for="creditAmount">Credit Card Number*:</label>
-                                <input type="tel" id="creditAmount" maxlength="19" inputmode="numeric" placeholder="1111-2222-3333-4444">
-                            </div>
-                            <div>
-                                <label for="expMonth">Exp. Month*:</label>
-                                <input type="text" id="expMonth" placeholder="09 (September)" maxlength="2" required>
-                            </div>
-                            <div>
-                                <label for="expYear">Exp. Year*:</label>
-                                <input type="tel" id="expYear" maxlength="4" placeholder="2037" required>
-                            </div>
-                            <div>
-                                <label for="cvv">CVV*:</label>
-                                <input type="tel" id="cvv" maxlength="3" placeholder="555" inputmode="numeric" required>
-                            </div>
-                        </div>
-                    </div>
+
+                    <div class="form-section" id="payment-type"></div>
+
                     <div class="form-section">
                         <label for="tip">Tip Amount:</label>
                         <input type="text" id="tip" placeholder="$0.00">
@@ -114,6 +87,7 @@
                     <div class="form-section">
                         <textarea id="extra" placeholder="Anything you want us to keep in mind?" style="width: 80%; height: 8em;"></textarea>
                     </div>
+
                     <button type="submit" id="checkoutBtn">Place Order</button>
                 </div>
             </form>
@@ -157,8 +131,8 @@
     <script src="script.js"></script>
     <script>
         document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
             nameSave();
-            window.location.href = "receipt.html";
         });
     </script>
 </body>

@@ -496,6 +496,7 @@ form button {
 .formFlex{
     display: flex;
     justify-content: space-around;
+    margin: 10px 0;
 }
 #extra{
     padding: 8px;
@@ -740,6 +741,7 @@ footer .flex {
         margin-top: 110px;
     }
 
+
     /* Styles for flexboxes */
     #about .flex {
         display: block;
@@ -765,7 +767,6 @@ footer .flex {
         width: 100%;
         margin: 0;
     }
-    
     #cartContainer {
         width: 50%;
     }

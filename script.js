@@ -180,6 +180,7 @@ function nameSave() {
     let customerNameElement = document.getElementById("orderName");
     let customerName = customerNameElement.value;
     localStorage.setItem("customerName", customerName);
+    window.location.href = "receipt.html";
 }
 
 
@@ -226,18 +227,35 @@ function timeGeneration() {
     let cartItems = document.querySelector("#cart-items");
     let childElements = cartItems.children;
     let cartArray = Array.from(childElements);
-    let time = "";
-    console.log(cartArray.length);
-    if (cartArray.length >= 4) {
-        time = 45 + " minutes.";
-    } 
-    else if (cartArray.length >= 8) {
-        time = 1 + " hour.";
-    } else {
-        time = 35 + " minutes.";
-    }
-    let timeEst = "Your order will be ready in " + time;
-    timeEstimate.innerHTML = timeEst;
+    let totalItems = 0;
+    let totalQuantity = 0;
+
+    cartArray.forEach(item => {
+        let quantityElement = item.querySelector(".item-quantity");
+        let quantity = parseInt(quantityElement.textContent, 10) || 1;
+        totalItems++;
+        totalQuantity += quantity;
+    })
+
+    let totalSeconds = totalQuantity * 600;
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds =totalSeconds % 60;
+    let timeEstimate = document.querySelector("#time-estimate");
+    let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    timeEstimate.textContent = `Your order will be available for pickup in ${time}`;
+    startCountdown(totalSeconds, timeEstimate);
+}
+function startCountdown(totalSeconds, timeEstimate) {
+    let interval = setInterval(() => {
+        totalSeconds--;
+        let hours = Math.floor(totalSeconds / 3600);
+        let minutes = Math.floor((totalSeconds % 3600) / 60);
+        let seconds =totalSeconds % 60;
+
+        let time = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+        timeEstimate.textContent = `Your order will be available for pickup in ${time}`;
+    }, 1000)
 }
 function clearReceipt() {
     let index = 0
@@ -276,24 +294,50 @@ function subscribe() {
 // Functions for checkout page
 function cashSelect(){
     let cashButton = document.getElementById("cash")
-    let cashDiv = document.getElementById("cashDiv")
+    let paymentTypeContainer = document.getElementById("payment-type");
 
     if(cashButton.checked){
-        cashDiv.style.display = "block"
-        creditDiv.style.display = "none"
-    } else{
-        cashDiv.style.display = "none"
+        paymentTypeContainer.innerHTML = "";
+        let cashDiv = document.createElement("div");
+        cashDiv.classList.add("cashDiv");
+        cashDiv.innerHTML = `
+            <label for="cashAmount">Cash Amount*:</label>
+            <input type="text" id="cashAmount" name="cashAmount" placeholder="$0.00" required>
+        `;
+        paymentTypeContainer.appendChild(cashDiv);
     }
 }
 function creditSelect(){
     let creditButton = document.getElementById("credit")
-    let creditDiv = document.getElementById("creditDiv")
+    let paymentTypeContainer = document.getElementById("payment-type");
 
     if(creditButton.checked){
-        creditDiv.style.display = "block"
-        cashDiv.style.display = "none"
-    } else{
-        creditDiv.style.display = "none"
+        paymentTypeContainer.innerHTML = "";
+        let creditDiv = document.createElement("div");
+        creditDiv.classList.add("cashDiv");
+        creditDiv.innerHTML = `
+            <div>
+                <label for="cardName">Name on Card*:</label>
+                <input type="text" id="cardName" required>
+            </div>
+            <div>
+                <label for="creditAmount">Credit Card Number*:</label>
+                <input type="tel" id="creditAmount" maxlength="19" inputmode="numeric" placeholder="1111-2222-3333-4444">
+            </div>
+            <div>
+                <label for="expMonth">Exp. Month*:</label>
+                <input type="text" id="expMonth" placeholder="09 (September)" maxlength="2" required>
+            </div>
+            <div>
+                <label for="expYear">Exp. Year*:</label>
+                <input type="tel" id="expYear" maxlength="4" placeholder="2037" required>
+            </div>
+            <div>
+                <label for="cvv">CVV*:</label>
+                <input type="tel" id="cvv" maxlength="3" placeholder="555" inputmode="numeric" required>
+            </div>
+        `;
+        paymentTypeContainer.appendChild(creditDiv);
     }
 }
 
@@ -510,9 +554,6 @@ let bevMenu = new Map ([
         ]
     }]
 ])
-console.log("Appetizers:", Array.from(appMenu.entries()))
-console.log("Entrees:", Array.from(entreeMenu.entries()))
-
 function createManagerMenuItems(categoryId, itemsMap) {
     let container = document.getElementById(categoryId);
     container.innerHTML = "";
@@ -606,17 +647,27 @@ function saveCategoryToStorage(categoryName, menuMap) {
 }
 
 function removeItem(name, categoryId) {
-    let menuMap;
-    if (categoryId == "appetizers") menuMap = appMenu;
-    else if (categoryId == "soups") menuMap = soupMenu;
-    else if (categoryId == "salads") menuMap = saladMenu;
-    else if (categoryId == "entrees") menuMap = entreeMenu;
-    else if (categoryId == "beverages") menuMap = bevMenu;
-
-    if (menuMap && menuMap.has(name)) {
-        menuMap.delete(name);
-        saveCategoryToStorage(categoryId, menuMap);
-        createManagerMenuItems(categoryId, menuMap);
+    let input = prompt("Are you sure you want to delete this item? Type yes or no:").toLowerCase()
+    if(input === "yes"){
+        let menuMap;
+        if (categoryId == "appetizers") menuMap = appMenu;
+        else if (categoryId == "soups") menuMap = soupMenu;
+        else if (categoryId == "salads") menuMap = saladMenu;
+        else if (categoryId == "entrees") menuMap = entreeMenu;
+        else if (categoryId == "beverages") menuMap = bevMenu;
+    
+        if (menuMap && menuMap.has(name)) {
+            menuMap.delete(name);
+            saveCategoryToStorage(categoryId, menuMap);
+            createManagerMenuItems(categoryId, menuMap);
+        }
+        alert("Item removed from menu successfully.")
+    }
+    else if(input === "no"){
+        return
+    }
+    else{
+        alert("Please enter a valid response.")
     }
 }
 function grabMenuItemsFromStorage(categoryId, menuMap) {
