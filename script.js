@@ -647,17 +647,27 @@ function saveCategoryToStorage(categoryName, menuMap) {
 }
 
 function removeItem(name, categoryId) {
-    let menuMap;
-    if (categoryId == "appetizers") menuMap = appMenu;
-    else if (categoryId == "soups") menuMap = soupMenu;
-    else if (categoryId == "salads") menuMap = saladMenu;
-    else if (categoryId == "entrees") menuMap = entreeMenu;
-    else if (categoryId == "beverages") menuMap = bevMenu;
-
-    if (menuMap && menuMap.has(name)) {
-        menuMap.delete(name);
-        saveCategoryToStorage(categoryId, menuMap);
-        createManagerMenuItems(categoryId, menuMap);
+    let input = prompt("Are you sure you want to delete this item? Type yes or no:").toLowerCase()
+    if(input === "yes"){
+        let menuMap;
+        if (categoryId == "appetizers") menuMap = appMenu;
+        else if (categoryId == "soups") menuMap = soupMenu;
+        else if (categoryId == "salads") menuMap = saladMenu;
+        else if (categoryId == "entrees") menuMap = entreeMenu;
+        else if (categoryId == "beverages") menuMap = bevMenu;
+    
+        if (menuMap && menuMap.has(name)) {
+            menuMap.delete(name);
+            saveCategoryToStorage(categoryId, menuMap);
+            createManagerMenuItems(categoryId, menuMap);
+        }
+        alert("Item removed from menu successfully.")
+    }
+    else if(input === "no"){
+        return
+    }
+    else{
+        alert("Please enter a valid response.")
     }
 }
 function grabMenuItemsFromStorage(categoryId, menuMap) {
