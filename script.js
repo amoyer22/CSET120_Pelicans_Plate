@@ -801,5 +801,6 @@ function resetPrice(event) {
             saveCategoryToStorage(categoryId, categoryMap);
             createListItems(categoryId, categoryMap);
         }
-    }   
+    }
+    alert("Price reset.")
 }
