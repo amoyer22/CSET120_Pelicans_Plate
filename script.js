@@ -304,6 +304,9 @@ function subscribe() {
     let subscriptionbox = document.getElementById("subscribe");
     if (subscriptionbox.value == "") {
         alert("Please enter an email if you wish to subscribe.");
+    }
+    else if(!subscriptionbox.value.includes("@")){
+        alert("This is not a valid email address. Please try again.")
     } else {
         alert("You have now signed up for email notifications. Thank you!");
         subscriptionbox.value = ""; 
