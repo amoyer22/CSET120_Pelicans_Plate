@@ -141,7 +141,7 @@ function editOpen(event){
 
     if(itemData?.addOns?.length){
         editForm.innerHTML = itemData.addOns.map((addOn, index) => `
-            <div class="editFormSection">
+            <div class="editForm">
                 <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
                 <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
             </div>
