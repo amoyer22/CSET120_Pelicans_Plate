@@ -661,7 +661,7 @@ function addItem() {
 function saveCategoryToStorage(categoryName, menuMap) {
     let menuArray = [];
     menuMap.forEach((value, key) => {
-        menuArray.push(`${key}|${value.price}|${value.description}|${value.image}|${JSON.stringify(value.addOns || [])}`);
+        menuArray.push(`${key}|${value.price}|${value.originalPrice || value.price}|${value.description}|${value.image}|${JSON.stringify(value.addOns || [])}`);
     });
     localStorage.setItem(categoryName, menuArray.join("#"));
 }
@@ -695,12 +695,13 @@ function grabMenuItemsFromStorage(categoryId, menuMap) {
     if (storedData) {
         menuMap.clear();
         storedData.split("#").forEach(item => {
-            let [name, price, description, image, originalPrice] = item.split("|");
+            let [name, price, originalPrice ,description, image, addOns] = item.split("|");
             menuMap.set(name, {
                 price: parseFloat(price),
+                originalPrice: parseFloat(originalPrice),
                 description,
-                image, 
-                originalPrice: originalPrice ? parseFloat(originalPrice): parseFloat(price)
+                image,
+                addOns: addOns ? JSON.parse(addOns) : []
             });
         })
     }
@@ -815,12 +816,16 @@ function resetPrice(event) {
     }
     if (categoryMap) {
         let item = categoryMap.get(itemName);
+        console.log(item.price);
+        console.log(item.originalPrice);
         if (item.originalPrice) {
             item.price = item.originalPrice;
             localStorage.removeItem(`deal_${itemName}`);
             saveCategoryToStorage(categoryId, categoryMap);
             createListItems(categoryId, categoryMap);
+            alert("Price reset.");
+        } else {
+            alert("Original price for ${itemName} couldn't be found.");
         }
     }
-    alert("Price reset.")
 }
