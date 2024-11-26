@@ -181,19 +181,37 @@ ul.nav-list.flex {
 #about .flex {
     justify-content: space-evenly;
 }
-.first-para {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
 .about-item {
     width: 45%;
 }
 
 
+/* Styles for commitment section */
+#commitment {
+    background-color: rgba(122, 193, 216, .3);
+}
+#commitment .flex {
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 30px;
+}
+#commitment h1 {
+    margin-bottom: 20px;
+}
+.commitment-item {
+    width: calc(33% - 5px);
+    padding: 5px;
+}
+#commitment img {
+    width: 100%;
+    height: auto;
+}
+
 /* Styles for LTO section */
 #deals .flex {
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: start;
 }
 .deals-card {
     margin: 15px 0;
