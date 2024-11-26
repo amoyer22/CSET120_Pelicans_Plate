@@ -129,6 +129,7 @@ input {
     color: var(--logoDarkBlue);
     background-color: var(--white);
     cursor: pointer;
+    transition: 0.15s;
 }
 .btn-signup:hover{
     background-color: #e6dfd5;
@@ -342,6 +343,7 @@ ul.nav-list.flex {
     font-family: "Koh Santepheap", serif;
     font-size: 20px;
     cursor: pointer;
+    transition: 0.15s;
 }
 #purchaseButton:hover{
     background-color: #e6dfd5;
@@ -417,9 +419,6 @@ ul.nav-list.flex {
     padding: 0;
     margin: 0;
     background-color: transparent;
-}
-.editFormSection{
-    display: block;
 }
 .editAddOn{
     display: inline;
@@ -533,6 +532,7 @@ form button {
     color: var(--logoDarkBlue);
     background-color: var(--white);
     cursor: pointer;
+    transition: 0.15s;
 }
 #checkoutBtn:hover{
     background-color: #e6dfd5;

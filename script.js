@@ -141,7 +141,7 @@ function editOpen(event){
 
     if(itemData?.addOns?.length){
         editForm.innerHTML = itemData.addOns.map((addOn, index) => `
-            <div class="editFormSection">
+            <div class="editForm">
                 <input type="checkbox" name="addon${index}" class="editAddOn" id="addon${index}" ${addOn.selected ? "checked" : ""}>
                 <label for="addon${index}">${addOn.name} <small>+ $${addOn.price.toFixed(2)}</small></label>
             </div>
@@ -304,6 +304,9 @@ function subscribe() {
     let subscriptionbox = document.getElementById("subscribe");
     if (subscriptionbox.value == "") {
         alert("Please enter an email if you wish to subscribe.");
+    }
+    else if(!subscriptionbox.value.includes("@")){
+        alert("This is not a valid email address. Please try again.")
     } else {
         alert("You have now signed up for email notifications. Thank you!");
         subscriptionbox.value = ""; 
