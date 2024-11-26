@@ -800,6 +800,17 @@ footer .flex {
     }
 
 
+    /* Styles for commitment */
+    #commitment .flex {
+        width: 100%;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .commitment-item {
+        width: 100%;
+    }
+
+
     /* Styles for lto */
     .lto-item .flex {
         width: 100%;
