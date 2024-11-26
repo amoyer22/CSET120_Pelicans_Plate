@@ -828,7 +828,7 @@ function resetPrice(event) {
             createListItems(categoryId, categoryMap);
             alert("Price reset.");
         } else {
-            alert("Original price for ${itemName} couldn't be found.");
+            alert(`Original price for ${itemName} couldn't be found.`);
         }
     }
 }
