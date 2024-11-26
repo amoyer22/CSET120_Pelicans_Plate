@@ -140,6 +140,9 @@ input {
 #guestLink{
     color: var(--logoDarkBlue)
 }
+#guestLink:hover {
+    color: var(--blue);
+}
 
 
 /* Styles for header section */
@@ -170,6 +173,13 @@ header {
     color: var(--logoDarkBlue);
     font-family: "Averia Sans Libre", sans-serif;
     font-weight: 600;
+}
+.navbar a:hover {
+    color: var(--blue);
+    transition: 0.15s;
+}
+.navbar a:active {
+    color: var(--blue);
 }
 ul.nav-list.flex {
     width: 80%;
@@ -787,6 +797,17 @@ footer .flex {
     }
     #cartContainer {
         width: 50%;
+    }
+
+
+    /* Styles for commitment */
+    #commitment .flex {
+        width: 100%;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .commitment-item {
+        width: 100%;
     }
 
 
