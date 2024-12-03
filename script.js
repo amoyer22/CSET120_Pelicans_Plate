@@ -116,11 +116,13 @@ function checkout(){
     if(cart.length === 0){
         alert("You have no items in your cart!")
     } else {
+        let total = 0;
         cart.forEach((item, index) => {
+            let itemTotal = (item.price + (item.addOns ? item.addOns.reduce((sum, addOn) => sum + addOn.price, 0) : 0)) * item.quantity;
+            total += itemTotal;
             localStorage.setItem(`cartItem${index}`, `${item.name}|${item.price}|${item.quantity}`);
         });
-        let total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        localStorage.setItem("cartTotal", total);
+        localStorage.setItem("cartTotal", total.toFixed(2));
         window.location.href = "checkout.html"
     }
 }
@@ -828,7 +830,7 @@ function resetPrice(event) {
             createListItems(categoryId, categoryMap);
             alert("Price reset.");
         } else {
-            alert(`Original price for ${itemName} couldn't be found.`);
+            alert("Original price for ${itemName} couldn't be found.");
         }
     }
 }
