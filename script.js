@@ -474,6 +474,16 @@ let saladMenu = new Map ([
             {name: "Add avocado", price: 0.5, selected: false},
             {name: "Substitute grilled chicken for shrimp", price: 2, selected: false}
         ]
+    }],
+    ["Gatorade Salad", {
+        price: 20,
+        description: "A fresh iceberg lettuce salad topped with a delicious Gatorade vinaigrette. Comes originally in glacier freeze flavor.",
+        image: "images/gatorade-salad.png",
+        addOns: [
+            {name: "Yellow Gatorade", price: 0, selected: false},
+            {name: "Orange Gatorade", price: 0, selected: false},
+            {name: "Red Gatorade", price: 0, selected: false}
+        ]
     }]
 ])
 let entreeMenu = new Map ([
