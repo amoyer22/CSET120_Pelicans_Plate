@@ -234,7 +234,7 @@ function updateReceipt() {
     }
 }
 function receiptTotal() {
-    let total = localStorage.getItem("cartTotal");    
+    let total = localStorage.getItem("cartTotal");
     if (total) {
         receiptTotalCost.innerHTML = "Total: $" + total;
     } else {

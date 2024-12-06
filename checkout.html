@@ -133,12 +133,22 @@
     <script>
         let name = localStorage.getItem("userName");
         let nameInput = document.getElementById("orderName");
+        let cashButton = document.getElementById("cash")
+        let total = localStorage.getItem("cartTotal");
         if (name) {
             nameInput.value = name;
         }
         document.querySelector("form").addEventListener("submit", function(event) {
             event.preventDefault();
-            nameSave();
+            if (cashButton.checked) {
+                let cashInput = document.querySelector("#cashAmount");
+                let cashAmount = cashInput.value
+                if (cashAmount < total) {
+                alert("Please enter an amount sufficient for the order.")
+                } else {
+                    nameSave();
+                }
+            }
         });
     </script>
 </body>
