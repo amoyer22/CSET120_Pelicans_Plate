@@ -120,7 +120,7 @@ function checkout(){
         cart.forEach((item, index) => {
             let itemTotal = (item.price + (item.addOns ? item.addOns.reduce((sum, addOn) => sum + addOn.price, 0) : 0)) * item.quantity;
             total += itemTotal;
-            localStorage.setItem(`cartItem${index}`, `${item.name}|${item.price}|${item.quantity}`);
+            localStorage.setItem(`cartItem${index}`, `${item.name}|${itemTotal}|${item.quantity}`);
         });
         localStorage.setItem("cartTotal", total.toFixed(2));
         window.location.href = "checkout.html"
