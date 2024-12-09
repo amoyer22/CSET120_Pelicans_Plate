@@ -134,6 +134,7 @@
         let name = localStorage.getItem("userName");
         let nameInput = document.getElementById("orderName");
         let cashButton = document.getElementById("cash")
+        let creditButton = document.getElementById("credit")
         let total = localStorage.getItem("cartTotal");
         if (name) {
             nameInput.value = name;
@@ -148,6 +149,9 @@
                 } else {
                     nameSave();
                 }
+            }
+            if (creditButton.checked) {
+                nameSave();
             }
         });
     </script>
